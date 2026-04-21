@@ -33,9 +33,9 @@ async function loadFromIndexedDB(): Promise<Uint8Array | null> {
 export const dbService = {
     async init() {
         try {
-            // استخدام نسخة مستقرة من CDN لضمان تحميل ملف WASM بشكل صحيح
+            // استخدام CDN cdnjs لضمان تحميل ملف الـ wasm بشكل صحيح وتجنب خطأ Fetch
             const SQL = await initSqlJs({
-                locateFile: (file: string) => `https://sql.js.org/dist/${file}`
+                locateFile: (file: string) => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
             });
 
             const savedBinary = await loadFromIndexedDB();
