@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { dbService } from '../../services/db'; // Fixed import path
+import { dbService } from '../../services/db'; // Fixed relative path
 import toast from 'react-hot-toast';
 
 const Messages = () => {
