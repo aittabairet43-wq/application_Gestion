@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>نظام إدارة البقالة - المخزن</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eceef0",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#8dd0e9",
+                        "secondary-fixed-dim": "#73d9b5",
+                        "on-surface-variant": "#40484c",
+                        "on-secondary-fixed-variant": "#00513d",
+                        "surface-tint": "#19667d",
+                        "primary-fixed-dim": "#8dd0e9",
+                        "outline": "#70787d",
+                        "on-tertiary-fixed": "#2f1400",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#bfc8cc",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed": "#ffdcc4",
+                        "primary-fixed": "#b7eaff",
+                        "on-tertiary-container": "#ffb882",
+                        "on-primary-fixed": "#001f28",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fb",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#8ff6d0",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#002117",
+                        "surface": "#f8f9fb",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#004e61",
+                        "on-secondary-container": "#007257",
+                        "primary-container": "#005b71",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#8ff6d0",
+                        "tertiary-container": "#804307",
+                        "secondary": "#006c52",
+                        "primary": "#004253",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#8ed1ea",
+                        "tertiary": "#5f2f00",
+                        "on-tertiary-fixed-variant": "#6f3800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed top-0 right-0 h-screen w-64 border-l border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex flex-col z-50 overflow-y-auto font-['Plus_Jakarta_Sans','Inter'] text-right">
+<div class="p-6 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-lg mb-2">
+<span class="material-symbols-outlined text-3xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<h1 class="text-2xl font-black text-teal-800 dark:text-teal-200">بقالة التميز</h1>
+<p class="text-sm text-slate-500">لوحة الإدارة المركزية</p>
+</div>
+<nav class="flex-1 mt-4 px-2 space-y-1">
+<a class="flex flex-row-reverse items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">لوحة القيادة</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 bg-teal-50 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 border-r-4 border-teal-800 dark:border-teal-400 px-4 py-3 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-bold">المخزن</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="font-medium">المبيعات</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-medium">الفواتير</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-medium">الموردين</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-medium">التقارير</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">الإعدادات</span>
+</a>
+</nav>
+<div class="mt-auto p-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex flex-row-reverse items-center gap-3 text-red-600 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all rounded-lg cursor-pointer" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium">تسجيل الخروج</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-64 left-0 h-16 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md flex flex-row-reverse justify-between items-center px-6 z-40 shadow-sm font-['Plus_Jakarta_Sans','Inter']">
+<div class="flex flex-row-reverse items-center gap-6 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pr-10 pl-4 py-2 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary-container text-right" placeholder="بحث في المنتجات، الباركود..." type="text"/>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="px-4 py-2 text-teal-700 dark:text-teal-300 font-bold transition-colors">قائمة الجرد</button>
+<button class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">تحويلات المخزن</button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all active:scale-95 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:border-slate-800 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-teal-800 dark:text-teal-200">أحمد المدير</p>
+<p class="text-[10px] text-slate-500 uppercase">مدير المخزن</p>
+</div>
+<img alt="صورة المستخدم" class="w-9 h-9 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXIVNTy1_ZUfDpzru-3J8mwP-FFuSHkJlCBUa95_vBtvLrPoigbxNggmdjbiuMZGRDGU3-fIcnluVA1u69OvmSHMdQMe0dzHleeEYM9Hts3fTXCAc0yss-rGNPsEv13d4WuG2MWroht8ZTFbJW-Zr_yNgR0atX06aIFCkBkwTQJubr_SaUixwZkWcn_1TVMWqeg1StUQ-h4aXMRiSTUjkN5I6kVLIz8FWTB5PmTG6uEzVlgyyeIZ7MTG850nCzlMfslZ8qs2XVOLs"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pr-64 pt-16 min-h-screen">
+<div class="p-8">
+<!-- Header Section -->
+<div class="flex flex-row-reverse justify-between items-end mb-8">
+<div class="text-right">
+<h2 class="text-3xl font-extrabold text-primary-container mb-2">إدارة المخزن</h2>
+<p class="text-slate-500">إدارة المنتجات، مراقبة المخزون، وتحديث الأسعار</p>
+</div>
+<div class="flex gap-3">
+<button class="flex flex-row-reverse items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">
+<span class="material-symbols-outlined">file_download</span>
+<span>تصدير Excel</span>
+</button>
+<button class="flex flex-row-reverse items-center gap-2 px-6 py-3 bg-primary-container text-on-primary-container rounded-xl font-bold hover:brightness-110 transition-all shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined">add_circle</span>
+<span>إضافة منتج جديد</span>
+</button>
+</div>
+</div>
+<!-- Dashboard Stats Summary -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-row-reverse items-center justify-between">
+<div class="p-3 bg-teal-50 text-teal-600 rounded-xl">
+<span class="material-symbols-outlined text-3xl">category</span>
+</div>
+<div class="text-right">
+<p class="text-slate-500 text-sm">إجمالي الأصناف</p>
+<h3 class="text-2xl font-black text-slate-800">1,284</h3>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-row-reverse items-center justify-between">
+<div class="p-3 bg-red-50 text-red-600 rounded-xl">
+<span class="material-symbols-outlined text-3xl">warning</span>
+</div>
+<div class="text-right">
+<p class="text-slate-500 text-sm">نواقص (أقل من 10)</p>
+<h3 class="text-2xl font-black text-slate-800">42</h3>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-row-reverse items-center justify-between">
+<div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
+<span class="material-symbols-outlined text-3xl">inventory</span>
+</div>
+<div class="text-right">
+<p class="text-slate-500 text-sm">إجمالي المخزون</p>
+<h3 class="text-2xl font-black text-slate-800">15,420</h3>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-row-reverse items-center justify-between">
+<div class="p-3 bg-amber-50 text-amber-600 rounded-xl">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<div class="text-right">
+<p class="text-slate-500 text-sm">قيمة المخزن تقديراً</p>
+<h3 class="text-2xl font-black text-slate-800">84,500 <span class="text-sm">ر.س</span></h3>
+</div>
+</div>
+</div>
+<!-- Table Filters and Search -->
+<div class="bg-white rounded-2xl border border-slate-100 shadow-md overflow-hidden">
+<div class="p-4 border-b border-slate-50 flex flex-row-reverse items-center justify-between bg-slate-50/30">
+<div class="flex flex-row-reverse gap-2">
+<select class="text-right text-sm border-slate-200 rounded-lg focus:ring-primary-container pr-8">
+<option>جميع الفئات</option>
+<option>ألبان وأجبان</option>
+<option>مخبوزات</option>
+<option>خضروات وفواكه</option>
+<option>معلبات</option>
+</select>
+<select class="text-right text-sm border-slate-200 rounded-lg focus:ring-primary-container pr-8">
+<option>حالة المخزون</option>
+<option>متوفر</option>
+<option>منخفض</option>
+<option>نافذ</option>
+</select>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-slate-400 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">view_column</span>
+</button>
+</div>
+</div>
+<!-- Products Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-slate-50/50 text-slate-500 text-xs font-bold uppercase tracking-wider">
+<th class="px-6 py-4 border-b border-slate-100">المنتج</th>
+<th class="px-6 py-4 border-b border-slate-100">الباركود</th>
+<th class="px-6 py-4 border-b border-slate-100">الفئة</th>
+<th class="px-6 py-4 border-b border-slate-100 text-center">السعر</th>
+<th class="px-6 py-4 border-b border-slate-100 text-center">المخزون الحالي</th>
+<th class="px-6 py-4 border-b border-slate-100">الحالة</th>
+<th class="px-6 py-4 border-b border-slate-100">إجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-row-reverse items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden border border-slate-100 bg-slate-50">
+<img alt="منتج" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZITbn249a9Dli9N9VKU16_8apGFym4uuK9PaF0l2Jka5fdaUgxoI30gymI1M4Chl4hkSbOBRr9yVwn_ygjFByVTQniXIh-4dgorKzWSFBbVGQIbiAjFTOFgHQgE5jlGyCvRE6cXjwO_4-CLvG0PWAqxPk_K5c-KPKyKQjTAmYXQpFdTULt4IciataPUeBx3r8v5FKUhg21VE8c3y9grs4JRtMkfUYm1F9OGKqd3FR5X4HIfMAL2mi2scOx49ARRZU0yu-8g-YtJk"/>
+</div>
+<div>
+<p class="font-bold text-slate-800">تفاح أحمر إيطالي</p>
+<p class="text-xs text-slate-400">سعر الكيلو</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-500">6281234567890</td>
+<td class="px-6 py-4 text-sm text-slate-600">خضروات وفواكه</td>
+<td class="px-6 py-4 text-center font-bold text-teal-700">12.50 <span class="text-[10px]">ر.س</span></td>
+<td class="px-6 py-4 text-center">
+<div class="flex flex-col items-center">
+<span class="font-bold text-slate-800">145</span>
+<div class="w-16 h-1 bg-slate-100 rounded-full mt-1 overflow-hidden">
+<div class="bg-teal-500 h-full w-[70%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-teal-50 text-teal-700 text-xs font-bold rounded-full border border-teal-100">متوفر</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-error hover:bg-error-container/30 rounded-lg transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-row-reverse items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden border border-slate-100 bg-slate-50">
+<img alt="منتج" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwcbMVBm3tKfN2zN9YtyN5WjLnC96EPC22FotZl8S32HFczTH_5wv8dkqXho4SWY_T0DdQJ3TJ8uCiEF7r9hVgrvgwXFhLh59ZrM9mhuUWdL1Hkv37oJSPt5R3N1GSoSJPYySG5uLMHqnFmtafZcR61jQMu4amOD34a9zSylI7dUa3qk-qQ9Ir2umoS5p9EnEThRX49o_xOgJBFQmJtUzYkWRx7d0PKnsv9VpJfb98WzGgzxA_2ALYYL8iJxKKrgTM7qoK90YwGyg"/>
+</div>
+<div>
+<p class="font-bold text-slate-800">حليب المراعي 2 لتر</p>
+<p class="text-xs text-slate-400">كامل الدسم</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-500">6284412233441</td>
+<td class="px-6 py-4 text-sm text-slate-600">ألبان وأجبان</td>
+<td class="px-6 py-4 text-center font-bold text-teal-700">11.00 <span class="text-[10px]">ر.س</span></td>
+<td class="px-6 py-4 text-center">
+<div class="flex flex-col items-center">
+<span class="font-bold text-slate-800">8</span>
+<div class="w-16 h-1 bg-slate-100 rounded-full mt-1 overflow-hidden">
+<div class="bg-red-500 h-full w-[15%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-red-50 text-red-700 text-xs font-bold rounded-full border border-red-100">منخفض</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-error hover:bg-error-container/30 rounded-lg transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-row-reverse items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden border border-slate-100 bg-slate-50">
+<img alt="منتج" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-am4ypEPsvxtnZIn67p_8s2JV2wjaD2Cwy6YNKHgyMmIXOBG404RJPuhatan1GkC-iy9_gupz8vOElwleiy4vPqkK2MLYLFwFzfgMieowjYl6KulZST3UvIjg4f1oc6YrNYbKww62Gn_aXle2XazstFXAacocsxUWTxXE196dJfcJR99c6IGrx2nnen7cgU9pqOUdgPzMQPnKrHcH9zhTjrMXg7_pSIXivUk4vhlyHxiDcFwWpFW5bgQoRQiHwtMmzlgKWOKCiWY"/>
+</div>
+<div>
+<p class="font-bold text-slate-800">مكرونة إيطاليانو 500جم</p>
+<p class="text-xs text-slate-400">سباغيتي</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-500">6289900112233</td>
+<td class="px-6 py-4 text-sm text-slate-600">معلبات</td>
+<td class="px-6 py-4 text-center font-bold text-teal-700">5.75 <span class="text-[10px]">ر.س</span></td>
+<td class="px-6 py-4 text-center">
+<div class="flex flex-col items-center">
+<span class="font-bold text-slate-800">52</span>
+<div class="w-16 h-1 bg-slate-100 rounded-full mt-1 overflow-hidden">
+<div class="bg-teal-500 h-full w-[45%]"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-teal-50 text-teal-700 text-xs font-bold rounded-full border border-teal-100">متوفر</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-error hover:bg-error-container/30 rounded-lg transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-row-reverse items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden border border-slate-100 bg-slate-50">
+<img alt="منتج" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDohxsjOpmfGClcuLWxwXLRzOeGDxRsKNWMs3jIr8WPlmq9PgMl05VlXp6HjFMg7H5P8plinO-soygCjcv3CiSpuoqxAMquu370PHuwlsn0c6WUemU-itxYKwHeaXRSmczjA2VZ8PY4Ev1kpKNFWpjZk1jTDN9ImR2bFrU0Nuab4N1pS8B3jZs991NP65QLdWBWOxy3G0tmHiQmuYHXtRoYWlENJcI0WOwFPjHhcVFnfYGKCfTX7P07cUYXSdbRaNCfqzt7QuazWVg"/>
+</div>
+<div>
+<p class="font-bold text-slate-800">مياه أروى 330 مل</p>
+<p class="text-xs text-slate-400">كرتون (40 حبة)</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-500">6285566778899</td>
+<td class="px-6 py-4 text-sm text-slate-600">مشروبات</td>
+<td class="px-6 py-4 text-center font-bold text-teal-700">18.00 <span class="text-[10px]">ر.س</span></td>
+<td class="px-6 py-4 text-center">
+<div class="flex flex-col items-center">
+<span class="font-bold text-slate-800">0</span>
+<div class="w-16 h-1 bg-slate-100 rounded-full mt-1 overflow-hidden">
+<div class="bg-slate-300 h-full w-0"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full border border-slate-200">نافذ</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-error hover:bg-error-container/30 rounded-lg transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-slate-50 flex flex-row-reverse items-center justify-between">
+<p class="text-sm text-slate-500">عرض 1-10 من أصل 1,284 منتج</p>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:bg-slate-100 rounded-lg transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary-container text-on-primary-container font-bold rounded-lg transition-all">1</button>
+<button class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-lg transition-all">2</button>
+<button class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-lg transition-all">3</button>
+<span class="px-2 text-slate-300">...</span>
+<button class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-lg transition-all">128</button>
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:bg-slate-100 rounded-lg transition-all"><span class="material-symbols-outlined">chevron_left</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for Quick Inventory Scan -->
+<button class="fixed bottom-8 left-8 w-14 h-14 bg-tertiary text-on-tertiary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">barcode_scanner</span>
+</button>
+</body></html>

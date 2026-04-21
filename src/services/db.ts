@@ -33,9 +33,9 @@ async function loadFromIndexedDB(): Promise<Uint8Array | null> {
 export const dbService = {
     async init() {
         try {
-            // استخدام رابط مباشر من CDN
+            // استخدام نسخة مستقرة من CDN لضمان تحميل ملف WASM بشكل صحيح
             const SQL = await initSqlJs({
-                locateFile: (file: string) => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
+                locateFile: (file: string) => `https://sql.js.org/dist/${file}`
             });
 
             const savedBinary = await loadFromIndexedDB();
@@ -44,7 +44,7 @@ export const dbService = {
                 db = new SQL.Database(new Uint8Array(savedBinary));
             } else {
                 db = new SQL.Database();
-                db.run(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, role TEXT)`);
+                db.run(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, role TEXT, full_name TEXT, phone TEXT)`);
                 db.run(`CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, barcode TEXT, price REAL, quantity INTEGER, unit TEXT)`);
                 db.run(`CREATE TABLE IF NOT EXISTS sales (id INTEGER PRIMARY KEY AUTOINCREMENT, total REAL, payment_method TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
                 db.run(`CREATE TABLE IF NOT EXISTS sale_items (id INTEGER PRIMARY KEY AUTOINCREMENT, sale_id INTEGER, product_id INTEGER, quantity INTEGER, price REAL, FOREIGN KEY (sale_id) REFERENCES sales (id), FOREIGN KEY (product_id) REFERENCES products (id))`);
@@ -52,7 +52,7 @@ export const dbService = {
 
             const userCount = db.exec("SELECT count(*) FROM users");
             if (Number(userCount[0].values[0][0]) === 0) {
-                db.run("INSERT INTO users (username, password, role) VALUES (?, ?, ?)", ['admin', '123456', 'admin']);
+                db.run("INSERT INTO users (username, password, role, full_name) VALUES (?, ?, ?, ?)", ['admin', '123456', 'admin', 'مدير النظام']);
             }
             return true;
         } catch (err) {

@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout';
 import POS from './pages/POS/index';
 import Inventory from './pages/Inventory/index';
 import Login from './pages/Login/index';
+import Register from './pages/Register/index';
 import Dashboard from './pages/Dashboard/index';
 import Reports from './pages/Reports/index';
 import Users from './pages/Users/index';
@@ -21,10 +22,10 @@ function App() {
 
     if (!isDbReady) {
         return (
-            <div className="h-screen w-full flex items-center justify-center bg-background">
+            <div className="h-screen w-full flex items-center justify-center bg-[#f8f9fb] rtl" dir="rtl">
                 <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-primary font-bold">جاري تهيئة قاعدة بيانات Kinetiq...</p>
+                    <div className="w-12 h-12 border-4 border-[#004253] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-[#004253] font-bold">جاري تهيئة قاعدة بيانات Kinetiq...</p>
                 </div>
             </div>
         );
@@ -34,6 +35,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
+                <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
                 <Route path="/" element={isAuthenticated ? <MainLayout /> : <Navigate to="/login" />}>
                     <Route index element={<Navigate to="/dashboard" />} />
                     <Route path="dashboard" element={<Dashboard />} />

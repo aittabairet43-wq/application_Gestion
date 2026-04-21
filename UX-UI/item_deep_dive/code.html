@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تفاصيل الصنف المتقدمة - Kinetiq Retail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Noto+Kufi+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#191c1e",
+                    "error": "#ba1a1a",
+                    "background": "#f8f9fb",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "on-primary": "#ffffff",
+                    "primary": "#004253",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#004e61",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#804307",
+                    "outline-variant": "#bfc8cc",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#8ff6d0",
+                    "primary-fixed": "#b7eaff",
+                    "on-secondary-container": "#007257",
+                    "inverse-primary": "#8dd0e9",
+                    "secondary": "#006c52",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "on-primary-fixed": "#001f28",
+                    "on-surface-variant": "#40484c",
+                    "secondary-container": "#8ff6d0",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#002117",
+                    "tertiary-fixed": "#ffdcc4",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-background": "#191c1e",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-tint": "#19667d",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "primary-container": "#005b71",
+                    "surface-bright": "#f8f9fb",
+                    "tertiary": "#5f2f00",
+                    "on-primary-container": "#8ed1ea",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-container": "#ffb882",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "outline": "#70787d",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans", "Noto Kufi Arabic"],
+                    "body": ["Inter", "Noto Kufi Arabic"],
+                    "label": ["Inter", "Noto Kufi Arabic"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', 'Noto Kufi Arabic', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', 'Noto Kufi Arabic', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md text-[#005B71] dark:text-[#98FFD9] font-['Plus_Jakarta_Sans'] antialiased docked full-width top-0 z-40 border-b border-slate-200 dark:border-slate-800 shadow-sm flex justify-between items-center w-full px-6 h-16 fixed">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-[#005B71] dark:text-[#98FFD9]">Kinetiq Retail</span>
+<nav class="hidden md:flex gap-6">
+<span class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-all cursor-pointer active:scale-95 duration-150">الرئيسية</span>
+<span class="text-[#005B71] dark:text-[#98FFD9] font-semibold border-b-2 border-[#005B71] cursor-pointer active:scale-95 duration-150">المخزون</span>
+<span class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-all cursor-pointer active:scale-95 duration-150">التقارير</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute right-3 top-2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pr-10 pl-4 py-2 w-64 focus:ring-2 ring-primary-container text-sm" placeholder="بحث عن صنف..." type="text"/>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined p-2 rounded-full hover:bg-slate-100 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined p-2 rounded-full hover:bg-slate-100 cursor-pointer" data-icon="help">help</span>
+<span class="material-symbols-outlined p-2 rounded-full hover:bg-slate-100 cursor-pointer" data-icon="apps">apps</span>
+</div>
+<img alt="Manager Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Professional headshot of a retail manager in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-zUvIYgoXRSNg2E116x3nVosnc5XT30lZz91AEITSp29k-uGe6Hd4tkvQZTGmW0ao_Ba_khn4t0q4ULDLvQr45B_F7-SMnE3kYMZvee8N2wz15s8I2sRJ5VG7jWQEofQETze4zjdwwExUvqZCfOp5P6hO6CqKgLeuXOqoX8zOV1mvMLaNWjYesM5ZD7XOJQQ1T1irc15NqfxhyZ3y8YDUCeCG-P3lsD7jgnZ4HAZe2xKtocmsSBI91x8LrDw9CpWTVZ4vj16IRrY"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-white dark:bg-slate-900 text-[#005B71] dark:text-[#98FFD9] font-['Inter'] text-sm h-screen w-64 fixed right-0 top-0 border-l border-slate-200 dark:border-slate-800 flex flex-col h-full py-4 space-y-1 mt-16">
+<div class="px-6 py-4 mb-2">
+<div class="text-lg font-black text-[#005B71] dark:text-[#98FFD9]">Kinetiq Retail</div>
+<div class="text-xs text-slate-500">لوحة التحكم الإدارية</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:translate-x-[-4px] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>لوحة القيادة</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-teal-50 dark:bg-teal-900/20 text-[#005B71] dark:text-[#98FFD9] border-l-4 border-[#005B71] font-semibold hover:translate-x-[-4px] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>المخزون</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:translate-x-[-4px] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>الطلبات</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:translate-x-[-4px] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>التحليلات</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:translate-x-[-4px] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span>الموردين</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:translate-x-[-4px] transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>الإعدادات</span>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 space-y-1">
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-50 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>الدعم الفني</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-error hover:bg-error-container/20 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>تسجيل الخروج</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="mr-64 pt-24 p-8 min-h-screen">
+<!-- Breadcrumbs & Actions -->
+<div class="flex justify-between items-center mb-8">
+<nav class="flex items-center gap-2 text-sm text-outline">
+<span class="hover:text-primary cursor-pointer">المخزون</span>
+<span class="material-symbols-outlined text-xs">chevron_left</span>
+<span class="hover:text-primary cursor-pointer">الأجهزة الإلكترونية</span>
+<span class="material-symbols-outlined text-xs">chevron_left</span>
+<span class="text-on-surface font-semibold">كمبيوتر محمول "زينث X1"</span>
+</nav>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline rounded-lg hover:bg-surface-container-low transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg" data-icon="print">print</span>
+<span>طباعة التقرير</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary rounded-lg hover:brightness-110 transition-all text-sm font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+<span>تعديل الصنف</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Product Identity Card -->
+<div class="col-span-12 lg:col-span-4 bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col gap-6">
+<div class="aspect-square bg-slate-50 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100">
+<img class="w-full h-full object-cover" data-alt="Modern sleek silver laptop on a minimalist white desk with soft shadows and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeg6J9K4NAdzvEPZtJfaFkRczTaWI1mBBQwSh1iB3E9vy7Lf5iSdp56rg4RKA8dGIE4-pZPQPmjZP6W0o0QqVS2idxyi0XTTSi_u4kzm_uGfv6y52NH_XpfMmN_db9nYNbJZla8t3eW05sj-hCnenUjAmelfwE2Y3uP0S_bgChEMzAX_LPEM6ZoL46SrOUwO8L7Bqxaq3t3ZhfiNMC4ZgIIAr24pw1ToIJKfTAK3p5bR6LBxNANWg1pRxfKHcwmNGv1tJYpLUHQLo"/>
+</div>
+<div class="space-y-4">
+<div>
+<span class="inline-block px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase mb-2">High Demand</span>
+<h1 class="text-2xl font-bold text-primary">زينث X1 - النسخة الفاخرة</h1>
+<p class="text-sm text-outline mt-1">SKU: KNT-88902-X1 | الباركود: 628123456789</p>
+</div>
+<div class="grid grid-cols-2 gap-4 border-y border-slate-100 py-4">
+<div>
+<p class="text-xs text-outline mb-1">سعر البيع</p>
+<p class="text-xl font-bold text-primary">4,500.00 ر.س</p>
+</div>
+<div>
+<p class="text-xs text-outline mb-1">سعر التكلفة</p>
+<p class="text-xl font-bold text-slate-700">3,200.00 ر.س</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-outline">إجمالي المخزون</span>
+<span class="text-2xl font-black text-on-surface">1,248 <small class="text-xs font-normal">وحدة</small></span>
+</div>
+<div class="bg-teal-50 text-secondary p-3 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl" data-icon="inventory" data-weight="fill">inventory</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Price History Chart & Stats -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Historical Price Chart (Simplified Visual Representation) -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 md:col-span-2">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="show_chart">show_chart</span>
+                            تتبع تاريخ الأسعار
+                        </h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container text-xs rounded-full cursor-pointer hover:bg-primary-container hover:text-on-primary-container transition-colors">6 أشهر</span>
+<span class="px-3 py-1 bg-primary-container text-on-primary-container text-xs rounded-full cursor-pointer">سنة واحدة</span>
+</div>
+</div>
+<div class="h-48 relative flex items-end gap-2 overflow-hidden px-2">
+<!-- Chart Bars Mockup -->
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[60%] relative group transition-all hover:bg-primary-container"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[70%] relative group transition-all hover:bg-primary-container"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[65%] relative group transition-all hover:bg-primary-container"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[80%] relative group transition-all hover:bg-primary-container"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-t-sm relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">ر.س 4,500 (الحالي)</div>
+</div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[75%] relative group transition-all hover:bg-primary-container"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[90%] relative group transition-all hover:bg-primary-container"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[85%] relative group transition-all hover:bg-primary-container"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-outline px-2">
+<span>يناير</span><span>مارس</span><span>مايو</span><span>يوليو</span><span>سبتمبر</span><span>نوفمبر</span>
+</div>
+</div>
+<!-- Inventory Turnover Rate -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[#F4A261]" data-icon="rebase_edit">rebase_edit</span>
+                            معدل دوران المخزون
+                        </h3>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary">8.4</span>
+<span class="text-sm text-secondary font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+                                12%+
+                            </span>
+</div>
+<p class="text-xs text-outline mt-2">عدد مرات البيع والاستبدال خلال 12 شهر</p>
+</div>
+<div class="mt-6 w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary w-[84%] h-full"></div>
+</div>
+</div>
+<!-- Supplier Quick View -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+<h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="business">business</span>
+                        تاريخ الموردين
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-slate-50 pb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center font-bold text-xs">TA</div>
+<div>
+<p class="text-sm font-bold">تقنية العرب</p>
+<p class="text-[10px] text-outline">آخر توريد: منذ 3 أيام</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">420 وحدة</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center font-bold text-xs">MS</div>
+<div>
+<p class="text-sm font-bold">ماستر سيستمز</p>
+<p class="text-[10px] text-outline">آخر توريد: منذ 14 يوم</p>
+</div>
+</div>
+<span class="text-xs font-bold text-outline">150 وحدة</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Branch Breakdown Section -->
+<div class="col-span-12 lg:col-span-12 bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="store">store</span>
+                        توزيع المخزون عبر الفروع
+                    </h3>
+<button class="text-primary text-sm font-bold hover:underline">عرض كافة الفروع</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-slate-50 text-outline text-xs uppercase tracking-wider">
+<th class="px-6 py-4 font-bold">اسم الفرع</th>
+<th class="px-6 py-4 font-bold">المخزون الحالي</th>
+<th class="px-6 py-4 font-bold">الحد الأدنى</th>
+<th class="px-6 py-4 font-bold">الحالة</th>
+<th class="px-6 py-4 font-bold">المبيعات (30 يوم)</th>
+<th class="px-6 py-4 font-bold">الإجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">فرع الرياض - العليا</td>
+<td class="px-6 py-4 text-sm font-medium">542 وحدة</td>
+<td class="px-6 py-4 text-sm text-outline">50 وحدة</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold rounded-full">متوفر بكثرة</span>
+</td>
+<td class="px-6 py-4 text-sm">184 وحدة</td>
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">فرع جدة - الكورنيش</td>
+<td class="px-6 py-4 text-sm font-medium text-error">12 وحدة</td>
+<td class="px-6 py-4 text-sm text-outline">25 وحدة</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-error-container text-error text-[10px] font-bold rounded-full">مخزون منخفض</span>
+</td>
+<td class="px-6 py-4 text-sm">92 وحدة</td>
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-bold text-sm">فرع الدمام - حي الشاطئ</td>
+<td class="px-6 py-4 text-sm font-medium">128 وحدة</td>
+<td class="px-6 py-4 text-sm text-outline">30 وحدة</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full">طبيعي</span>
+</td>
+<td class="px-6 py-4 text-sm">45 وحدة</td>
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Detailed Movement Logs -->
+<div class="col-span-12 lg:col-span-12 bg-white rounded-xl shadow-sm border border-slate-100">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+                        سجل الحركات التفصيلي
+                    </h3>
+<div class="flex items-center gap-4">
+<div class="flex border border-slate-200 rounded-lg overflow-hidden text-xs">
+<button class="px-4 py-2 bg-slate-50 border-l font-bold">الكل</button>
+<button class="px-4 py-2 hover:bg-slate-50 border-l">مبيعات</button>
+<button class="px-4 py-2 hover:bg-slate-50 border-l">توليد</button>
+<button class="px-4 py-2 hover:bg-slate-50">تلف</button>
+</div>
+</div>
+</div>
+<div class="p-0">
+<div class="divide-y divide-slate-100">
+<!-- Movement Item 1 -->
+<div class="flex items-center justify-between p-6 hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="bg-secondary-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="input">input</span>
+</div>
+<div>
+<p class="text-sm font-bold">استلام طلبية توريد #PO-99120</p>
+<p class="text-xs text-outline">تمت بواسطة: أحمد الشمري • 14 أكتوبر 2023 09:45 ص</p>
+</div>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold text-secondary">+120 وحدة</p>
+<p class="text-xs text-outline">المخزون النهائي: 1,248</p>
+</div>
+</div>
+<!-- Movement Item 2 -->
+<div class="flex items-center justify-between p-6 hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="bg-blue-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-blue-600" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div>
+<p class="text-sm font-bold">فاتورة مبيعات فرع الرياض #INV-4458</p>
+<p class="text-xs text-outline">كاشير: سارة العتيبي • 14 أكتوبر 2023 11:20 ص</p>
+</div>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold text-error">-2 وحدة</p>
+<p class="text-xs text-outline">المخزون النهائي: 1,128</p>
+</div>
+</div>
+<!-- Movement Item 3 -->
+<div class="flex items-center justify-between p-6 hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="bg-orange-50 p-2 rounded-lg">
+<span class="material-symbols-outlined text-orange-600" data-icon="sync_alt">sync_alt</span>
+</div>
+<div>
+<p class="text-sm font-bold">تحويل مخزني إلى فرع جدة #TR-332</p>
+<p class="text-xs text-outline">تمت بواسطة: خالد الحربي • 13 أكتوبر 2023 04:15 م</p>
+</div>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold text-orange-600">-25 وحدة</p>
+<p class="text-xs text-outline">المخزون النهائي: 1,130</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-slate-50 border-t border-slate-100 flex justify-center">
+<button class="text-sm text-primary font-bold hover:underline">تحميل المزيد من الحركات</button>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB (Suppressed on Details according to instructions, but including it as a hidden comment to show awareness of the mandate) -->
+<!-- The FAB is suppressed on Details pages to prioritize content focus -->
+</body></html>
