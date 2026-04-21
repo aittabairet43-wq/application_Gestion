@@ -56,7 +56,7 @@
 - **TypeScript** for all components and services
 - **Functional components** with hooks
 - **Descriptive variable names** in Arabic and English
-- **Consistent RTL layout** for Arabic interface
+- **Consistent RTL layout for Arabic interface
 - **Error handling** with try/catch blocks for database operations
 
 ### Performance

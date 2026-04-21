@@ -12,9 +12,13 @@ import Users from './pages/Users/index';
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
-    const { isAuthenticated } = useAuthStore();
+    const { isAuthenticated, initAuth } = useAuthStore();
 
     useEffect(() => {
+        // Initialize auth state from localStorage
+        initAuth();
+        
+        // Initialize database
         dbService.init().then(() => {
             setIsDbReady(true);
         });
