@@ -2,6 +2,7 @@ export interface User {
     id: number;
     username: string;
     role: 'admin' | 'staff';
+    password?: string; // Optional field for in-memory session security
 }
 
 export interface Product {

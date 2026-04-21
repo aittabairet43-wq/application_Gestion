@@ -1,8 +1,11 @@
+"use client";
+
 interface CryptoUtils {
     deriveKey: (password: string, salt: Uint8Array) => Promise<CryptoKey>;
     encrypt: (data: Uint8Array, key: CryptoKey) => Promise<{ encrypted: Uint8Array; iv: Uint8Array }>;
     decrypt: (encrypted: Uint8Array, iv: Uint8Array, key: CryptoKey) => Promise<Uint8Array>;
     generateSalt: () => Uint8Array;
+    hashPassword: (password: string) => Promise<string>;
 }
 
 const cryptoUtils: CryptoUtils = {
@@ -51,6 +54,13 @@ const cryptoUtils: CryptoUtils = {
 
     generateSalt(): Uint8Array {
         return crypto.getRandomValues(new Uint8Array(16));
+    },
+
+    async hashPassword(password: string): Promise<string> {
+        const msgUint8 = new TextEncoder().encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 };
 

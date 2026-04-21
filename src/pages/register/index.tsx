@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { dbService } from '../../services/db';
+import cryptoUtils from '../../utils/crypto';
 import toast from 'react-hot-toast';
 
 const Register = () => {
@@ -23,9 +24,12 @@ const Register = () => {
         }
 
         try {
+            // Security Fix: Hash password before storage
+            const hashedPassword = await cryptoUtils.hashPassword(formData.password);
+            
             dbService.run(
                 "INSERT INTO users (username, password, role, full_name, phone) VALUES (?, ?, ?, ?, ?)",
-                [formData.email, formData.password, formData.role, formData.fullName, formData.phone]
+                [formData.email, hashedPassword, formData.role === 'manager' ? 'admin' : 'staff', formData.fullName, formData.phone]
             );
             await dbService.save();
             toast.success('تم إنشاء الحساب بنجاح');
@@ -38,7 +42,6 @@ const Register = () => {
     return (
         <div className="bg-[#f8f9fb] text-[#191c1e] min-h-screen flex items-center justify-center p-4 md:p-8 rtl" dir="rtl">
             <main className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 bg-white rounded-xl shadow-sm overflow-hidden border border-slate-200">
-                {/* Left Side: Visual/Branding */}
                 <section className="hidden md:flex md:col-span-5 relative flex-col justify-between p-12 bg-[#004253] overflow-hidden">
                     <div className="absolute inset-0 opacity-40">
                         <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD86xWl30ek3EipSar3yWCspwVDDdv50SJFL_YRHkkmyfNsmwvE_oVab95Qpana2Qe0qD1_PgJBloj4RRh-UqIfxQa6q7H8fVF7VoSU5Urqup7CAKOMYj6lPOj-VpcQCB0VY61JEXAAW2RzhV_z3HGXzIxdy8_Iu1mjdBfJFujTqmdN3skWO3G1LMyPhTZYoxlgoU6xwjcuk5uULoPXQlUKh-0uj5pk8N7IjM3Of0C78C4LCc5eT8kLz_ZjWBFa6mSnMf1TWHNEPp8" alt="Retail" />
@@ -48,20 +51,8 @@ const Register = () => {
                         <h1 className="text-3xl font-black text-[#98FFD9] tracking-tight mb-4 font-headline">Kinetiq Retail</h1>
                         <p className="text-slate-300 text-lg">انضم إلى مجتمع المديرين المتميزين وقم بقيادة متجرك نحو النجاح.</p>
                     </div>
-                    <div className="relative z-10 bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
-                        <div className="flex gap-4 items-center">
-                            <div className="w-12 h-12 rounded-full bg-[#98FFD9] flex items-center justify-center">
-                                <span className="material-symbols-outlined text-[#004253]">insights</span>
-                            </div>
-                            <div>
-                                <p className="text-white font-semibold">لوحة تحكم شاملة</p>
-                                <p className="text-slate-300 text-sm">راقب المخزون والمبيعات في الوقت الفعلي.</p>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
-                {/* Right Side: Form */}
                 <section className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center">
                     <div className="max-w-xl mx-auto w-full text-right">
                         <header className="mb-10">
@@ -74,7 +65,7 @@ const Register = () => {
                                 <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
                                     <span className="material-symbols-outlined text-sm">person</span> الاسم الكامل
                                 </label>
-                                <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 focus:border-[#004253] focus:ring-1 focus:ring-[#004253] outline-none transition-all" placeholder="أدخل اسمك الثلاثي" type="text" required value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})} />
+                                <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 outline-none" placeholder="أدخل اسمك الثلاثي" type="text" required value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})} />
                             </div>
                             
                             <div>

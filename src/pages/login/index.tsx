@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
 import { dbService } from '../../services/db';
+import cryptoUtils from '../../utils/crypto';
 import toast from 'react-hot-toast';
 
 const Login = () => {
@@ -20,22 +21,26 @@ const Login = () => {
         setError('');
 
         try {
-            // First check if user exists
-            const res = dbService.exec("SELECT * FROM users WHERE username = ? AND password = ?", [username, password]);
+            // Security Fix: Hash input password to compare with stored hash
+            const hashedInput = await cryptoUtils.hashPassword(password);
+            
+            const res = dbService.exec("SELECT * FROM users WHERE username = ? AND password = ?", [username, hashedInput]);
             
             if (res.length > 0 && res[0].values.length > 0) {
                 const user = res[0].values[0];
                 
-                // Initialize secure database with user credentials
+                // Keep the RAW password in memory for DB decryption
+                login({ 
+                    id: user[0] as number, 
+                    username: user[1] as string, 
+                    role: user[3] as 'admin' | 'staff',
+                    password: password 
+                });
+
                 const initSuccess = await dbService.init();
                 
                 if (initSuccess) {
-                    login({ 
-                        id: user[0] as number, 
-                        username: user[1] as string, 
-                        role: user[3] as 'admin' | 'staff',
-                        password: password // Store password for encryption
-                    });
+                    toast.success('تم تسجيل الدخول بنجاح');
                     navigate('/dashboard');
                 } else {
                     setError('فشل في تهيئة قاعدة البيانات الآمنة');
@@ -94,16 +99,9 @@ const Login = () => {
                     <button 
                         type="submit" 
                         disabled={isLoading}
-                        className="w-full bg-[#004253] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#004253]/20 hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-[#004253] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#004253]/20 hover:brightness-110 transition-all disabled:opacity-50"
                     >
-                        {isLoading ? (
-                            <span className="flex items-center justify-center gap-2">
-                                <span className="material-symbols-outlined animate-spin">refresh</span>
-                                جاري التحقق...
-                            </span>
-                        ) : (
-                            'تسجيل الدخول الآمن'
-                        )}
+                        {isLoading ? 'جاري التحقق...' : 'تسجيل الدخول الآمن'}
                     </button>
                 </form>
 

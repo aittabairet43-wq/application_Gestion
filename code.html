@@ -6,7 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>محرك البيانات المحلي - Kinetiq Retail</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
-    <!-- Load sql.js from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap"
@@ -29,361 +28,95 @@
                         "on-surface": "#191c1e",
                         "outline": "#70787d",
                         "error": "#ba1a1a"
-                    },
-                    fontFamily: {
-                        "headline": ["Plus Jakarta Sans", "Noto Kufi Arabic"],
-                        "body": ["Inter", "Noto Kufi Arabic"],
-                        "label": ["Inter", "Noto Kufi Arabic"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Plus Jakarta Sans', 'Noto Kufi Arabic', sans-serif;
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 
 <body class="bg-background text-on-surface rtl">
-    <!-- TopNavBar -->
-    <header
-        class="fixed top-0 left-0 right-64 h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 z-30 flex justify-between items-center px-8">
-        <div class="flex items-center gap-6">
-            <h2 class="text-lg font-bold text-primary font-headline">محرك معالجة البيانات</h2>
-            <div class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-200">
-                <span id="db-status-dot" class="status-dot bg-slate-300"></span>
-                <span id="db-status-text" class="text-xs font-bold text-slate-600">جاري التحميل...</span>
+    <main class="p-12 max-w-5xl mx-auto">
+        <h1 class="text-2xl font-black mb-8">محرك SQLite - اختبار الأمان</h1>
+        
+        <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm mb-8">
+            <h3 class="font-bold mb-4">إضافة صنف (اختبار XSS)</h3>
+            <div class="flex gap-4">
+                <input id="item-name" type="text" class="flex-1 border-slate-200 rounded-lg text-sm" placeholder="أدخل اسم المنتج...">
+                <button onclick="addNewItem()" class="bg-primary text-white px-6 py-2 rounded-lg font-bold">إضافة</button>
             </div>
         </div>
-        <div class="flex items-center gap-4">
-            <button class="p-2 text-slate-500 hover:text-primary transition-colors"><span
-                    class="material-symbols-outlined">notifications</span></button>
-            <div class="h-8 w-px bg-slate-200 mx-2"></div>
-            <div class="flex items-center gap-3">
-                <div class="text-left text-right">
-                    <p class="text-xs font-bold">المشرف التقني</p>
-                    <p class="text-[10px] text-slate-500 uppercase">Kinetiq Engine</p>
-                </div>
-                <div
-                    class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs font-bold">
-                    AD</div>
-            </div>
-        </div>
-    </header>
 
-    <!-- SideNavBar -->
-    <aside class="fixed right-0 top-0 h-screen w-64 bg-white border-l border-slate-200 z-40 flex flex-col">
-        <div class="p-6">
-            <div class="text-xl font-black text-primary tracking-tight font-headline">Kinetiq Retail</div>
-            <div class="text-xs text-slate-500 font-medium mt-1">نظام إدارة البقالة</div>
-        </div>
-        <nav class="flex-1 mt-4">
-            <a href="#"
-                class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-50 transition-all text-sm font-medium">
-                <span class="material-symbols-outlined">dashboard</span><span>لوحة القيادة</span>
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-6 py-3 bg-teal-50 text-primary border-r-4 border-primary font-bold text-sm">
-                <span class="material-symbols-outlined"
-                    style="font-variation-settings: 'FILL' 1;">database</span><span>محرك SQLite</span>
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-50 transition-all text-sm font-medium">
-                <span class="material-symbols-outlined">inventory_2</span><span>المخزون</span>
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-50 transition-all text-sm font-medium">
-                <span class="material-symbols-outlined">analytics</span><span>التقارير</span>
-            </a>
-        </nav>
-        <div class="p-4 border-t border-slate-100">
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3 text-error hover:bg-red-50 rounded-lg transition-colors font-bold text-sm">
-                <span class="material-symbols-outlined">logout</span><span>خروج من النظام</span>
-            </a>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="mr-64 pt-24 pb-12 px-8 min-h-screen">
-        <div class="max-w-5xl mx-auto">
-            <!-- Welcome Header -->
-            <div class="mb-8">
-                <h1 class="text-2xl font-black text-slate-900 font-headline">تهيئة المحرك الهجين (SQLite + IndexedDB)
-                </h1>
-                <p class="text-slate-500 mt-1 text-sm leading-relaxed">تجمع هذه البنية بين قوة معالجة SQL في الذاكرة
-                    وبين استمرارية التخزين في متصفح المستخدم.</p>
-            </div>
-
-            <!-- Bento Grid -->
-            <div class="grid grid-cols-12 gap-6">
-
-                <!-- Input Card -->
-                <div class="col-span-12 lg:col-span-5 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <h3 class="font-bold text-primary mb-6 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-xl">add_box</span>
-                        إضافة صنف جديد للذاكرة
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-outline mb-1.5 uppercase tracking-wider">اسم
-                                المنتج</label>
-                            <input id="item-name" type="text"
-                                class="w-full border-slate-200 rounded-lg text-sm focus:ring-primary focus:border-primary"
-                                placeholder="مثلاً: حليب طازج 1 لتر">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-outline mb-1.5 uppercase tracking-wider">السعر
-                                المقترح</label>
-                            <input id="item-price" type="number"
-                                class="w-full border-slate-200 rounded-lg text-sm focus:ring-primary focus:border-primary"
-                                placeholder="0.00">
-                        </div>
-                        <button onclick="addNewItem()"
-                            class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/10">
-                            <span class="material-symbols-outlined text-sm">database</span>
-                            تنفيذ الاستعلام والحفظ الدائم
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Architecture Monitor -->
-                <div
-                    class="col-span-12 lg:col-span-7 bg-slate-900 text-slate-300 p-6 rounded-xl shadow-xl border border-slate-800 font-mono text-xs overflow-hidden relative">
-                    <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
-                        <h3 class="font-bold text-secondary-container flex items-center gap-2 font-headline">
-                            <span class="material-symbols-outlined text-sm">monitor_heart</span>
-                            سجل العمليات (Persistence Log)
-                        </h3>
-                        <span
-                            class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-500 uppercase tracking-tighter">Live
-                            Monitor</span>
-                    </div>
-                    <div id="logs" class="space-y-2 h-48 overflow-y-auto custom-scrollbar pr-2">
-                        <p class="text-slate-500 italic">>> جاري انتظار الأوامر من SQLite...</p>
-                    </div>
-                    <!-- Background Decoration -->
-                    <span
-                        class="material-symbols-outlined absolute -bottom-4 -left-4 text-7xl opacity-5">terminal</span>
-                </div>
-
-                <!-- Results Table Card -->
-                <div class="col-span-12 bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mt-2">
-                    <div class="p-5 border-b border-slate-50 bg-slate-50/50 flex justify-between items-center">
-                        <div>
-                            <h3 class="font-bold text-primary font-headline">البيانات النشطة في الذاكرة (Memory)</h3>
-                            <p class="text-[10px] text-slate-400 mt-0.5 uppercase font-bold tracking-widest">Database:
-                                inventory_table</p>
-                        </div>
-                        <button onclick="clearAllData()"
-                            class="flex items-center gap-1.5 text-xs text-error font-bold hover:bg-red-50 px-3 py-1.5 rounded-lg transition-colors">
-                            <span class="material-symbols-outlined text-sm">delete_sweep</span>
-                            مسح كافة البيانات
-                        </button>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-right text-sm">
-                            <thead class="bg-slate-50/50 text-slate-500 font-bold uppercase text-[11px] tracking-wider">
-                                <tr>
-                                    <th class="px-8 py-4 border-b">رقم التعريف ID</th>
-                                    <th class="px-8 py-4 border-b">اسم الصنف</th>
-                                    <th class="px-8 py-4 border-b">سعر الوحدة</th>
-                                    <th class="px-8 py-4 border-b text-center">الإجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table-body" class="divide-y divide-slate-50">
-                                <!-- Data injected here -->
-                                <tr>
-                                    <td colspan="4" class="px-8 py-12 text-center text-slate-400 italic">لا توجد بيانات
-                                        حالياً في SQLite</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Info -->
-            <div>
-                <p class="mt-8 text-center text-slate-400 text-xs font-medium">نظام المزامنة الذكي — Kinetiq Core v1.2
-                </p>
-            </div>
+        <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+            <table class="w-full text-right text-sm">
+                <thead class="bg-slate-50 text-slate-500 font-bold uppercase text-[11px]">
+                    <tr>
+                        <th class="px-8 py-4 border-b">ID</th>
+                        <th class="px-8 py-4 border-b">الاسم</th>
+                        <th class="px-8 py-4 border-b">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body" class="divide-y divide-slate-50">
+                    <tr><td colspan="3" class="px-8 py-12 text-center text-slate-400 italic">جاري تحميل SQLite...</td></tr>
+                </tbody>
+            </table>
         </div>
     </main>
 
     <script>
         let db = null;
-        const DB_NAME = "KinetiqRetailDB";
-        const STORE_NAME = "sqlite_file";
-        const KEY_NAME = "db_binary";
 
-        // 1. تفعيل IndexedDB
-        async function getIndexedDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, 1);
-                request.onupgradeneeded = () => request.result.createObjectStore(STORE_NAME);
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        }
-
-        async function saveToIndexedDB(binaryData) {
-            const idb = await getIndexedDB();
-            const tx = idb.transaction(STORE_NAME, "readwrite");
-            tx.objectStore(STORE_NAME).put(binaryData, KEY_NAME);
-            log("Binary Sync: تم تحديث IndexedDB");
-        }
-
-        async function loadFromIndexedDB() {
-            const idb = await getIndexedDB();
-            return new Promise((resolve) => {
-                const tx = idb.transaction(STORE_NAME, "readonly");
-                const request = tx.objectStore(STORE_NAME).get(KEY_NAME);
-                request.onsuccess = () => resolve(request.result);
-            });
-        }
-
-        // 2. تفعيل SQLite (sql.js)
         async function initApp() {
-            try {
-                const sqlPromise = initSqlJs({
-                    locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
-                });
-
-                const [SQL, savedBinary] = await Promise.all([sqlPromise, loadFromIndexedDB()]);
-
-                if (savedBinary) {
-                    db = new SQL.Database(new Uint8Array(savedBinary));
-                    log("System: تم تحميل البيانات من IndexedDB");
-                } else {
-                    db = new SQL.Database();
-                    db.run("CREATE TABLE inventory (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price REAL)");
-                    log("System: تم إنشاء قاعدة بيانات SQLite جديدة");
-                }
-
-                updateStatus(true);
-                refreshUI();
-            } catch (err) {
-                console.error(err);
-                log("خطأ في تهيئة النظام: " + err.message);
-                updateStatus(false);
-            }
+            const SQL = await initSqlJs({
+                locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
+            });
+            db = new SQL.Database();
+            db.run("CREATE TABLE test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+            refreshUI();
         }
 
-        // 3. العمليات الأساسية
         function addNewItem() {
             const name = document.getElementById('item-name').value;
-            const price = document.getElementById('item-price').value;
-
-            if (!name || !price) return;
-
-            // تنفيذ في SQLite
-            db.run("INSERT INTO inventory (name, price) VALUES (?, ?)", [name, price]);
-            log(`SQL: INSERT [${name}] - (${price} ر.س)`);
-
-            // حفظ التغيير في IndexedDB
-            const binary = db.export();
-            saveToIndexedDB(binary);
-
-            refreshUI();
+            if (!name) return;
+            db.run("INSERT INTO test (name) VALUES (?)", [name]);
             document.getElementById('item-name').value = '';
-            document.getElementById('item-price').value = '';
+            refreshUI();
         }
 
         function refreshUI() {
-            const results = db.exec("SELECT * FROM inventory ORDER BY id DESC");
+            const results = db.exec("SELECT * FROM test ORDER BY id DESC");
             const tbody = document.getElementById('data-table-body');
             tbody.innerHTML = '';
 
             if (results.length > 0) {
-                const rows = results[0].values;
-                rows.forEach(row => {
-                    tbody.innerHTML += `
-                        <tr class="hover:bg-slate-50/80 transition-colors group">
-                            <td class="px-8 py-4 font-mono text-slate-400 text-xs font-bold">#${row[0]}</td>
-                            <td class="px-8 py-4 font-bold text-slate-800">${row[1]}</td>
-                            <td class="px-8 py-4 text-primary font-black">${row[2]} ر.س</td>
-                            <td class="px-8 py-4 text-center">
-                                <button class="material-symbols-outlined text-slate-300 hover:text-error transition-colors text-lg">delete</button>
-                            </td>
-                        </tr>
-                    `;
+                results[0].values.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-50 transition-colors";
+                    
+                    const tdId = document.createElement('td');
+                    tdId.className = "px-8 py-4 font-mono text-slate-400";
+                    tdId.textContent = `#${row[0]}`;
+                    
+                    const tdName = document.createElement('td');
+                    tdName.className = "px-8 py-4 font-bold text-slate-800";
+                    // Security Fix: Use textContent instead of innerHTML to prevent XSS
+                    tdName.textContent = row[1];
+                    
+                    const tdActions = document.createElement('td');
+                    tdActions.className = "px-8 py-4 text-center text-slate-300";
+                    tdActions.textContent = "---";
+                    
+                    tr.appendChild(tdId);
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdActions);
+                    tbody.appendChild(tr);
                 });
-            }
-        }
-
-        async function clearAllData() {
-            if (!confirm("هل أنت متأكد من مسح كافة البيانات؟")) return;
-
-            const idb = await getIndexedDB();
-            idb.transaction(STORE_NAME, "readwrite").objectStore(STORE_NAME).delete(KEY_NAME);
-            location.reload();
-        }
-
-        // Helpers
-        function log(msg) {
-            const logs = document.getElementById('logs');
-            const p = document.createElement('p');
-            p.className = "text-slate-300 border-r-2 border-secondary-container pr-2 py-0.5 leading-relaxed";
-            p.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
-            logs.prepend(p);
-        }
-
-        function updateStatus(online) {
-            const dot = document.getElementById('db-status-dot');
-            const text = document.getElementById('db-status-text');
-            if (online) {
-                dot.className = "status-dot bg-secondary-container shadow-[0_0_8px_rgba(152,255,217,0.6)]";
-                text.innerText = "المحرك نشط (SQLite)";
             } else {
-                dot.className = "status-dot bg-error";
-                text.innerText = "خطأ في المحرك";
+                tbody.innerHTML = '<tr><td colspan="3" class="px-8 py-12 text-center text-slate-400 italic">لا توجد بيانات</td></tr>';
             }
         }
 
-        // تشغيل التطبيق
         initApp();
     </script>
-
 </body>
-
 </html>

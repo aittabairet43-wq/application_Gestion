@@ -9,15 +9,6 @@ const KEY_NAME = "db_binary";
 let db: Database | null = null;
 let isAuthenticated = false;
 
-async function getIndexedDB(): Promise<IDBDatabase> {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open(DB_NAME, 1);
-        request.onupgradeneeded = () => request.result.createObjectStore(STORE_NAME);
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
-}
-
 export const secureDbService = {
     async init(): Promise<boolean> {
         try {
@@ -25,24 +16,22 @@ export const secureDbService = {
                 locateFile: (file: string) => `https://cdn.jsdelivr.net/npm/sql.js@1.14.1/dist/${file}`
             });
 
-            // Check if user is authenticated
             const auth = useAuthStore.getState();
-            if (!auth.isAuthenticated || !auth.user) {
-                throw new Error('User not authenticated');
+            // If we have no password in memory, we can't unlock the DB
+            if (!auth.isAuthenticated || !auth.user || !auth.user.password) {
+                console.warn('Database initialization skipped: Missing session password');
+                return false;
             }
 
             isAuthenticated = true;
 
-            // Try to load encrypted database
-            const savedBinary = await secureStorage.loadEncrypted((auth.user as any).password);
+            const savedBinary = await secureStorage.loadEncrypted(auth.user.password);
             
             if (savedBinary) {
                 db = new SQL.Database(savedBinary);
             } else {
-                // Create new database
                 db = new SQL.Database();
                 await this.createTables();
-                // Save the empty database
                 await this.save();
             }
 
@@ -61,17 +50,14 @@ export const secureDbService = {
         db.run(`CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, barcode TEXT, price REAL, quantity INTEGER, unit TEXT)`);
         db.run(`CREATE TABLE IF NOT EXISTS sales (id INTEGER PRIMARY KEY AUTOINCREMENT, total REAL, payment_method TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
         db.run(`CREATE TABLE IF NOT EXISTS sale_items (id INTEGER PRIMARY KEY AUTOINCREMENT, sale_id INTEGER, product_id INTEGER, quantity INTEGER, price REAL, FOREIGN KEY (sale_id) REFERENCES sales (id), FOREIGN KEY (product_id) REFERENCES products (id))`);
-
-        // Create default admin user
-        const userCount = db.exec("SELECT count(*) FROM users");
-        if (Number(userCount[0].values[0][0]) === 0) {
-            db.run("INSERT INTO users (username, password, role, full_name) VALUES (?, ?, ?, ?)", ['admin', '123456', 'admin', 'مدير النظام']);
-        }
+        
+        // Security Fix: Removed default hardcoded admin user '123456'.
+        // The first user must register via the registration page.
     },
 
     get dbInstance() {
-        if (!isAuthenticated) {
-            throw new Error("Database access denied - user not authenticated");
+        if (!isAuthenticated || !db) {
+            return null;
         }
         return db;
     },
@@ -82,8 +68,8 @@ export const secureDbService = {
         try {
             const binary = db.export();
             const auth = useAuthStore.getState();
-            if (auth.user) {
-                await secureStorage.saveEncrypted(binary, (auth.user as any).password);
+            if (auth.user && auth.user.password) {
+                await secureStorage.saveEncrypted(binary, auth.user.password);
             }
             return true;
         } catch (error) {
@@ -94,14 +80,14 @@ export const secureDbService = {
 
     exec(query: string, params: any[] = []) {
         if (!db || !isAuthenticated) {
-            throw new Error("Database access denied - user not authenticated");
+            throw new Error("Database access denied");
         }
         return db.exec(query, params);
     },
 
     run(query: string, params: any[] = []) {
         if (!db || !isAuthenticated) {
-            throw new Error("Database access denied - user not authenticated");
+            throw new Error("Database access denied");
         }
         return db.run(query, params);
     },

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { dbService } from './services/db';
 import { useAuthStore } from './store/useAuthStore';
 import MainLayout from './layouts/MainLayout';
+import ProtectedRoute from './components/ProtectedRoute';
 import POS from './pages/pos';
 import Inventory from './pages/inventory';
 import ProductDetail from './pages/inventory/ProductDetail';
@@ -26,16 +27,21 @@ import DebtDetails from './pages/debts';
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
     const [isAuthInitialized, setIsAuthInitialized] = useState(false);
-    const { isAuthenticated, initAuth } = useAuthStore();
+    const { isAuthenticated, user, initAuth } = useAuthStore();
 
     useEffect(() => {
         initAuth();
         setIsAuthInitialized(true);
+    }, [initAuth]);
 
-        if (isAuthenticated) {
-            dbService.init().then(() => setIsDbReady(true));
+    useEffect(() => {
+        if (isAuthenticated && user?.password) {
+            dbService.init().then((success) => setIsDbReady(success));
+        } else if (isAuthenticated && !user?.password) {
+            // Logged in but vault is locked (e.g. after refresh)
+            setIsDbReady(false);
         }
-    }, [isAuthenticated, initAuth]);
+    }, [isAuthenticated, user?.password]);
 
     if (!isAuthInitialized) {
         return (
@@ -60,12 +66,15 @@ function App() {
         );
     }
 
-    if (!isDbReady) {
+    // Vault is locked after refresh (password not persisted)
+    if (isAuthenticated && !user?.password) {
         return (
             <div className="h-screen w-full flex items-center justify-center bg-[#f8f9fb] rtl" dir="rtl">
-                <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-[#004253] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-[#004253] font-bold font-headline">جاري تهيئة قاعدة البيانات الآمنة...</p>
+                <div className="text-center max-w-sm p-8 bg-white rounded-2xl shadow-xl border border-slate-100">
+                    <span className="material-symbols-outlined text-5xl text-primary mb-4">lock</span>
+                    <h2 className="text-xl font-bold text-slate-800 mb-2">جلسة العمل مؤمنة</h2>
+                    <p className="text-sm text-slate-500 mb-6">يرجى إعادة تسجيل الدخول لفتح قاعدة البيانات المشفرة.</p>
+                    <button onClick={() => useAuthStore.getState().logout()} className="w-full bg-primary text-white py-3 rounded-xl font-bold">تسجيل الدخول مجدداً</button>
                 </div>
             </div>
         );
@@ -77,7 +86,6 @@ function App() {
                 <Route path="/" element={<MainLayout />}>
                     <Route index element={<Navigate to="/dashboard" />} />
                     <Route path="dashboard" element={<Dashboard />} />
-                    <Route path="engine" element={<DataEngine />} />
                     <Route path="pos" element={<POS />} />
                     <Route path="messages" element={<Messages />} />
                     <Route path="inventory" element={<Inventory />} />
@@ -90,8 +98,11 @@ function App() {
                     <Route path="reports" element={<Reports />} />
                     <Route path="reports/cash-logs" element={<CashLogs />} />
                     <Route path="reports/shift-analytics" element={<ShiftAnalytics />} />
-                    <Route path="users" element={<Users />} />
                     <Route path="profile" element={<DeveloperProfile />} />
+                    
+                    {/* Admin Only Routes */}
+                    <Route path="engine" element={<ProtectedRoute requiredRole="admin"><DataEngine /></ProtectedRoute>} />
+                    <Route path="users" element={<ProtectedRoute requiredRole="admin"><Users /></ProtectedRoute>} />
                 </Route>
                 <Route path="/access-denied" element={<AccessDenied />} />
                 <Route path="*" element={<Navigate to="/" />} />
