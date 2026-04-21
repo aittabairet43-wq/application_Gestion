@@ -3,22 +3,25 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { dbService } from './services/db';
 import { useAuthStore } from './store/useAuthStore';
 import MainLayout from './layouts/MainLayout';
-import POS from './pages/pos/index';
-import Inventory from './pages/inventory/index';
+import POS from './pages/pos';
+import Inventory from './pages/inventory';
 import ProductDetail from './pages/inventory/ProductDetail';
-import Login from './pages/login/index';
-import Register from './pages/register/index';
-import Dashboard from './pages/dashboard/index';
-import Reports from './pages/reports/index';
+import Login from './pages/login';
+import Register from './pages/register';
+import Dashboard from './pages/dashboard';
+import Reports from './pages/reports';
 import CashLogs from './pages/reports/CashLogs';
 import ShiftAnalytics from './pages/reports/ShiftAnalytics';
-import Branches from './pages/branches/index';
-import Users from './pages/users/index';
+import Branches from './pages/branches';
+import Users from './pages/users';
 import InvoicePreview from './pages/invoices/Preview';
 import DeveloperProfile from './pages/profile/Developer';
 import AccessDenied from './pages/errors/AccessDenied';
-import DataEngine from './pages/engine/index';
-import Messages from './pages/messages/index';
+import DataEngine from './pages/engine';
+import Messages from './pages/messages';
+import CloudBackup from './pages/backup';
+import DailyTasks from './pages/tasks';
+import DebtDetails from './pages/debts';
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
@@ -80,6 +83,9 @@ function App() {
                     <Route path="inventory" element={<Inventory />} />
                     <Route path="inventory/:id" element={<ProductDetail />} />
                     <Route path="branches" element={<Branches />} />
+                    <Route path="backup" element={<CloudBackup />} />
+                    <Route path="tasks" element={<DailyTasks />} />
+                    <Route path="debts" element={<DebtDetails />} />
                     <Route path="invoices/preview" element={<InvoicePreview />} />
                     <Route path="reports" element={<Reports />} />
                     <Route path="reports/cash-logs" element={<CashLogs />} />
