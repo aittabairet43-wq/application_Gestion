@@ -3,13 +3,13 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { dbService } from './services/db';
 import { useAuthStore } from './store/useAuthStore';
 import MainLayout from './layouts/MainLayout';
-import POS from './pages/POS/index';
-import Inventory from './pages/Inventory/index';
-import Login from './pages/Login/index';
-import Register from './pages/Register/index';
-import Dashboard from './pages/Dashboard/index';
-import Reports from './pages/Reports/index';
-import Users from './pages/Users/index';
+import POS from './pages/pos/index';
+import Inventory from './pages/inventory/index';
+import Login from './pages/login/index';
+import Register from './pages/register/index';
+import Dashboard from './pages/dashboard/index';
+import Reports from './pages/reports/index';
+import Users from './pages/users/index';
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
