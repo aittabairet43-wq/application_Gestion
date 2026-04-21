@@ -33,6 +33,7 @@ async function loadFromIndexedDB(): Promise<Uint8Array | null> {
 export const dbService = {
     async init() {
         try {
+            // استخدام رابط مباشر من CDN
             const SQL = await initSqlJs({
                 locateFile: (file: string) => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
             });
