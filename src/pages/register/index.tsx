@@ -38,66 +38,91 @@ const Register = () => {
     return (
         <div className="bg-[#f8f9fb] text-[#191c1e] min-h-screen flex items-center justify-center p-4 md:p-8 rtl" dir="rtl">
             <main className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 bg-white rounded-xl shadow-sm overflow-hidden border border-slate-200">
+                {/* Left Side: Visual/Branding */}
                 <section className="hidden md:flex md:col-span-5 relative flex-col justify-between p-12 bg-[#004253] overflow-hidden">
                     <div className="absolute inset-0 opacity-40">
                         <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD86xWl30ek3EipSar3yWCspwVDDdv50SJFL_YRHkkmyfNsmwvE_oVab95Qpana2Qe0qD1_PgJBloj4RRh-UqIfxQa6q7H8fVF7VoSU5Urqup7CAKOMYj6lPOj-VpcQCB0VY61JEXAAW2RzhV_z3HGXzIxdy8_Iu1mjdBfJFujTqmdN3skWO3G1LMyPhTZYoxlgoU6xwjcuk5uULoPXQlUKh-0uj5pk8N7IjM3Of0C78C4LCc5eT8kLz_ZjWBFa6mSnMf1TWHNEPp8" alt="Retail" />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-[#004253] via-[#004253]/60 to-transparent"></div>
                     <div className="relative z-10">
-                        <h1 className="text-3xl font-black text-[#98FFD9] tracking-tight mb-4">Kinetiq Retail</h1>
+                        <h1 className="text-3xl font-black text-[#98FFD9] tracking-tight mb-4 font-headline">Kinetiq Retail</h1>
                         <p className="text-slate-300 text-lg">انضم إلى مجتمع المديرين المتميزين وقم بقيادة متجرك نحو النجاح.</p>
+                    </div>
+                    <div className="relative z-10 bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
+                        <div className="flex gap-4 items-center">
+                            <div className="w-12 h-12 rounded-full bg-[#98FFD9] flex items-center justify-center">
+                                <span className="material-symbols-outlined text-[#004253]">insights</span>
+                            </div>
+                            <div>
+                                <p className="text-white font-semibold">لوحة تحكم شاملة</p>
+                                <p className="text-slate-300 text-sm">راقب المخزون والمبيعات في الوقت الفعلي.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
+                {/* Right Side: Form */}
                 <section className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center">
                     <div className="max-w-xl mx-auto w-full text-right">
                         <header className="mb-10">
-                            <h2 className="text-3xl font-extrabold text-[#004253] mb-2">إنشاء حساب جديد</h2>
+                            <h2 className="text-3xl font-extrabold text-[#004253] mb-2 font-headline">إنشاء حساب جديد</h2>
                             <p className="text-slate-500">أدخل تفاصيلك للبدء كمسؤول في النظام</p>
                         </header>
                         
                         <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleRegister}>
                             <div className="md:col-span-2">
-                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5"><span className="material-symbols-outlined text-sm">person</span> الاسم الكامل</label>
-                                <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 focus:ring-1 focus:ring-[#004253] outline-none" placeholder="أدخل اسمك الثلاثي" type="text" required value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})} />
+                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
+                                    <span className="material-symbols-outlined text-sm">person</span> الاسم الكامل
+                                </label>
+                                <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 focus:border-[#004253] focus:ring-1 focus:ring-[#004253] outline-none transition-all" placeholder="أدخل اسمك الثلاثي" type="text" required value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})} />
                             </div>
                             
                             <div>
-                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5"><span className="material-symbols-outlined text-sm">mail</span> البريد الإلكتروني</label>
+                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
+                                    <span className="material-symbols-outlined text-sm">mail</span> البريد الإلكتروني
+                                </label>
                                 <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 text-left" dir="ltr" placeholder="name@company.com" type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
                             </div>
                             
                             <div>
-                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5"><span className="material-symbols-outlined text-sm">call</span> رقم الهاتف</label>
+                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
+                                    <span className="material-symbols-outlined text-sm">call</span> رقم الهاتف
+                                </label>
                                 <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 text-left" dir="ltr" placeholder="+966 5X XXX XXXX" type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
                             </div>
 
                             <div className="md:col-span-2">
-                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5"><span className="material-symbols-outlined text-sm">badge</span> الدور الوظيفي</label>
+                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
+                                    <span className="material-symbols-outlined text-sm">badge</span> الدور الوظيفي
+                                </label>
                                 <div className="grid grid-cols-2 gap-4">
-                                    <label className={`relative flex items-center justify-between p-4 border rounded cursor-pointer transition-all ${formData.role === 'manager' ? 'border-[#004253] bg-[#004253]/5' : 'border-slate-200 hover:bg-slate-50'}`}>
-                                        <span className="font-medium text-on-surface">مدير</span>
-                                        <input className="hidden" name="role" type="radio" value="manager" checked={formData.role === 'manager'} onChange={e => setFormData({...formData, role: e.target.value})} />
-                                    </label>
-                                    <label className={`relative flex items-center justify-between p-4 border rounded cursor-pointer transition-all ${formData.role === 'assistant' ? 'border-[#004253] bg-[#004253]/5' : 'border-slate-200 hover:bg-slate-50'}`}>
-                                        <span className="font-medium text-on-surface">مساعد مدير</span>
-                                        <input className="hidden" name="role" type="radio" value="assistant" checked={formData.role === 'assistant'} onChange={e => setFormData({...formData, role: e.target.value})} />
-                                    </label>
+                                    <button type="button" onClick={() => setFormData({...formData, role: 'manager'})} className={`flex items-center justify-between p-4 border rounded cursor-pointer transition-all ${formData.role === 'manager' ? 'border-[#004253] bg-[#004253]/5 font-bold' : 'border-slate-200 text-slate-500'}`}>
+                                        <span>مدير</span>
+                                        {formData.role === 'manager' && <span className="material-symbols-outlined text-[#004253]">check_circle</span>}
+                                    </button>
+                                    <button type="button" onClick={() => setFormData({...formData, role: 'assistant'})} className={`flex items-center justify-between p-4 border rounded cursor-pointer transition-all ${formData.role === 'assistant' ? 'border-[#004253] bg-[#004253]/5 font-bold' : 'border-slate-200 text-slate-500'}`}>
+                                        <span>مساعد مدير</span>
+                                        {formData.role === 'assistant' && <span className="material-symbols-outlined text-[#004253]">check_circle</span>}
+                                    </button>
                                 </div>
                             </div>
 
                             <div>
-                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5"><span className="material-symbols-outlined text-sm">lock</span> كلمة المرور</label>
+                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
+                                    <span className="material-symbols-outlined text-sm">lock</span> كلمة المرور
+                                </label>
                                 <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 text-left" dir="ltr" placeholder="••••••••" type="password" required value={formData.password} onChange={e => setFormData({...formData, password: e.target.value})} />
                             </div>
                             
                             <div>
-                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5"><span className="material-symbols-outlined text-sm">verified_user</span> تأكيد المرور</label>
+                                <label className="text-sm font-semibold flex items-center gap-2 mb-1.5 text-slate-700">
+                                    <span className="material-symbols-outlined text-sm">verified_user</span> تأكيد كلمة المرور
+                                </label>
                                 <input className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-200 text-left" dir="ltr" placeholder="••••••••" type="password" required value={formData.confirmPassword} onChange={e => setFormData({...formData, confirmPassword: e.target.value})} />
                             </div>
 
                             <div className="md:col-span-2 mt-4">
-                                <button className="w-full bg-[#004253] text-white py-4 rounded font-bold text-lg hover:bg-[#005b71] active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2" type="submit">
+                                <button className="w-full bg-[#004253] text-white py-4 rounded font-bold text-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2" type="submit">
                                     تسجيل الحساب
                                     <span className="material-symbols-outlined">arrow_back</span>
                                 </button>

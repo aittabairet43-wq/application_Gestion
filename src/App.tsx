@@ -14,6 +14,7 @@ import Users from './pages/users/index';
 import InvoicePreview from './pages/invoices/Preview';
 import DeveloperProfile from './pages/profile/Developer';
 import AccessDenied from './pages/errors/AccessDenied';
+import DataEngine from './pages/engine'; // تم اختصار الاستيراد ليكون أكثر دقة
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/" element={isAuthenticated ? <MainLayout /> : <Navigate to="/login" />}>
                     <Route index element={<Navigate to="/dashboard" />} />
                     <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="engine" element={<DataEngine />} />
                     <Route path="pos" element={<POS />} />
                     <Route path="inventory" element={<Inventory />} />
                     <Route path="inventory/:id" element={<ProductDetail />} />

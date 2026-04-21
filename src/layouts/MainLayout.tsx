@@ -15,6 +15,7 @@ const MainLayout = () => {
 
                 <nav className="flex-1 mt-4 px-2 space-y-1 overflow-y-auto custom-scrollbar">
                     <MenuLink to="/dashboard" icon="dashboard" label="لوحة القيادة" />
+                    <MenuLink to="/engine" icon="database" label="محرك البيانات" />
                     <MenuLink to="/pos" icon="shopping_cart" label="المبيعات" />
                     <MenuLink to="/inventory" icon="inventory_2" label="المخزون" />
                     <MenuLink to="/invoices/preview" icon="receipt_long" label="الفواتير" />
