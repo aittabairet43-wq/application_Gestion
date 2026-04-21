@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#8ff6d0",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "inverse-primary": "#8dd0e9",
+                    "tertiary-fixed": "#ffdcc4",
+                    "secondary-fixed": "#8ff6d0",
+                    "surface-container-low": "#f2f4f6",
+                    "background": "#f8f9fb",
+                    "primary-container": "#005b71",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#8ed1ea",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#5f2f00",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "on-primary-fixed-variant": "#004e61",
+                    "on-background": "#191c1e",
+                    "primary-fixed": "#b7eaff",
+                    "on-tertiary-container": "#ffb882",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-surface-variant": "#40484c",
+                    "on-secondary-container": "#007257",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "primary": "#004253",
+                    "on-secondary-fixed": "#002117",
+                    "on-primary-fixed": "#001f28",
+                    "inverse-surface": "#2e3132",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#19667d",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "tertiary-container": "#804307",
+                    "surface-bright": "#f8f9fb",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "on-tertiary-fixed": "#2f1400",
+                    "surface": "#f8f9fb",
+                    "outline-variant": "#bfc8cc",
+                    "outline": "#70787d",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#eceef0",
+                    "secondary": "#006c52",
+                    "on-surface": "#191c1e",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-full w-64 z-40 h-screen w-64 fixed right-0 top-0 border-l rounded-none bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800">
+<div class="p-6">
+<h1 class="text-xl font-black text-[#005B71] dark:text-[#98FFD9] tracking-tight">RetailCore</h1>
+<p class="text-xs text-slate-500 font-['Plus_Jakarta_Sans']">Grocery Management</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Invoices</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#005B71] dark:text-[#98FFD9] bg-cyan-50 dark:bg-cyan-900/20 border-l-4 border-[#005B71] dark:border-[#98FFD9] font-bold font-['Plus_Jakarta_Sans'] text-sm" href="#">
+<span class="material-symbols-outlined">notification_important</span>
+<span>Low Stock</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 text-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 text-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center px-8 h-16 fixed top-0 left-0 w-[calc(100%-16rem)] mr-64 z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-6">
+<span class="text-lg font-bold text-slate-900 dark:text-slate-100 font-headline">RetailCore Pro</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="bg-surface-container border-none rounded-lg pr-10 pl-4 py-1.5 text-sm w-64 focus:ring-2 ring-[#005B71]/20 outline-none" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:text-[#005B71] dark:hover:text-[#98FFD9] cursor-pointer transition-colors relative">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 hover:text-[#005B71] dark:hover:text-[#98FFD9] cursor-pointer transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="flex items-center gap-3 pr-4 border-r border-slate-200 dark:border-slate-800">
+<div class="text-right">
+<p class="text-xs font-bold">Store Manager</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider">Main Branch</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-sm">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="mr-64 pt-16 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-extrabold text-primary tracking-tight font-headline">Low Stock Alerts</h2>
+<p class="text-on-surface-variant mt-1">There are currently <span class="font-bold text-error">12 items</span> requiring immediate attention.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-highest text-on-surface rounded-lg font-semibold hover:bg-surface-container-high transition-colors text-sm">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Report
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-on-primary rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-lg">local_shipping</span>
+                        Bulk Reorder All
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stat Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center gap-5 shadow-sm">
+<div class="w-14 h-14 rounded-xl bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">warning</span>
+</div>
+<div>
+<p class="text-sm text-slate-500 font-medium">Critical Stock</p>
+<p class="text-2xl font-black text-slate-900">04</p>
+<p class="text-[10px] text-error font-bold">Below 5% Threshold</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center gap-5 shadow-sm">
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">hourglass_empty</span>
+</div>
+<div>
+<p class="text-sm text-slate-500 font-medium">Est. Depletion</p>
+<p class="text-2xl font-black text-slate-900">&lt; 48h</p>
+<p class="text-[10px] text-tertiary font-bold">Across 8 Categories</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center gap-5 shadow-sm">
+<div class="w-14 h-14 rounded-xl bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">pending_actions</span>
+</div>
+<div>
+<p class="text-sm text-slate-500 font-medium">Pending Orders</p>
+<p class="text-2xl font-black text-slate-900">07</p>
+<p class="text-[10px] text-secondary font-bold">In Transit to Warehouse</p>
+</div>
+</div>
+</div>
+<!-- Stock Alerts Table -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+<h3 class="font-bold text-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-error">campaign</span>
+                        Inventory Health Monitor
+                    </h3>
+<div class="flex gap-2">
+<select class="text-xs border-slate-200 rounded-lg bg-white px-3 py-1.5 focus:ring-primary">
+<option>All Suppliers</option>
+<option>Fresh Foods Ltd</option>
+<option>Global Dairy</option>
+</select>
+<select class="text-xs border-slate-200 rounded-lg bg-white px-3 py-1.5 focus:ring-primary">
+<option>Priority: High to Low</option>
+<option>Stock Level: Ascending</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-slate-50 text-slate-500 text-[10px] uppercase tracking-wider font-bold">
+<th class="px-6 py-4 border-b border-slate-100">Product Details</th>
+<th class="px-6 py-4 border-b border-slate-100">Supplier</th>
+<th class="px-6 py-4 border-b border-slate-100">Current Stock</th>
+<th class="px-6 py-4 border-b border-slate-100">Stock Health</th>
+<th class="px-6 py-4 border-b border-slate-100">Time to Deplete</th>
+<th class="px-6 py-4 border-b border-slate-100 text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Critical Item 1 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-slate-100 overflow-hidden border border-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="close up of fresh red apples in a wooden crate with soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEnRrHBMhcBA5LQkFHPLTABMuiIFOtHadLh5FggemQoVaF87gFBA8mJgCuFv1Wu0ADXGNMniR8wj8SZNYYdrBi75j_Ta7Oe-tkOvyU3AS8NLp37kjpFJp9yUlpYONhnfWyGHl1IRWsMSNitjK8kPxic5P0eAGNuJeMN-BdFX_0XC546ipVNa8v6URVgL1Lqh0kbDNlfDvB1FhcDHxmV6Q5pBmnZxg6KQVuR8wu5KzwZxCOB0i0A8aTzRC5y5thb8ccxSOAIYCH8fM"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 text-sm">Fresh Royal Gala Apples</p>
+<p class="text-xs text-slate-500">SKU: APP-RG-102</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-700">Fresh Foods Ltd</p>
+<p class="text-[10px] text-slate-400">Lead time: 2 days</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-black text-error">12 Units</span>
+<span class="text-[10px] text-slate-400">Threshold: 50 Units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 15%"></div>
+</div>
+<span class="text-[10px] text-error font-bold mt-1 inline-block">CRITICAL (15%)</span>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-error/10 text-error text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                        14 Hours
+                                    </div>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold shadow-sm hover:shadow-md transition-all active:scale-95">
+                                        Quick Reorder
+                                    </button>
+</td>
+</tr>
+<!-- Warning Item 2 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-slate-100 overflow-hidden border border-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="bottles of fresh milk standing in a row on a white clean refrigerated shelf in a store" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ugqGYv8qjCKpEqT1HxiVFTqq40Ef804XNgWnFkczoTnA6ztG-Ng_Z-1pTTG1kTObFI0pOk-6fy-iNC2D-QQpyqxlXaQ2Bxkyr4jpWN_ndIqerXuHQrnyokTktgXO6ghblay-3VNM0ZiKp2rGvPnoOfky4oTaLb3ArS_r9Cpof-7UIgo3rnvb8M_5HGuJwhyEQid-bUmxkJUt3V8DclXAWoeDMKpv3LeYO-6d0YeT40lzjeJM435A1DBgdkfCVl0dsL0IpFIqS7s"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 text-sm">Organic Whole Milk 1L</p>
+<p class="text-xs text-slate-500">SKU: MK-ORG-045</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-700">Global Dairy Co.</p>
+<p class="text-[10px] text-slate-400">Lead time: 1 day</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-black text-tertiary">45 Units</span>
+<span class="text-[10px] text-slate-400">Threshold: 100 Units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full" style="width: 45%"></div>
+</div>
+<span class="text-[10px] text-tertiary font-bold mt-1 inline-block">LOW (45%)</span>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-tertiary-fixed/40 text-tertiary text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                        36 Hours
+                                    </div>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold shadow-sm hover:shadow-md transition-all active:scale-95">
+                                        Quick Reorder
+                                    </button>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-slate-100 overflow-hidden border border-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="assorted fresh baked pastries and artisan cookies on a rustic metal tray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6T5Da1SpJ6N99mlBFpUA_Cyqn62PO4sim5PSGP60pcDzgi3Vu5daxKv7VX4x7lMfY0MrvLAfDaoeRxfkvWy_w9OJEXrgxHhgDeAXOCEFs7ZoaYM1FPryasHRdfIJh2jFJtFzdCx9pUX3DUaMq79tN7XQXB0dSkODuBF-QwpfxlBeWSwPI6c3am5HNSbxV4Nael1BJO8uQnibygf-nL9cR2r2-aXaNOa-Qz89c5yRRtZn4LznoPizqG215DTPwldIlGY9jXIq3ErI"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 text-sm">Chocolate Chip Cookies</p>
+<p class="text-xs text-slate-500">SKU: BC-CHOC-991</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-700">Artisan Bakeries</p>
+<p class="text-[10px] text-slate-400">Lead time: 3 days</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-black text-error">08 Units</span>
+<span class="text-[10px] text-slate-400">Threshold: 40 Units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 20%"></div>
+</div>
+<span class="text-[10px] text-error font-bold mt-1 inline-block">CRITICAL (20%)</span>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-error/10 text-error text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                        8 Hours
+                                    </div>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold shadow-sm hover:shadow-md transition-all active:scale-95">
+                                        Quick Reorder
+                                    </button>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-slate-100 overflow-hidden border border-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant green soda cans stacked in a neat minimalist pattern against a solid background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC0yrbzXesVb7tCvv-5hg4Ohw5PxtyIaP4VHiBMGUe8Mc5f7OEO79g2Sf1HvXpVsT5wQDFl2Q_gKkZC60xhbhMLB31ZJFZAQGXPlFXPk1tT7526lq2XNuqwwcpZLKhY-PNoiXOvYAzVUlJ2OO9AVYXRoALl9aXiOVklxd92FrzBI2zduFDkjBdTmoGOeN9XVzCcFcG2vTn9i5k_Y1CdTW_zLV-A1d8zHt2qB2qbvtiEzJtzi7wZTFywB-cPbKTQFoxdUgtnlpdWI8"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 text-sm">Sparkling Lemon Lime 330ml</p>
+<p class="text-xs text-slate-500">SKU: BV-SL-402</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-700">Beverage Distro</p>
+<p class="text-[10px] text-slate-400">Lead time: 5 days</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-black text-tertiary">120 Units</span>
+<span class="text-[10px] text-slate-400">Threshold: 300 Units</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full" style="width: 40%"></div>
+</div>
+<span class="text-[10px] text-tertiary font-bold mt-1 inline-block">LOW (40%)</span>
+</td>
+<td class="px-6 py-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-tertiary-fixed/40 text-tertiary text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                        5 Days
+                                    </div>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold shadow-sm hover:shadow-md transition-all active:scale-95">
+                                        Quick Reorder
+                                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-slate-50/50 border-t border-slate-100 flex justify-between items-center">
+<span class="text-xs text-slate-500">Showing 4 of 12 critical items</span>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded hover:bg-white transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded hover:bg-white text-xs">2</button>
+<button class="w-8 h-8 rounded hover:bg-white text-xs">3</button>
+<button class="p-2 rounded hover:bg-white transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+</div>
+</div>
+</div>
+<!-- Contextual Insights Section -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-primary-container p-8 rounded-xl text-on-primary-container relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-2">Smart Reorder Prediction</h4>
+<p class="text-sm opacity-90 mb-6 leading-relaxed">Based on your sales velocity for the upcoming weekend festival, we recommend increasing the order volume for "Fresh Royal Gala Apples" by 25% to avoid stockouts.</p>
+<button class="px-6 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-black text-sm hover:scale-105 transition-transform">
+                            Accept Recommendation
+                        </button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -left-4 text-9xl opacity-10 group-hover:scale-110 transition-transform">insights</span>
+</div>
+<div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+<h4 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[#005B71]">local_shipping</span>
+                        Supplier Performance Tracker
+                    </h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-600">Fresh Foods Ltd</span>
+<span class="text-xs font-bold text-secondary">98% On-Time</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 98%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-600">Global Dairy Co.</span>
+<span class="text-xs font-bold text-tertiary">82% On-Time</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full" style="width: 82%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-600">Beverage Distro</span>
+<span class="text-xs font-bold text-secondary">95% On-Time</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 95%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button - Supressed on Table/List focus as per mandate, but included for Dashboard context -->
+<!-- (Note: The mandate says supress on Detail/Transaction, but this is a dashboard context) -->
+<button class="fixed bottom-8 left-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined text-2xl">add_shopping_cart</span>
+</button>
+</body></html>

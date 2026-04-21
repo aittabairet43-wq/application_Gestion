@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>سجل حركة المخزون | FreshStock Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#191c1e",
+                      "on-surface-variant": "#40484c",
+                      "on-primary-fixed-variant": "#004e61",
+                      "on-primary-fixed": "#001f28",
+                      "primary-fixed": "#b7eaff",
+                      "surface-variant": "#e1e3e4",
+                      "primary": "#004253",
+                      "on-error-container": "#93000a",
+                      "surface": "#f8f9fb",
+                      "on-tertiary-fixed": "#2f1400",
+                      "on-secondary-container": "#007257",
+                      "surface-bright": "#f8f9fb",
+                      "outline-variant": "#bfc8cc",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-background": "#191c1e",
+                      "inverse-surface": "#2e3132",
+                      "on-tertiary-fixed-variant": "#6f3800",
+                      "on-secondary-fixed-variant": "#00513d",
+                      "background": "#f8f9fb",
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed-dim": "#73d9b5",
+                      "primary-fixed-dim": "#8dd0e9",
+                      "on-secondary-fixed": "#002117",
+                      "surface-tint": "#19667d",
+                      "outline": "#70787d",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb780",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "tertiary": "#5f2f00",
+                      "primary-container": "#005b71",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#ffdcc4",
+                      "secondary-container": "#8ff6d0",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f2f4f6",
+                      "tertiary-container": "#804307",
+                      "secondary-fixed": "#8ff6d0",
+                      "surface-dim": "#d8dadc",
+                      "on-tertiary-container": "#ffb882",
+                      "inverse-primary": "#8dd0e9",
+                      "secondary": "#006c52",
+                      "surface-container-high": "#e6e8ea",
+                      "on-primary-container": "#8ed1ea",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#eceef0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar (Desktop Shell) -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-l border-slate-200 bg-slate-50 py-4 gap-2 sticky top-0">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<div>
+<h2 class="text-lg font-extrabold text-teal-900 leading-none brand-font">Main Branch</h2>
+<p class="text-xs text-slate-500 font-medium">Grocery Manager</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 gap-3 text-slate-600 hover:bg-slate-200 hover:translate-x-[-4px] transition-transform duration-150 cursor-pointer text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<!-- ACTIVE TAB: Inventory -->
+<a class="flex items-center px-6 py-3 gap-3 bg-teal-100/50 text-teal-800 border-l-4 border-teal-700 font-bold transition-transform duration-150 cursor-pointer text-sm font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center px-6 py-3 gap-3 text-slate-600 hover:bg-slate-200 hover:translate-x-[-4px] transition-transform duration-150 cursor-pointer text-sm font-medium" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center px-6 py-3 gap-3 text-slate-600 hover:bg-slate-200 hover:translate-x-[-4px] transition-transform duration-150 cursor-pointer text-sm font-medium" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+                Shift Logs
+            </a>
+<a class="flex items-center px-6 py-3 gap-3 text-slate-600 hover:bg-slate-200 hover:translate-x-[-4px] transition-transform duration-150 cursor-pointer text-sm font-medium" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+                System Settings
+            </a>
+</nav>
+<div class="mt-auto px-6 py-4 space-y-1 border-t border-slate-200">
+<button class="w-full bg-primary py-3 rounded-lg text-white font-bold text-sm flex items-center justify-center gap-2 mb-4 hover:opacity-90 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                New Entry
+            </button>
+<a class="flex items-center py-2 gap-3 text-slate-600 hover:text-teal-800 transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                Help
+            </a>
+<a class="flex items-center py-2 gap-3 text-error hover:opacity-80 transition-opacity text-sm font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-6 h-16 w-full bg-white border-b border-slate-200 sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-teal-800 brand-font">FreshStock Pro</span>
+<span class="h-6 w-[1px] bg-slate-300"></span>
+<h1 class="font-headline font-semibold text-teal-800 tracking-tight">سجل حركة المخزون</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-slate-100 rounded-full px-4 py-2 border border-slate-200 w-96">
+<span class="material-symbols-outlined text-slate-400 text-lg mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-slate-400" placeholder="البحث عن منتج، رمز، أو رقم عملية..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-slate-50 transition-colors relative">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-slate-600">settings</span>
+</button>
+<img alt="Manager profile" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="Professional manager headshot in office attire with soft ambient office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh1rx8pImGVyaYFHTeMjfoabUgSbTzfH-Gzkkcn9HcHcSIe0CP8nftb6g8KzSx5tQdlopdoTrcnYn2HJvp5unyLqMCWvq07Su9KHgavGCpiuv-XhxV_xbb0tLbRdgwS0J-_d99XYNYa-s10Wxj8ksqKrHEICBJ39rMutu1PfSto9svy8HOYSJWRfOGppZn1Cpxcw8KLlAnbWF8lx2tOXA0X3XSxcHcC30LLp9J1LO4ZojUP9jfm8KpsQFR8T63jYQmWsCiUHr5R9Y"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="p-8 space-y-6">
+<!-- Filters & Actions Header -->
+<section class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+<div class="flex flex-wrap gap-3 w-full lg:w-auto">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-400 px-1 uppercase tracking-wider">التاريخ</label>
+<input class="border-slate-200 rounded text-sm px-3 py-2 bg-slate-50 focus:border-primary focus:ring-primary transition-all" type="date"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-400 px-1 uppercase tracking-wider">نوع الحركة</label>
+<select class="border-slate-200 rounded text-sm px-3 py-2 bg-slate-50 focus:border-primary focus:ring-primary transition-all min-w-[140px]">
+<option>الكل</option>
+<option>إضافة مخزون</option>
+<option>مبيعات</option>
+<option>مرتجع</option>
+<option>تالف</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-400 px-1 uppercase tracking-wider">الفرع</label>
+<select class="border-slate-200 rounded text-sm px-3 py-2 bg-slate-50 focus:border-primary focus:ring-primary transition-all min-w-[140px]">
+<option>الفرع الرئيسي</option>
+<option>فرع حي الروضة</option>
+<option>المستودع المركزي</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end lg:self-center">
+<button class="px-4 py-2 bg-slate-100 text-on-surface-variant rounded font-semibold text-sm flex items-center gap-2 hover:bg-slate-200 transition-colors border border-slate-200">
+<span class="material-symbols-outlined text-lg">file_download</span>
+                        تصدير (Excel)
+                    </button>
+<button class="px-4 py-2 bg-primary text-white rounded font-semibold text-sm flex items-center gap-2 hover:opacity-90 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-lg">filter_alt</span>
+                        تطبيق الفلاتر
+                    </button>
+</div>
+</section>
+<!-- Stats Overview - Bento Layout -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-xs font-bold text-slate-500 mb-1">إجمالي الحركات اليوم</p>
+<h3 class="text-2xl font-extrabold text-teal-800 brand-font">١٤٢</h3>
+</div>
+<div class="mt-4 text-[10px] text-teal-600 bg-teal-50 px-2 py-1 rounded inline-block w-fit font-bold">
+                        +١٢٪ عن الأمس
+                    </div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-xs font-bold text-slate-500 mb-1">قيمة المبيعات</p>
+<h3 class="text-2xl font-extrabold text-teal-800 brand-font">١٢,٤٠٠ ر.س</h3>
+</div>
+<div class="mt-4 text-[10px] text-teal-600 bg-teal-50 px-2 py-1 rounded inline-block w-fit font-bold">
+                        مستقر
+                    </div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col justify-between border-b-4 border-b-tertiary">
+<div>
+<p class="text-xs font-bold text-slate-500 mb-1">مرتجعات معلقة</p>
+<h3 class="text-2xl font-extrabold text-tertiary-container brand-font">٨</h3>
+</div>
+<div class="mt-4 text-[10px] text-tertiary-container bg-tertiary-fixed px-2 py-1 rounded inline-block w-fit font-bold">
+                        يحتاج مراجعة
+                    </div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex flex-col justify-between border-b-4 border-b-error">
+<div>
+<p class="text-xs font-bold text-slate-500 mb-1">توالف المسجلة</p>
+<h3 class="text-2xl font-extrabold text-error brand-font">٣</h3>
+</div>
+<div class="mt-4 text-[10px] text-error bg-error-container px-2 py-1 rounded inline-block w-fit font-bold">
+                        انخفاض -٥٪
+                    </div>
+</div>
+</section>
+<!-- Main Log Table -->
+<section class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+<h2 class="font-headline font-bold text-teal-900">سجل التفاصيل</h2>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-slate-200 rounded"><span class="material-symbols-outlined text-slate-400">refresh</span></button>
+<button class="p-1 hover:bg-slate-200 rounded"><span class="material-symbols-outlined text-slate-400">more_vert</span></button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-slate-50/80 border-b border-slate-200">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">رقم العملية</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">التاريخ والوقت</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">المنتج</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">النوع</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">الكمية</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">بواسطة</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider">الحالة</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 tracking-wider text-center">إجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#TRX-8821</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">
+                                    ٢٠٢٣/١٠/٢٥ <span class="text-xs text-slate-400 mr-1">٠٩:١٥ ص</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="Close-up of fresh organic gala apples in a wooden crate with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVdSLBoW4e9a7EYqfP2xXgTCnJRD7hg4U6T6h-p9WZ9PRi0qGkuaW7bUhonRabwrpqmvENbKY92PjTibhHK17m-kVyXKCWVqZdcBzVHklJiykYtaPNGv5gZsozYE3wu5xECd8vhFJbKGbF_TP_nEvPxeVTj-31bb1gUACSXH2EIi3ltcuMqR4J1uV3RNTE_9nWvGzLE6a0eNOkvrkklPfP9TpO3g8zbrIkfrJpsYznMvhPMEYsorq61pgIPrSsN4K8_W6j_hl6ZmE"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">تفاح جالا أحمر</p>
+<p class="text-[10px] text-slate-400">SKU: APP-RED-01</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-[10px] font-bold bg-secondary-container text-on-secondary-container">
+                                        إضافة مخزون
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-teal-700">+٥٠٠ كجم</td>
+<td class="px-6 py-4 text-sm text-slate-600">أحمد محمد</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        مكتمل
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">visibility</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#TRX-8820</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">
+                                    ٢٠٢٣/١٠/٢٥ <span class="text-xs text-slate-400 mr-1">٠٨:٤٥ ص</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="Single large green head of fresh lettuce on white background with vibrant studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZNhKuVZ9EJb7DVd3mFMJdiq0W3KbkX8Bc0GLqTTEsRXwaX31GYBjOC865mArD-FcEJ3kp6PTbvWUrrztHM7nDUk-KWnctKP6E6UslYBska3ae3O_uHBoELBoqIZM3O2ywI2fDo8WfoP5xSLGsiWXDXf-rv86USLKtISZZ6mLlNKwFjhVDgOxcMAlHfwDlyZRJ2rhJ14M46IDAcdiGer9BXaQX879u8qpLPIMbdSDU_nUEUbJQHsqa7JTGGR9RApW1GlHfuI20pmA"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">خس عضوي</p>
+<p class="text-[10px] text-slate-400">SKU: LET-ORG-05</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-[10px] font-bold bg-slate-200 text-on-surface-variant">
+                                        مبيعات
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-error">-٢٢ وحدة</td>
+<td class="px-6 py-4 text-sm text-slate-600">النظام الآلي</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        مكتمل
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">visibility</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#TRX-8819</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">
+                                    ٢٠٢٣/١٠/٢٥ <span class="text-xs text-slate-400 mr-1">٠٨:١٠ ص</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="Close-up of fresh whole milk in glass bottle with dairy farm background and bright morning sun" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9WEEfEsNO5Fbw-YBrDCaIT289o4hagOSuQhyLdZrGxKTnjWbesDL1SNH_tVrJKeZeJuWKByEAAjrG_hsPIguIMIK-qNMm6efh85ZaKE04zMTSkM2SRjsk7XCS_R4KpvBxhK3ZcKpH10yoRMWuU2qcRA7ZpzKiuF9dK7UQgegNuI3GEyc5ebg5id0DgVSm_lkNyaT_h7h-BXbMIEfjpgOEOHT1_-Y_x-wmYoKv-xfocFfw3PZxol9tjSjezc03CSa49LhUcsPraSE"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">حليب طازج ١ لتر</p>
+<p class="text-[10px] text-slate-400">SKU: MLK-WHL-1L</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-[10px] font-bold bg-error-container text-on-error-container">
+                                        تالف
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-error">-٥ علب</td>
+<td class="px-6 py-4 text-sm text-slate-600">سارة علي</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                        قيد المراجعة
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">visibility</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-400">#TRX-8818</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">
+                                    ٢٠٢٣/١٠/٢٤ <span class="text-xs text-slate-400 mr-1">٠٧:٤٥ م</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-100 overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="Basket of ripe apples on a kitchen table with warm domestic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtXbJ7dLqQFcqA1Wtu2T4VvxTrBSnqtwfzlrV0t-shVCmnV-TEt5KVq_b43U2o0S9e7nouhULzL-s5ev3UvdsabHZSeHNyMLcgr2JvlDVJarqUc72cwixhomX4FV2E8YPwWXQPFYI7Bu11p7l2RR9G0DThKu9momOSB3o9HRL35fSbvJzmwZvWuVDcv7RUsrc1CYPuBUnCyOK-Khr3mgaN0xRxK4B6mMKb9OmT7WVyN2KWUyqUGU7i-tN5b0hy6ExucHoR35L6S74"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">تفاح جالا أحمر</p>
+<p class="text-[10px] text-slate-400">SKU: APP-RED-01</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+                                        مرتجع
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm font-bold text-teal-700">+٢ كجم</td>
+<td class="px-6 py-4 text-sm text-slate-600">فهد العتيبي</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        مكتمل
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">visibility</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-slate-50 flex items-center justify-between border-t border-slate-200">
+<p class="text-xs text-slate-500 font-medium">عرض ١ - ١٠ من أصل ١,٢٤٠ حركة</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 hover:bg-white text-slate-400 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary bg-primary text-white font-bold text-xs">١</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 hover:bg-white text-slate-600 font-bold text-xs">٢</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 hover:bg-white text-slate-600 font-bold text-xs">٣</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 hover:bg-white text-slate-600 font-bold text-xs">١٢٤</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 hover:bg-white text-slate-600">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

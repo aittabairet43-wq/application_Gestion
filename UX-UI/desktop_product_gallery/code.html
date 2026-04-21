@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#bfc8cc",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9fb",
+                        "secondary-fixed-dim": "#73d9b5",
+                        "inverse-primary": "#8dd0e9",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#2f1400",
+                        "primary-fixed-dim": "#8dd0e9",
+                        "outline": "#70787d",
+                        "surface-tint": "#19667d",
+                        "on-surface-variant": "#40484c",
+                        "on-secondary-fixed-variant": "#00513d",
+                        "secondary": "#006c52",
+                        "primary": "#004253",
+                        "tertiary-container": "#804307",
+                        "secondary-fixed": "#8ff6d0",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary-container": "#005b71",
+                        "on-secondary-container": "#007257",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "tertiary": "#5f2f00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#8ed1ea",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001f28",
+                        "primary-fixed": "#b7eaff",
+                        "on-tertiary-container": "#ffb882",
+                        "tertiary-fixed": "#ffdcc4",
+                        "surface": "#f8f9fb",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#004e61",
+                        "on-secondary-fixed": "#002117",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#8ff6d0",
+                        "surface-bright": "#f8f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-teal-800 dark:text-teal-400 tracking-tight brand-font">Kinetiq Retail</span>
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="text-teal-800 dark:text-teal-400 border-b-2 border-teal-800 h-16 flex items-center px-2 font-semibold" href="#">Inventory</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors h-16 flex items-center px-2" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors h-16 flex items-center px-2" href="#">Sales</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pr-10 pl-4 py-2 bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-primary-container w-64 text-sm" placeholder="بحث في المنتجات..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed right-0 top-0 h-full w-64 bg-slate-50 dark:bg-slate-950 border-l border-slate-200 dark:border-slate-800 flex flex-col py-4 z-40 mt-16">
+<div class="px-6 py-4 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined">store</span>
+</div>
+<div>
+<h3 class="text-sm font-bold text-teal-800">الفرع الرئيسي</h3>
+<p class="text-xs text-slate-500">مدير المتجر</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-[-4px] transition-transform duration-200 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>لوحة التحكم</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-teal-50 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 font-bold border-l-4 border-teal-800 hover:translate-x-[-4px] transition-transform duration-200 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>المخزون</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-[-4px] transition-transform duration-200 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>المبيعات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-[-4px] transition-transform duration-200 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>العملاء</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-[-4px] transition-transform duration-200 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>الإعدادات</span>
+</a>
+</nav>
+<div class="px-3 py-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span>الدعم الفني</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 transition-colors rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>تسجيل الخروج</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="mr-64 mt-16 p-8 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex gap-2 text-xs text-slate-500 mb-2">
+<span>المخزون</span>
+<span>/</span>
+<span>المنتجات</span>
+<span>/</span>
+<span class="text-primary font-medium">معرض الصور</span>
+</nav>
+<h1 class="text-3xl font-extrabold text-teal-800 tracking-tight">معرض صور المنتج</h1>
+<p class="text-slate-600 mt-1">إدارة وتحرير صور "ساعة ذكية - الإصدار الاحترافي"</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 border border-outline-variant text-on-surface font-semibold rounded-lg hover:bg-surface-container transition-colors">إلغاء</button>
+<button class="px-6 py-2.5 bg-primary-container text-white font-semibold rounded-lg hover:opacity-90 shadow-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                        حفظ التغييرات
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Gallery -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Featured Image -->
+<div class="col-span-12 lg:col-span-7 bg-white p-4 rounded-xl shadow-sm border border-slate-100 group relative">
+<div class="relative aspect-[16/10] overflow-hidden rounded-lg">
+<img alt="منتج رئيسي" class="w-full h-full object-cover" data-alt="minimalist product photography of a premium silver smartwatch with a white silicone strap on a clean light grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQRPle9hzAV6xDrH4PKwaWYWPXkdtw_ejUBu-IeGu9Lqbjl-iDUSOhJJekDVypM7TWXoTyy1LRin5N_ELrb0RSjbxl9IcPnmvrOsUvfz7ELVhOkdLBf5nSDP5-S91UIlbMpoLRjyM1iosGixPsvS0k0bSVJQ35HPTVxHvKQ2jXWpXtjpi4bPoJ3qYOoxTj6FwKKmbumu1HefNDGxhnhSey6C-mgEb2txGmAhbojn77GCtXHFrvph3RgeGReNVyvM4Jm91f4yWNr9o"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full shadow-lg">الصورة الأساسية</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<button class="w-10 h-10 rounded-full bg-white/90 text-primary flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white/90 text-error flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center px-2">
+<div>
+<span class="text-sm font-bold text-slate-800">main_view_hero.jpg</span>
+<p class="text-xs text-slate-400">1.2 MB • 2400 × 1500</p>
+</div>
+<button class="text-primary text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">aspect_ratio</span>
+                            تكبير
+                        </button>
+</div>
+</div>
+<!-- Right Side Grid -->
+<div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
+<!-- Image 2 -->
+<div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 group relative">
+<div class="relative aspect-square overflow-hidden rounded-lg">
+<img alt="عرض جانبي" class="w-full h-full object-cover" data-alt="close-up side profile of a smartwatch showing the digital crown and sleek metallic finish with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8FaclRhNBpbKrC99cH4wPyl_TGw9W-qFEYJDaLAS5csIbaGXAZJTMXzXj6jA0G8z-ScR0INms7Q9h5DkQMCnD_WXghsABdzlgOZURWSpc54WA-u19v-_zUzyazNtmZo181AE039NTyfoaba6auZulJAlHD5RFpqV6--cj7DfmMGTE31uYXJaFJ4VW41SJyR1KNupe7VsgoRPZTZELNXuPpBpcj9iMKibWfOoX_-XhY36RgLNrI9cikNoXtmadDEs1evEySQ_rFWY"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-white/90 text-primary flex items-center justify-center text-sm hover:bg-white">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-white/90 text-error flex items-center justify-center text-sm hover:bg-white">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<p class="mt-2 text-xs font-medium text-slate-600 truncate">side_profile.jpg</p>
+</div>
+<!-- Image 3 -->
+<div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 group relative">
+<div class="relative aspect-square overflow-hidden rounded-lg">
+<img alt="نمط الحياة" class="w-full h-full object-cover" data-alt="lifestyle shot of a professional wearing a smartwatch while typing on a laptop in a modern sunlit home office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRq--sfYiztQJa-6LVQC3lv5Z7pI7q8nCrw_VXGXZW6u8ZrJGBj5STQL9Z7PfEs1DvT2FZUBGgPiuiRTCa1yIi9p2L52lWaORwSgsDwoEfc4LVHe8D4LSuwYXkCjL9sPN2oOCtNfSAseGvUfT-P_DtWJzxZ1ShLrHwHg4ha6cBnd97sZDIdd3MOIDDu0qGaWUR7BUJOWmCJynVHshw03o8_9ktxcvVGCKobVydgbSYtvEh5xPsQcJSA8j4QAy7mtNqmrO4RZyxaMA"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-white/90 text-primary flex items-center justify-center text-sm hover:bg-white">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-white/90 text-error flex items-center justify-center text-sm hover:bg-white">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<p class="mt-2 text-xs font-medium text-slate-600 truncate">lifestyle_01.jpg</p>
+</div>
+<!-- Image 4 -->
+<div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 group relative">
+<div class="relative aspect-square overflow-hidden rounded-lg">
+<img alt="التعبئة والتغليف" class="w-full h-full object-cover" data-alt="overhead view of luxury watch packaging with a clean white box and minimalist branding on a textured surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCwvLXRKYAzSJxaPUCAY8uhPRy6EUG6nFEWy1aHjVb2zCRGuF4gmsAqysDnBTYR_G5xtRVFfeb91eOpzpE51nt-heXCUyJRR8KNYpHuDQLeuNl6VGMBGU3m5VGvIjcAOJfmVwV5Nnlxpp1pD49l_cC6eEJfd14OWyZ3bjYxoVSyypgi8c7P3Azaf8bSqH03Vza2e2h3n3Upv8tdoeyOYt5_35cDWkZzjK9Wrlnezy8Q_Ry2G9H-Ae3GdDEkGgMbq61M2EV9uDzQJ4"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-white/90 text-primary flex items-center justify-center text-sm hover:bg-white">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-white/90 text-error flex items-center justify-center text-sm hover:bg-white">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<p class="mt-2 text-xs font-medium text-slate-600 truncate">packaging_detail.jpg</p>
+</div>
+<!-- Upload Placeholder -->
+<label class="cursor-pointer bg-slate-50 border-2 border-dashed border-slate-200 rounded-xl flex flex-col items-center justify-center aspect-square group hover:border-primary-container hover:bg-teal-50/30 transition-all">
+<input class="hidden" type="file"/>
+<div class="w-12 h-12 rounded-full bg-slate-100 group-hover:bg-primary-container group-hover:text-white transition-colors flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">add_a_photo</span>
+</div>
+<span class="text-xs font-bold text-slate-500 group-hover:text-primary-container">إضافة صورة</span>
+<span class="text-[10px] text-slate-400 mt-1">PNG, JPG حتى 10MB</span>
+</label>
+</div>
+</div>
+<!-- Guidelines and Info Card -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-teal-50/50 p-5 rounded-xl border border-teal-100 flex gap-4">
+<span class="material-symbols-outlined text-teal-700">info</span>
+<div>
+<h4 class="text-sm font-bold text-teal-900 mb-1">نصيحة الصور</h4>
+<p class="text-xs text-teal-800/80 leading-relaxed">استخدم صوراً بخلفية بيضاء للحصول على أفضل مظهر في المتجر الإلكتروني. الحجم الموصى به هو 1200x1200px.</p>
+</div>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-outline-variant/30 flex gap-4">
+<span class="material-symbols-outlined text-slate-600">settings_backup_restore</span>
+<div>
+<h4 class="text-sm font-bold text-slate-800 mb-1">النسخ الاحتياطي</h4>
+<p class="text-xs text-slate-600 leading-relaxed">يتم الاحتفاظ بجميع الصور الأصلية بدقتها الكاملة لضمان الجودة في المستقبل.</p>
+</div>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-outline-variant/30 flex gap-4">
+<span class="material-symbols-outlined text-slate-600">visibility</span>
+<div>
+<h4 class="text-sm font-bold text-slate-800 mb-1">المعاينة الفورية</h4>
+<p class="text-xs text-slate-600 leading-relaxed">يمكنك سحب وإفلات الصور لإعادة ترتيبها وتغيير ترتيب العرض في صفحة المنتج.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - Contextual for primary action -->
+<button class="fixed bottom-8 left-8 w-14 h-14 bg-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 z-50">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

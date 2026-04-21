@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#70787d",
+                        "on-secondary-fixed": "#002117",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container": "#eceef0",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#bfc8cc",
+                        "surface": "#f8f9fb",
+                        "surface-variant": "#e1e3e4",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#8ed1ea",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-container": "#007257",
+                        "primary-fixed-dim": "#8dd0e9",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#5f2f00",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#001f28",
+                        "primary-container": "#005b71",
+                        "primary": "#004253",
+                        "tertiary-fixed": "#ffdcc4",
+                        "secondary": "#006c52",
+                        "primary-fixed": "#b7eaff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#19667d",
+                        "on-primary-fixed-variant": "#004e61",
+                        "on-surface-variant": "#40484c",
+                        "secondary-fixed-dim": "#73d9b5",
+                        "on-tertiary-container": "#ffb882",
+                        "on-tertiary-fixed": "#2f1400",
+                        "secondary-container": "#8ff6d0",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "background": "#f8f9fb",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#804307",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#8ff6d0",
+                        "on-surface": "#191c1e",
+                        "inverse-primary": "#8dd0e9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#00513d",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex items-center justify-center p-6 antialiased">
+<!-- Background Pattern Decoration -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+<div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-primary-fixed opacity-20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-secondary-fixed opacity-20 blur-[120px] rounded-full"></div>
+</div>
+<!-- Main Confirmation Container -->
+<main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-0 bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden border border-surface-container-high">
+<!-- Left Side: Visual & Brand Brand Branding (Responsive: Top on Mobile) -->
+<div class="md:col-span-5 bg-primary-container p-8 lg:p-12 flex flex-col justify-between text-on-primary">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary-fixed">Kinetiq Retail</span>
+</div>
+<div class="pt-8">
+<h1 class="text-3xl font-extrabold leading-tight mb-4">تأكيد الخروج الآمن</h1>
+<p class="text-primary-fixed opacity-90 leading-relaxed text-lg">شكراً لعملك الدؤوب اليوم. يرجى مراجعة ملخص الجلسة قبل تسجيل الخروج للتأكد من حفظ جميع البيانات.</p>
+</div>
+</div>
+<div class="mt-12 md:mt-0">
+<div class="relative rounded-lg overflow-hidden h-48 w-full group">
+<img alt="Abstract representation of data synchronization and secure connection" class="w-full h-full object-cover" data-alt="abstract professional digital art showing glowing data nodes and security shield in deep teal and mint green tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5HAOdJ9QW6y5_-6yUcTtTW8kKfa6pIgwe_O6Tdl5PBe137PlkMt9hEhOJAWSyM6cWMud-aVcoKt0MbfmFpAmm4p94VvW8EyQUGhkGzdtETdBtnyBSaTG_CdSXsIbBp_DO1NDcBetigwhyyYbl9fuX56blIWsAzRO2OT7wWWLo7BsqeHoTJJT5qS4jxQh4zmN3qf_g8M1MtowraRgbsjLLgb71KoHpbetIp5Y7NMJpU1qJJLq5fvHHEJnMt3DNtq-8KiGjQ29NGtU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Right Side: Content & Actions -->
+<div class="md:col-span-7 p-8 lg:p-12 flex flex-col justify-center">
+<!-- Session Summary Section -->
+<div class="mb-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h2 class="text-sm font-bold uppercase tracking-widest text-outline">ملخص الجلسة الحالية</h2>
+</div>
+<!-- Bento Grid Summary -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-5 rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-primary mb-2">timer</span>
+<div class="text-2xl font-bold text-on-surface">08:42:15</div>
+<div class="text-xs text-outline font-medium">مدة النشاط</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">payments</span>
+<div class="text-2xl font-bold text-on-surface">14,250 ر.س</div>
+<div class="text-xs text-outline font-medium">إجمالي المبيعات</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-tertiary mb-2">shopping_bag</span>
+<div class="text-2xl font-bold text-on-surface">42</div>
+<div class="text-xs text-outline font-medium">الطلبات المكتملة</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg border border-surface-container">
+<span class="material-symbols-outlined text-outline mb-2">sync</span>
+<div class="text-2xl font-bold text-on-surface">مكتمل</div>
+<div class="text-xs text-outline font-medium">حالة المزامنة</div>
+</div>
+</div>
+</div>
+<!-- Confirmation Message -->
+<div class="mb-10 p-4 bg-tertiary-fixed/30 border border-tertiary-fixed rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary mt-0.5">info</span>
+<div>
+<p class="text-on-tertiary-fixed text-sm font-medium">هل أنت متأكد من رغبتك في تسجيل الخروج؟</p>
+<p class="text-on-tertiary-fixed/70 text-xs mt-1">سيتم إغلاق الجلسة الحالية وتشفير بيانات الدخول مؤقتاً.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 bg-error text-on-error py-4 px-6 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-95 transition-all shadow-lg shadow-error/20">
+<span class="material-symbols-outlined">logout</span>
+                    تأكيد الخروج
+                </button>
+<button class="flex-1 bg-surface-container-high text-on-surface-variant py-4 px-6 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-surface-container-highest active:scale-95 transition-all border border-outline-variant">
+<span class="material-symbols-outlined">arrow_forward</span>
+                    العودة للوحة التحكم
+                </button>
+</div>
+<!-- Footer Meta -->
+<div class="mt-12 pt-8 border-t border-surface-container flex justify-between items-center text-xs text-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">account_circle</span>
+<span>المستخدم: أحمد محمد (مدير فرع)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">devices</span>
+<span>جهاز: Terminal-04</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Support Link -->
+<div class="fixed bottom-8 text-outline text-sm hover:text-primary transition-colors cursor-pointer flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+<span>تحتاج مساعدة؟ تواصل مع الدعم الفني</span>
+</div>
+</body></html>

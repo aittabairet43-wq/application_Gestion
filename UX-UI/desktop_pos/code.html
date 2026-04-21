@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>نقطة البيع</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9fb",
+                        "on-surface-variant": "#40484c",
+                        "on-secondary-fixed": "#002117",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ffb882",
+                        "on-surface": "#191c1e",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fb",
+                        "primary-fixed": "#b7eaff",
+                        "on-tertiary-fixed": "#2f1400",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-container": "#8ed1ea",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-tint": "#19667d",
+                        "primary": "#004253",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#804307",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed-dim": "#73d9b5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "primary-container": "#005b71",
+                        "on-secondary-container": "#007257",
+                        "on-secondary-fixed-variant": "#00513d",
+                        "secondary-fixed": "#8ff6d0",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "outline": "#70787d",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "secondary-container": "#8ff6d0",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#bfc8cc",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed-variant": "#004e61",
+                        "surface-container": "#eceef0",
+                        "secondary": "#006c52",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#8dd0e9",
+                        "primary-fixed-dim": "#8dd0e9",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#5f2f00",
+                        "tertiary-fixed": "#ffdcc4",
+                        "on-primary-fixed": "#001f28"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed right-0 top-0 h-screen w-64 flex flex-col z-40 bg-teal-900 border-l border-teal-800 shadow-xl">
+<div class="p-6 flex flex-col items-center gap-3 border-b border-teal-800">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-white/10 flex items-center justify-center">
+<img alt="شعار المتجر" class="w-full h-full object-cover" data-alt="professional minimalist logo for a high-end retail chain featuring geometric teal shapes on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpHgIk2e8rTOH7PnJngPDsj8HjpQQj3FdUkfYkXugTgwzSsDZ66PzRL2aW9UfVkIdZkG95X9uweB5JNgB0OZkfb_SnhamS5YwGK38ujxSfxprArCHvm_wfxn7QoLhwOO5hEyPwOCkKil7ID44Rek5cg2ldnLEIiwJzrq2whHw6c5O5UjpZOhCMt_Nz-VL1hnPuwrC9oYmutRfba2SpPbm_03I38wVnNssbse9tgvvSNMV_szQh9wciFCE5yJo-nzNAzWJgC-YzlzU"/>
+</div>
+<div class="text-center">
+<h2 class="text-lg font-black text-white headline">متجر الخير</h2>
+<p class="text-xs text-emerald-300 font-medium">مدير النظام</p>
+</div>
+</div>
+<nav class="flex-1 px-3 py-4 space-y-1">
+<a class="flex items-center gap-3 bg-teal-800 text-emerald-300 rounded-md px-4 py-3 mb-1 scale-100 hover:scale-[1.02] duration-150 transition-all" href="#">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">نقطة البيع</span>
+</a>
+<a class="flex items-center gap-3 text-slate-300 hover:text-white px-4 py-3 mb-1 hover:bg-teal-800/50 scale-100 hover:scale-[1.02] duration-150 transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">المخزون</span>
+</a>
+<a class="flex items-center gap-3 text-slate-300 hover:text-white px-4 py-3 mb-1 hover:bg-teal-800/50 scale-100 hover:scale-[1.02] duration-150 transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">المبيعات</span>
+</a>
+<a class="flex items-center gap-3 text-slate-300 hover:text-white px-4 py-3 mb-1 hover:bg-teal-800/50 scale-100 hover:scale-[1.02] duration-150 transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">التقارير</span>
+</a>
+<a class="flex items-center gap-3 text-slate-300 hover:text-white px-4 py-3 mb-1 hover:bg-teal-800/50 scale-100 hover:scale-[1.02] duration-150 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">الإعدادات</span>
+</a>
+</nav>
+<div class="px-3 pb-8">
+<button class="w-full bg-emerald-500 hover:bg-emerald-400 text-teal-900 font-bold py-3 px-4 rounded-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-sm">إضافة منتج جديد</span>
+</button>
+<button class="w-full mt-4 flex items-center gap-3 text-slate-300 hover:text-white px-4 py-3 hover:bg-teal-800/50 transition-all">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">تسجيل الخروج</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="mr-64 min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex flex-row-reverse justify-between items-center w-full px-6 py-3 bg-white border-b border-slate-200 docked full-width top-0">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-slate-50 p-2 rounded transition-colors" title="مساعدة">help</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-slate-50 p-2 rounded transition-colors" title="تنبيهات">notifications</span>
+</div>
+<div class="flex items-center gap-3 border-r pr-6 border-slate-200">
+<div class="text-right">
+<p class="text-xs text-on-surface-variant">مرحباً بك،</p>
+<p class="text-sm font-semibold text-teal-800">أحمد محمد</p>
+</div>
+<img alt="صورة المستخدم" class="w-10 h-10 rounded-full border-2 border-teal-100" data-alt="portrait of a professional arab businessman in a modern office setting, soft professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoG6jEF0vH0yRg0Fbmd23JduadFoc1_P9ihiWlQukrky8xka5bJROSCTNrlmBZTCa6XuEvzy7zXG5sraJs0GXVRK5djdOfovEM0oi1NSKfyhREsJ6S3xvWhVtpFy2bsHnCudFgEZBSJ4I0GH7t87ANiKDWcnqGFIAj1fjYB3EOMUcQbbjmPFA21iLkGVaSDLSVXYhBda7mLapFJCrUwDhH6PUSxQaxLzhCLDWTI0jusrIfIR30OOUhlUUG3KwnVGNEYNLNk6I5--g"/>
+</div>
+</div>
+<div class="flex-1 max-w-xl mx-8">
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pr-10 pl-4 py-2.5 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-primary-container/20 text-sm" placeholder="ابحث عن منتج أو امسح الباركود..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold text-teal-800 headline">نظام إدارة البقالة</span>
+</div>
+</header>
+<!-- POS Interface Body -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Side: Product Catalog (70% width) -->
+<section class="w-[65%] p-6 flex flex-col gap-6 overflow-y-auto bg-surface-bright">
+<!-- Category Grid -->
+<div class="grid grid-cols-6 gap-3">
+<button class="bg-white border-2 border-teal-600 p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 group transition-all hover:shadow-md">
+<span class="material-symbols-outlined text-teal-700" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-xs font-bold text-teal-900">الكل</span>
+</button>
+<button class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 group transition-all hover:border-teal-600 hover:shadow-md">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-teal-700">grocery</span>
+<span class="text-xs font-medium text-on-surface">خضروات</span>
+</button>
+<button class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 group transition-all hover:border-teal-600 hover:shadow-md">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-teal-700">icecream</span>
+<span class="text-xs font-medium text-on-surface">مثلجات</span>
+</button>
+<button class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 group transition-all hover:border-teal-600 hover:shadow-md">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-teal-700">egg</span>
+<span class="text-xs font-medium text-on-surface">ألبان</span>
+</button>
+<button class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 group transition-all hover:border-teal-600 hover:shadow-md">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-teal-700">bakery_dining</span>
+<span class="text-xs font-medium text-on-surface">مخبوزات</span>
+</button>
+<button class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 group transition-all hover:border-teal-600 hover:shadow-md">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-teal-700">liquor</span>
+<span class="text-xs font-medium text-on-surface">مشروبات</span>
+</button>
+</div>
+<!-- Products Grid -->
+<div class="grid grid-cols-4 gap-4">
+<!-- Product Card -->
+<div class="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col gap-3 group hover:border-primary-container transition-all cursor-pointer relative overflow-hidden">
+<div class="h-32 bg-slate-50 rounded-lg overflow-hidden relative">
+<img alt="منتج" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" data-alt="bottle of fresh organic whole milk with water droplets, bright studio lighting, clean commercial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkBHVa9KFfDwqbYZXqaVe36NFZjneCV6xxB726KLZxCLCErk3GRTOa5N8eM4DeBhHlG7mrsJ9HrB-H_FUy_9yE3b7yGXT-1HWE10QOQf4hm_v5kv3rcXX2kIYXp1CpQ31fhrcy7ES44A3Alt8GBXXqZsgoOUMwOFLEk1RmnZA8jvnDV0RvJjXLOXnVEFVG5LZj-adgW6EwLB2K3RJiSfxj2BNfk_aPIG1MT9wE-1mXOgxjya-kBCtnN24Z3fMf_tWDmMtMr_BOB5s"/>
+<span class="absolute top-2 right-2 bg-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">متوفر</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">حليب المراعي 1 لتر</h4>
+<p class="text-xs text-on-surface-variant mt-1">المراعي • ألبان</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-lg font-black text-primary">6.50 <small class="text-[10px]">ر.س</small></span>
+<div class="bg-primary-container text-white p-2 rounded-lg group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined leading-none">add</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col gap-3 group hover:border-primary-container transition-all cursor-pointer relative overflow-hidden">
+<div class="h-32 bg-slate-50 rounded-lg overflow-hidden">
+<img alt="منتج" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" data-alt="loaf of freshly sliced whole wheat bread on a white surface, warm bakery lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN762QGW2RHLuwe-d9WjF8E4aATlqIHG3-EkytD0TN69qqOPaqEYMUDjLlF4GReaptEPK2q5TfUBEDicPkp8QAFNUPOz9ZALbTU7AE8tl2M32-YSGiTOY6Exiy86k7NG03j4yFRyCpCyaAu118Cx1WOxPRuC1jKRduxiyUGpVv38VwQOKpy7KenwFCyWzDLkWpyo5GTrQ_pumJQbDrVZJHtpil0BGtaYrms7OQpUn8pYB2k0fJS9fd8ACjcwjAQi4dZVbJivHtK0c"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">خبز توست أبيض</h4>
+<p class="text-xs text-on-surface-variant mt-1">هرفي • مخبوزات</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-lg font-black text-primary">5.00 <small class="text-[10px]">ر.س</small></span>
+<div class="bg-primary-container text-white p-2 rounded-lg group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined leading-none">add</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col gap-3 group hover:border-primary-container transition-all cursor-pointer relative overflow-hidden">
+<div class="h-32 bg-slate-50 rounded-lg overflow-hidden">
+<img alt="منتج" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" data-alt="pack of premium basmati rice with golden details, high quality product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtBJMGTKH-0uv3v41TO9hgNrKZP0yl0ai0xOW5YXKCODvpyIrUk9OBwm2OeXpfAELyT6YCO4RZIdXBcLMNMwdPvpK3v_EIMKvjId_A3HQ6KaJEnsJprxIyrlgw3iaqvKOPht4fo5ItlY1p_dowATMxry9JA2dGlJ0JsJo-PX25J4oUFIVhFktOI9izz4J-NtzgRUFeOs6Nm5EyiOumAkOHYcLUQbLY88wyc_a23RQaafNunLOBaGsx3Z33BWu8IFhwVawFhLmxQdU"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">أرز بسمتي 5 كجم</h4>
+<p class="text-xs text-on-surface-variant mt-1">أبوسيوف • حبوب</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-lg font-black text-primary">45.00 <small class="text-[10px]">ر.س</small></span>
+<div class="bg-primary-container text-white p-2 rounded-lg group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined leading-none">add</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col gap-3 group hover:border-primary-container transition-all cursor-pointer relative overflow-hidden">
+<div class="h-32 bg-slate-50 rounded-lg overflow-hidden">
+<img alt="منتج" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" data-alt="bottle of pure sunflower cooking oil with a clear label, bright studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdl6_w-5InnWQwyfv9oT_Fb0-7Yza55fmNtXGLwZW-h60-0x4MpYcoir7yoS0JOZ8zqSL_shLitYnMpBhqpmYA01eOHw8RIvC_YnThHeBc74J9q71WlKGQP54XUuJxts7csC7IH3kwpBSOaLmJshIED3qn4ZuGB3xzlZRF065AdNJSflt93WrZCDQiNTPFWU4F7s6B3OtBG1LY4dnrFCPNIeqAA1Rlxj_hnM1nTZwV9nnBMbX2fdHp-VnmZkez_K6N9WZJwB9-o3Q"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">زيت نباتي 1.5 لتر</h4>
+<p class="text-xs text-on-surface-variant mt-1">عافية • معلبات</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-lg font-black text-primary">18.75 <small class="text-[10px]">ر.س</small></span>
+<div class="bg-primary-container text-white p-2 rounded-lg group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined leading-none">add</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col gap-3 group hover:border-primary-container transition-all cursor-pointer relative overflow-hidden">
+<div class="h-32 bg-slate-50 rounded-lg overflow-hidden">
+<img alt="منتج" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" data-alt="carton of orange juice with fresh orange slices, vibrant and refreshing visual style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdj16OPfera-233zEZ2zz0mvVNpuFf7wMJEDUSxbGdOrVZYIDvtyRAYQEanI2HUcmh545tf0AQSqoHpWe-1MvM7V4F2WLqQ6I7xHee2uulahdNKm5CHMXr9plXV-Ok6NHSyXtq-BmGxBR9zkIF3tBbFY3LX8IuOyuCUp2neQbfyzu-V-AKw6N6eqOSQ8kFiDMP7kzjhf8EFEqbmcE1y3t3_o8HX5whAx4tGxQ8RSw7d_DHV5PNQSH3bScP_tFGY7hoSJ8HJ41npt0"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">عصير برتقال طازج</h4>
+<p class="text-xs text-on-surface-variant mt-1">المراعي • مشروبات</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-lg font-black text-primary">9.50 <small class="text-[10px]">ر.س</small></span>
+<div class="bg-primary-container text-white p-2 rounded-lg group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined leading-none">add</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col gap-3 group hover:border-primary-container transition-all cursor-pointer relative overflow-hidden">
+<div class="h-32 bg-slate-50 rounded-lg overflow-hidden">
+<img alt="منتج" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" data-alt="6-pack of clear plastic mineral water bottles, clean and fresh look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiK07joOHyFiE-DVXBe1v39HtE0NeUQuj-phAgy9WelLdnDiySW83s8VaA4h2gjPifHMXXnVk124FJ_LKmZ2P5CcfjmKiW3ekpGyVKj1LSexg5vZM3xvRu9hjyvL9Mto2eqVDwiKGrgbPRepnaP6vqlRKsfUcS5hneuee_bE4hFfQqOPUHiyPxBhGE37B-pTA80nmKhMZexGIROi3Bk127kpJK9Tm_mh464ebxGbsT7WK5tbC1IUeKf5Pc2r6u8UyadYkQ_a2pRLM"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">مياه معدنية 330مل</h4>
+<p class="text-xs text-on-surface-variant mt-1">نوفا • مشروبات</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-lg font-black text-primary">12.00 <small class="text-[10px]">ر.س</small></span>
+<div class="bg-primary-container text-white p-2 rounded-lg group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined leading-none">add</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Active Cart (35% width) -->
+<section class="w-[35%] bg-white border-r border-slate-200 flex flex-col shadow-[-4px_0_15px_rgba(0,0,0,0.02)]">
+<!-- Cart Header -->
+<div class="p-4 bg-surface-container-low flex items-center justify-between border-b border-slate-200">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<h3 class="font-bold text-on-surface headline">سلة التسوق</h3>
+</div>
+<button class="text-error flex items-center gap-1 text-xs font-bold hover:bg-error-container/50 px-2 py-1 rounded transition-colors">
+<span class="material-symbols-outlined text-sm">delete_sweep</span>
+                        إفراغ السلة
+                    </button>
+</div>
+<!-- Cart Items List -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Item -->
+<div class="flex items-center gap-4 bg-white border border-slate-100 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+<img alt="مصغر" class="w-12 h-12 rounded object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDELMm-Mu7Qs2oEfDMkJpq-QrPAVBNw03uAn9GL1MS6phXw97CaOQ_M2kXyKzFJBjwYxvHn-cDvH6JF2lgeBn52BP55H4zMUjeXk94uhR6tQ0_qiCtdSHmc-uXWSN1k8uUuDJHe7dqfm2QY-yTA3QG1gR7iSrykdaPF-G6WSelmPhkkfQITCYiErhSHHxNMoP49fTt-cO8dmlJogFBqV4fiw9YK9prE_mW5sAqzGvHyqSMZa8W0VObpO_HsMvr9zjz2PZPf_sYxBoU"/>
+<div class="flex-1">
+<h5 class="text-sm font-bold text-on-surface">حليب المراعي 1 لتر</h5>
+<p class="text-xs text-on-surface-variant font-medium">6.50 ر.س</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-200 text-on-surface hover:bg-slate-300 transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-black w-4 text-center">2</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-container text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="text-left min-w-[60px]">
+<p class="text-sm font-black text-primary">13.00</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white border border-slate-100 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+<img alt="مصغر" class="w-12 h-12 rounded object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_vhSY9yAJKFzHruAvOJayG8EcvzeKCID9DDjmFucfBD32CTrzDfbWTVIXuEKdTzs2ACIQxzeFv2UPrNZThsjLZLq3ufxEDoJPVaUXTXnQcSNpSjrVrmvUlP_8btZtmTU7XfvChSxXtqARcZSU2lYPYOOe_BQElLve7hrJ4R-Er5HBulGTTCZ1XyU33SyQm3oBk5FnO0-kWpjoukhibOBaZvK4SxhlLX4OinxGd4cIIOqEg-64MvM5zN58ocPaVCY7ZcIYg01wKlo"/>
+<div class="flex-1">
+<h5 class="text-sm font-bold text-on-surface">خبز توست أبيض</h5>
+<p class="text-xs text-on-surface-variant font-medium">5.00 ر.س</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-200 text-on-surface hover:bg-slate-300 transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-black w-4 text-center">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-container text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="text-left min-w-[60px]">
+<p class="text-sm font-black text-primary">5.00</p>
+</div>
+</div>
+</div>
+<!-- Barcode Indicator -->
+<div class="mx-4 mb-4 p-3 bg-teal-50 border-2 border-dashed border-teal-200 rounded-xl flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-teal-600">barcode_scanner</span>
+<span class="text-xs text-teal-800 font-medium italic">انتظار مسح الباركود...</span>
+</div>
+<!-- Cart Summary & Payment -->
+<div class="p-6 bg-slate-900 text-white rounded-t-[2rem] shadow-2xl">
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center text-slate-400 text-sm">
+<span>المجموع الفرعي</span>
+<span>18.00 ر.س</span>
+</div>
+<div class="flex justify-between items-center text-slate-400 text-sm">
+<span>ضريبة القيمة المضافة (15%)</span>
+<span>2.70 ر.س</span>
+</div>
+<div class="pt-3 border-t border-slate-800 flex justify-between items-center">
+<span class="text-lg font-bold">الإجمالي</span>
+<span class="text-3xl font-black text-emerald-400">20.70 <small class="text-xs">ر.س</small></span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-emerald-500 hover:bg-emerald-400 text-teal-950 flex flex-col items-center justify-center gap-1 py-4 rounded-xl transition-all font-black">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+                            دفع نقدي (F1)
+                        </button>
+<button class="bg-teal-700 hover:bg-teal-600 text-white flex flex-col items-center justify-center gap-1 py-4 rounded-xl transition-all font-bold">
+<span class="material-symbols-outlined">credit_card</span>
+                            دفع آجل (F2)
+                        </button>
+<button class="col-span-2 bg-primary-container hover:bg-primary text-white flex items-center justify-center gap-3 py-4 rounded-xl transition-all font-black text-lg border border-teal-600/50">
+<span class="material-symbols-outlined">print</span>
+                            تأكيد وطباعة الفاتورة (Enter)
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

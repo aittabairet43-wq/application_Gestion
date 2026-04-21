@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetiq Retail - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-high": "#e6e8ea",
+                    "outline-variant": "#bfc8cc",
+                    "background": "#f8f9fb",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#8dd0e9",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "surface-container": "#eceef0",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "outline": "#70787d",
+                    "on-tertiary-fixed": "#2f1400",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#40484c",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "surface-tint": "#19667d",
+                    "inverse-on-surface": "#eff1f3",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#8ff6d0",
+                    "tertiary-container": "#804307",
+                    "secondary": "#006c52",
+                    "primary": "#004253",
+                    "on-secondary-container": "#007257",
+                    "primary-container": "#005b71",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#8ed1ea",
+                    "tertiary": "#5f2f00",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed": "#ffdcc4",
+                    "primary-fixed": "#b7eaff",
+                    "on-tertiary-container": "#ffb882",
+                    "on-primary-fixed": "#001f28",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed": "#002117",
+                    "surface": "#f8f9fb",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#004e61",
+                    "surface-bright": "#f8f9fb",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#8ff6d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fb;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-x-hidden">
+<!-- Global Layout Shell -->
+<div class="min-h-screen flex flex-col relative">
+<!-- Header / Nav (Following TopNavBar structure but adjusted for Onboarding per rules) -->
+<header class="h-16 flex items-center justify-between px-8 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<span class="text-xl font-bold text-primary tracking-tight brand-font">Kinetiq Retail</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">الرئيسية</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">المميزات</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">الدعم</a>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<button class="text-primary font-semibold hover:bg-primary/5 px-4 py-2 rounded">تسجيل الدخول</button>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-container transition-all shadow-sm">ابدأ الآن</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden px-8 lg:px-24">
+<div class="grid lg:grid-cols-2 gap-16 items-center w-full max-w-7xl mx-auto">
+<!-- Left Column: Content -->
+<div class="z-10 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold mb-6 tracking-wide uppercase">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                            مستقبل تجارة التجزئة
+                        </div>
+<h1 class="text-5xl lg:text-7xl font-extrabold text-primary leading-[1.1] mb-6">
+                            قم بإدارة متجرك <br/>
+<span class="text-secondary">بذكاء فائق.</span>
+</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-xl">
+                            نظام Kinetiq Retail المتكامل يوفر لك أدوات الجيل القادم لإدارة المخزون، المبيعات، والتقارير في واجهة واحدة احترافية وسهلة الاستخدام.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 hover:bg-primary-container transition-all shadow-lg group">
+                                ابدأ تجربتك المجانية
+                                <span class="material-symbols-outlined transition-transform group-hover:translate-x-[-4px]">arrow_back</span>
+</button>
+<button class="bg-white border-2 border-outline-variant text-on-surface px-8 py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 hover:bg-surface-container-low transition-all">
+                                مشاهدة العرض التجريبي
+                            </button>
+</div>
+<div class="mt-12 flex items-center gap-8 border-t border-outline-variant/30 pt-8">
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-primary">500+</span>
+<span class="text-sm text-on-surface-variant">تاجر نشط</span>
+</div>
+<div class="w-[1px] h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-primary">99.9%</span>
+<span class="text-sm text-on-surface-variant">مدة التشغيل</span>
+</div>
+<div class="w-[1px] h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-primary">24/7</span>
+<span class="text-sm text-on-surface-variant">دعم فني</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Image/Illustration -->
+<div class="relative order-1 lg:order-2">
+<!-- Background decoration -->
+<div class="absolute -top-20 -right-20 w-[120%] h-[120%] bg-secondary/10 rounded-full blur-[100px] -z-10"></div>
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] lg:aspect-square">
+<img class="w-full h-full object-cover" data-alt="Modern clean grocery store interior with organized shelves, soft ambient lighting, and high-quality sustainable products in a professional retail setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5JDN4hsY7xw-euco-Or_tmQ7D5VN3uIjBQiVsSdfsMwQq9yWzromqPVODgOVhm1jrY0NW2QHJRa5NItxoLAuIP8DEZXaK-8ztz7jmOh1NjUEN9Lo_VPAJs2TVLrhNsKZa9hXUDRh7DypAtGQR5Ize_SX0bxjWPCjxpOs4S5g07BO5iS0bOmLSm8usIK3kwe9G7j8tmmCIATkX_c4zWHkXtLZ6WMp4ZlqRQ5QyEoQytYFk2W_mpD0S0l12MLPvaYJtPvvZ9zsWw4g"/>
+<!-- Floating Card: Inventory -->
+<div class="absolute top-10 -right-8 bg-white/95 backdrop-blur p-4 rounded-xl shadow-xl flex items-center gap-4 border border-outline-variant/20 hidden xl:flex">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">المخزون المتوفر</p>
+<p class="text-lg font-bold text-primary">12,450 قطعة</p>
+</div>
+</div>
+<!-- Floating Card: Sales -->
+<div class="absolute bottom-10 -left-8 bg-white/95 backdrop-blur p-4 rounded-xl shadow-xl flex items-center gap-4 border border-outline-variant/20 hidden xl:flex">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">مبيعات اليوم</p>
+<p class="text-lg font-bold text-secondary">+15.4% نمو</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Highlights: Bento Grid Style -->
+<section class="py-24 px-8 lg:px-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold text-primary mb-4 tracking-tight">قوة متكاملة لإدارة أعمالك</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">صممنا Kinetiq Retail ليكون الرفيق التقني الأذكى لنمو تجارتك، من أصغر التفاصيل إلى أضخم التقارير.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Bento Item 1: POS -->
+<div class="md:col-span-2 bg-white p-8 rounded-2xl border border-outline-variant/30 flex flex-col md:flex-row gap-8 items-center hover:shadow-md transition-shadow">
+<div class="flex-1">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">point_of_sale</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">نظام نقطة بيع (POS) سريع</h3>
+<p class="text-on-surface-variant">عمليات بيع فائقة السرعة تدعم الباركود، الدفع الإلكتروني، وطباعة الفواتير الضريبية المتوافقة مع المعايير.</p>
+</div>
+<div class="w-full md:w-64 h-40 bg-surface-container rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-80" data-alt="Modern high-tech payment terminal with a clean interface on a minimalist wooden retail counter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmWNfFoybygrh3Y5jnfODYpNRVjYNOPki-iSWTmjmkxheQVBNy8HMGTMsvnChfIJXKgw0Avf2QXlwQWZ_pJTuXb0Oz4HhGGnbuYKOXtMy7mV8-Bzx9dAnD7gUpBeeABrMnRPpPYEiqNy_ymwl0W7JExzBb6W01T2TG1GbIn2X_8sz2XQx3nr7dwd6XGpFNqKyCR7aiDK4vmAyhcxcQ955IxthcJceu0b2aWe8q0YhBtkltsAvaMgwvtyfLhmNXzthKeaMkwaWozTc"/>
+</div>
+</div>
+<!-- Bento Item 2: Reports -->
+<div class="bg-primary text-white p-8 rounded-2xl border border-primary flex flex-col justify-between hover:shadow-xl transition-shadow">
+<div>
+<div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+</div>
+<h3 class="text-2xl font-bold mb-3">تقارير تحليلية</h3>
+<p class="text-primary-fixed opacity-90">افهم أداء متجرك من خلال لوحات بيانات تفاعلية توضح الأرباح، المنتجات الأكثر مبيعاً، وتوقعات الطلب.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-4xl opacity-30">query_stats</span>
+</div>
+</div>
+<!-- Bento Item 3: Inventory -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">إدارة المخزون الذكي</h3>
+<p class="text-on-surface-variant">تنبيهات تلقائية عند قرب نفاذ الكميات، إدارة الموردين، وتتبع تواريخ الصلاحية لضمان كفاءة التوريد.</p>
+</div>
+<!-- Bento Item 4: Cloud -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-tertiary-fixed-dim/20 rounded-lg flex items-center justify-center text-tertiary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">مزامنة سحابية آمنة</h3>
+<p class="text-on-surface-variant">بياناتك دائماً معك. تابع مبيعاتك من أي مكان وفي أي وقت عبر تطبيق الجوال أو متصفح الويب.</p>
+</div>
+<!-- Bento Item 5: Support -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-on-error-container/5 rounded-lg flex items-center justify-center text-error mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">دعم فني متخصص</h3>
+<p class="text-on-surface-variant">فريقنا معك دائماً للمساعدة في الإعداد والتشغيل، مع تحديثات دورية مجانية للنظام.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-8 lg:px-24">
+<div class="max-w-5xl mx-auto bg-primary rounded-3xl overflow-hidden relative p-12 lg:p-20 text-center">
+<!-- Background accent -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(152,255,217,0.15),transparent)] pointer-events-none"></div>
+<h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-6 relative z-10 leading-tight">
+                        هل أنت مستعد لتغيير <br class="hidden lg:block"/> قواعد اللعبة في متجرك؟
+                    </h2>
+<p class="text-primary-fixed text-lg mb-10 relative z-10 opacity-90 max-w-2xl mx-auto">
+                        انضم إلى مئات التجار الذين يثقون في Kinetiq Retail لإدارة عملياتهم اليومية. ابدأ رحلتك الآن مجاناً لمدة 14 يوماً.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="bg-secondary text-primary px-10 py-5 rounded-xl text-xl font-bold hover:bg-secondary-fixed transition-all shadow-xl">
+                            سجل حسابك مجاناً
+                        </button>
+<button class="bg-white/10 text-white border border-white/20 backdrop-blur-sm px-10 py-5 rounded-xl text-xl font-bold hover:bg-white/20 transition-all">
+                            تحدث مع مستشار مبيعات
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Minimal Footer -->
+<footer class="py-12 px-8 lg:px-24 border-t border-outline-variant/30 bg-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white">storefront</span>
+</div>
+<span class="text-lg font-bold text-primary brand-font">Kinetiq Retail</span>
+</div>
+<div class="flex gap-8 text-on-surface-variant text-sm font-medium">
+<a class="hover:text-primary transition-colors" href="#">الشروط والأحكام</a>
+<a class="hover:text-primary transition-colors" href="#">سياسة الخصوصية</a>
+<a class="hover:text-primary transition-colors" href="#">تواصل معنا</a>
+</div>
+<div class="text-on-surface-variant text-sm">
+                    © 2024 Kinetiq Retail. جميع الحقوق محفوظة.
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

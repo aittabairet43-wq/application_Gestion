@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>حركة الصندوق - مدير البقالة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#70787d",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#19667d",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "on-secondary-fixed": "#002117",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "background": "#f8f9fb",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "on-background": "#191c1e",
+                    "inverse-surface": "#2e3132",
+                    "outline-variant": "#bfc8cc",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-bright": "#f8f9fb",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-secondary-container": "#007257",
+                    "surface": "#f8f9fb",
+                    "surface-variant": "#e1e3e4",
+                    "primary": "#004253",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#b7eaff",
+                    "on-primary-fixed": "#001f28",
+                    "on-surface-variant": "#40484c",
+                    "on-primary-fixed-variant": "#004e61",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#eceef0",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#8ed1ea",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#006c52",
+                    "on-tertiary-container": "#ffb882",
+                    "inverse-primary": "#8dd0e9",
+                    "surface-dim": "#d8dadc",
+                    "secondary-fixed": "#8ff6d0",
+                    "tertiary-container": "#804307",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdcc4",
+                    "secondary-container": "#8ff6d0",
+                    "on-error": "#ffffff",
+                    "primary-container": "#005b71",
+                    "tertiary": "#5f2f00",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb780"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .rtl { direction: rtl; }
+    </style>
+</head>
+<body class="rtl text-on-background bg-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 left-0 h-16 z-40 flex items-center justify-between px-6 bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 font-['Plus_Jakarta_Sans']">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[#005B71] dark:text-teal-400">مدير البقالة</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 active:scale-95 px-2 py-1 rounded" href="#">لوحة القيادة</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 active:scale-95 px-2 py-1 rounded" href="#">المخزون</a>
+<a class="text-[#005B71] font-bold border-b-2 border-[#005B71] px-2 py-1" href="#">التقارير</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-slate-600 p-2 hover:bg-slate-50 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-slate-600 p-2 hover:bg-slate-50 rounded-full transition-all">settings</button>
+<button class="material-symbols-outlined text-slate-600 p-2 hover:bg-slate-50 rounded-full transition-all">help</button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc5rayVU56vg9mRXUZFDPp7_5ECuAY7wJSi0FWciDuBoQUZHpdGf7XU42QLVaKvil8WzUAy8aYgkAoFmr3KSll_MoA8nhLD9K8f5Lx7JA77GFzyEUo_sGPf2ceW22inCTswc1w8ZMsDH3OW-sPMwJE7M_9SGgM0tK52GXG57txe0QVhRFON2Pc4XVHrwReSl4bedC-OWNBM3b49b1K0TQpPeC495wiTphdewTPburFer5D_PVpjrD2VqV6W4KXFppYp-EznTNX-50"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed right-0 top-0 h-full w-64 z-50 flex flex-col pt-20 bg-slate-50 dark:bg-slate-950 border-l border-slate-200 dark:border-slate-800 font-['Inter']">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<div>
+<h2 class="text-sm font-bold text-[#005B71]">البقالة المتقدمة</h2>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">إدارة النظام</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-teal-50/50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">لوحة القيادة</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-teal-50/50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm">المخزون</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-teal-50/50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="text-sm">المبيعات</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-teal-50/50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-sm">الموردين</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-teal-50/50 dark:hover:bg-slate-800 hover:text-[#005B71] transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-sm">الموظفين</span>
+</a>
+<a class="flex items-center gap-3 bg-teal-50 dark:bg-teal-900/30 text-[#005B71] dark:text-teal-300 font-semibold px-4 py-3 border-r-4 border-[#005B71] rounded-l-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assessment</span>
+<span class="text-sm">التقارير</span>
+</a>
+</nav>
+<div class="mt-auto p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="flex items-center gap-3 w-full text-red-600 px-4 py-3 hover:bg-red-50 transition-colors duration-200 rounded-lg">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-semibold">تسجيل الخروج</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="mr-64 pt-20 p-8 min-h-screen">
+<!-- Header & Breadcrumbs -->
+<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex text-xs text-slate-400 mb-2 gap-2">
+<span>الرئيسية</span>
+<span class="material-symbols-outlined text-[12px]">chevron_left</span>
+<span>التقارير</span>
+<span class="material-symbols-outlined text-[12px]">chevron_left</span>
+<span class="text-primary font-bold">حركة الصندوق</span>
+</nav>
+<h1 class="text-3xl font-extrabold text-[#005B71]">حركة الصندوق</h1>
+<p class="text-slate-500 mt-1">سجل المراجعة التفصيلي لجميع التدفقات النقدية للصندوق الحالي.</p>
+</div>
+<div class="flex items-center gap-3 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex flex-col px-3">
+<span class="text-[10px] text-slate-400 font-bold uppercase">الوردية الحالية</span>
+<span class="text-xs font-bold text-slate-700">وردية المساء - م. أحمد</span>
+</div>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">print</span>
+                    طباعة التقرير
+                </button>
+</div>
+</header>
+<!-- Bento Grid Summary -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<!-- Balance Card -->
+<div class="col-span-1 md:col-span-2 bg-gradient-to-br from-[#005B71] to-[#004253] p-6 rounded-2xl text-white shadow-lg flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<p class="text-teal-200 text-sm font-medium">الرصيد الحالي في الصندوق</p>
+<h2 class="text-4xl font-black mt-2">12,450.00 <span class="text-lg font-normal opacity-80">ر.س</span></h2>
+</div>
+<div class="relative z-10 flex items-center justify-between mt-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-teal-300 text-sm">history</span>
+<span class="text-xs opacity-90">آخر تحديث: منذ دقيقتين</span>
+</div>
+<button class="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full text-xs font-bold transition-all border border-white/20">
+                        تسوية الصندوق
+                    </button>
+</div>
+<!-- Decorative element -->
+<span class="material-symbols-outlined absolute -bottom-4 -left-4 text-white/5 text-9xl pointer-events-none group-hover:scale-110 transition-transform duration-500">account_balance_wallet</span>
+</div>
+<!-- Total In -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-[#98FFD9] transition-all">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<span class="text-[10px] bg-teal-50 text-secondary font-bold px-2 py-1 rounded-full">+12%</span>
+</div>
+<div class="mt-4">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-tight">إجمالي الداخل (مبيعات)</p>
+<h3 class="text-2xl font-bold text-slate-800 mt-1">8,230.00 <span class="text-xs font-normal opacity-60">ر.س</span></h3>
+</div>
+</div>
+<!-- Total Out -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-[#F4A261] transition-all">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+</div>
+<span class="text-[10px] bg-orange-50 text-tertiary font-bold px-2 py-1 rounded-full">-5%</span>
+</div>
+<div class="mt-4">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-tight">إجمالي الخارج (مصاريف)</p>
+<h3 class="text-2xl font-bold text-slate-800 mt-1">1,420.50 <span class="text-xs font-normal opacity-60">ر.س</span></h3>
+</div>
+</div>
+</section>
+<!-- Audit Trail / Log Section -->
+<section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+<!-- Filter Bar -->
+<div class="p-4 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4 bg-slate-50/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">filter_list</span>
+<span class="text-sm font-bold text-slate-700">تصفية السجل:</span>
+<div class="flex gap-2 mr-2">
+<button class="px-3 py-1.5 bg-primary-container text-white text-xs font-bold rounded-lg">الكل</button>
+<button class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-xs font-bold rounded-lg hover:bg-slate-50">مبيعات نقدية</button>
+<button class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-xs font-bold rounded-lg hover:bg-slate-50">مرتجع</button>
+<button class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-xs font-bold rounded-lg hover:bg-slate-50">مصاريف</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<input class="pr-10 pl-4 py-2 text-sm bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-64" placeholder="البحث عن عملية..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-slate-400 text-sm">search</span>
+</div>
+<button class="material-symbols-outlined p-2 text-slate-400 hover:text-primary transition-all">download</button>
+</div>
+</div>
+<!-- Log Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest border-b border-slate-100">
+<th class="px-6 py-4">المرجع</th>
+<th class="px-6 py-4">الوقت</th>
+<th class="px-6 py-4">النوع</th>
+<th class="px-6 py-4">الوصف</th>
+<th class="px-6 py-4">بواسطة</th>
+<th class="px-6 py-4">القيمة</th>
+<th class="px-6 py-4">الرصيد التراكمي</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1: Sale -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-slate-500">#INV-8892</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700">14:45</span>
+<span class="text-[10px] text-slate-400">اليوم</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-teal-50 text-secondary text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                    مبيعات نقدية
+                                </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-600">فاتورة رقم #1229 - منتجات متنوعة</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<img alt="Staff" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMkFQS79Y6bbCa4TXNePed7sFy7JG41qLBXEXlevYED0-wow7_9h_LD9Nxna-c_btHvFtFr9-4Ab2Ob5HMC1zujxvhlYkKuXNGCFWmNPyML1YBOuDDhTkaLoZ-igdDDuqiVJB5IVFwSB0WPiQaoj3JxFZwG-c79jdAKbl5Sx46fAToReAMm9hv7z5-yhNcPQK5BmtM48kt6DbwDKeo8D1T-KwnFduFB4tWb6DKtztZQvsmKoPYfrAM85XsUCb3MhSwxxykfqpcDnU"/>
+<span class="text-xs font-medium text-slate-700">سارة علي</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-black text-secondary">+125.50</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-700 text-sm">12,450.00</td>
+</tr>
+<!-- Row 2: Expense -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-slate-500">#EXP-441</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700">14:10</span>
+<span class="text-[10px] text-slate-400">اليوم</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-50 text-tertiary text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                    مصاريف تشغيل
+                                </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-600">شراء مياه للمحل (عشرة صناديق)</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<img alt="Staff" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHTUy9RrHDnSaTN7iN1d50pZhNP6mkMJgqpbcIAHXsGBeNPUrOsklElqaQXHdySJu53jEkXxZyLILdQFNbXcSQWyhQ6UCXyg4BrpLZUtMHZrEJRRuufnU_Pp7MSfq5-RkHHy7qru6zH0M0ZuuSccncBbdN2e-ZHA3XT_efiSYMSLcIeNzkhV4jNhrVSjrXcm5hvm1FkY5ZlhkeYHC2BESWvvz_XbrZLwF82DzCcqe313boZwq13q3tBI0AGNHaWvgIIhHuSQNwubg"/>
+<span class="text-xs font-medium text-slate-700">محمد أحمد</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-black text-tertiary">-150.00</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-700 text-sm">12,324.50</td>
+</tr>
+<!-- Row 3: Refund -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-slate-500">#RET-992</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700">13:20</span>
+<span class="text-[10px] text-slate-400">اليوم</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-red-600 text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                                    مرتجع مبيعات
+                                </span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-600">إرجاع علبة زيت (تالفة)</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<img alt="Staff" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrvLzGFOHPfLePWBbs8oMFhshK6sys0GG1cFNGnbZF4aiALuA02pEv_gjypzZX_e5p4wEg7mhSEua_jVjyORSo_1tdTfOi6ukOf66rlzKJUDu3NFDpnqVur1CueNp0i0J3RPSrPlXwVEFSUPuKD1OyErukcl1l5V8ZKYidj01O91OaLqbJ68n67R99g4JKVQ41ILvauZc5oJz5Jk6-JKtWFeAm8WhFN9jjEwxDR1EAQlYljruEGODSRSWm0XhhnXIdsShyshlTi0"/>
+<span class="text-xs font-medium text-slate-700">سارة علي</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-black text-red-600">-45.00</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-700 text-sm">12,474.50</td>
+</tr>
+<!-- Row 4: Opening Balance -->
+<tr class="bg-primary/5">
+<td class="px-6 py-6" colspan="2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">start</span>
+<span class="text-sm font-black text-primary uppercase tracking-widest">افتتاح الصندوق (بداية الوردية)</span>
+</div>
+</td>
+<td class="px-6 py-6"></td>
+<td class="px-6 py-6">
+<span class="text-xs text-slate-500 italic">تم فتح الصندوق بواسطة المدير</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2">
+<img alt="Manager" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMQRI1rdtxkaxl_RuNxT2sqzJPKXKl6Q8TZyGlNhAZctKk0lugGq0OUFSzncg-gg0rsoDBvoIQ4nC0wIHLtdjD9Ln4fgDn1JcCt4JVC-zTI5Mjov1lsUxQ1jnvVkhklkGm8Zw52f2hElYPXiJjQYrtOsqhndQs9LTnyq0qmMU3M8fuFWiKyFy5Yw8UBbFLthq689-9FxFXgjpNVoUEeuCG1u99vNrjR8jePbi8liagQV1D3kJiR8C_cgOu8uaeVWwcbP1kT3AzcoM"/>
+<span class="text-xs font-bold text-primary">المدير العام</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="text-sm font-black text-primary">5,000.00</span>
+</td>
+<td class="px-6 py-6 font-black text-primary text-sm">5,000.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Pagination -->
+<div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between">
+<div class="text-xs text-slate-500 font-medium">
+                    عرض 1-10 من أصل 145 عملية نقدية
+                </div>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-white transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50">3</button>
+</div>
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-white transition-all">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Manual Action Section -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center gap-6 group cursor-pointer hover:shadow-md transition-all">
+<div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-secondary" style="font-variation-settings: 'FILL' 1;">add_card</span>
+</div>
+<div>
+<h4 class="font-bold text-[#005B71] text-lg">إضافة نقدية يدوية</h4>
+<p class="text-sm text-slate-500">لإضافة رأس مال إضافي أو مبالغ تعويضية للصندوق.</p>
+</div>
+<span class="material-symbols-outlined mr-auto text-slate-300">chevron_left</span>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center gap-6 group cursor-pointer hover:shadow-md transition-all">
+<div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-[#005B71] text-lg">صرف نقدية يدوية</h4>
+<p class="text-sm text-slate-500">لتسجيل المصاريف النثرية أو سحوبات الموردين النقدية.</p>
+</div>
+<span class="material-symbols-outlined mr-auto text-slate-300">chevron_left</span>
+</div>
+</section>
+</main>
+<!-- Map/Location Decoration Footer (Abstract) -->
+<footer class="mr-64 p-8 pt-0">
+<div class="relative h-48 rounded-2xl overflow-hidden border border-slate-200">
+<div class="absolute inset-0 bg-slate-900/10 z-10"></div>
+<div class="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?q=80&amp;w=2000')] bg-cover bg-center grayscale opacity-20" data-alt="Abstract subtle city map background with soft grey tones and grid patterns representing logistics and infrastructure."></div>
+<div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-6">
+<span class="material-symbols-outlined text-[#005B71] text-4xl mb-2">location_on</span>
+<h5 class="text-slate-800 font-bold">فرع الرياض - شارع العليا العام</h5>
+<p class="text-xs text-slate-500 mt-1 max-w-md">تم تحديث جميع البيانات محلياً وتزامنت بنجاح مع الخادم المركزي في تمام الساعة 15:00 بتوقيت مكة المكرمة.</p>
+</div>
+</div>
+<div class="mt-8 text-center pb-8">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">جميع الحقوق محفوظة © 2024 نظام مدير البقالة المتقدم</p>
+</div>
+</footer>
+</body></html>
