@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdcc4",
+                    "inverse-primary": "#8dd0e9",
+                    "on-primary": "#ffffff",
+                    "primary": "#004253",
+                    "secondary-container": "#8ff6d0",
+                    "secondary": "#006c52",
+                    "outline": "#70787d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#8ed1ea",
+                    "tertiary": "#5f2f00",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "primary-container": "#005b71",
+                    "on-primary-fixed-variant": "#004e61",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#804307",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#eceef0",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#8ff6d0",
+                    "primary-fixed": "#b7eaff",
+                    "on-secondary-container": "#007257",
+                    "on-primary-fixed": "#001f28",
+                    "surface-bright": "#f8f9fb",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-surface-variant": "#40484c",
+                    "surface-tint": "#19667d",
+                    "outline-variant": "#bfc8cc",
+                    "on-secondary-fixed": "#002117",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ffb882",
+                    "background": "#f8f9fb",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f8f9fb",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Side Navigation Shell -->
+<aside class="fixed right-0 top-0 h-full w-64 bg-slate-50 dark:bg-slate-950 border-l border-slate-200 dark:border-slate-800 flex flex-col z-50">
+<div class="p-6">
+<div class="text-lg font-bold text-teal-900 dark:text-teal-200 headline">Kinetiq Retail</div>
+<div class="text-xs text-slate-500 font-medium">Management System</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="bg-teal-50 dark:bg-teal-900/20 text-teal-800 dark:text-teal-300 border-r-4 border-teal-700 flex items-center px-4 py-3 font-semibold transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined ml-3" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 hover:text-teal-700 hover:bg-teal-50/50 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined ml-3" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm">Inventory</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 hover:text-teal-700 hover:bg-teal-50/50 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined ml-3" data-icon="receipt_long">receipt_long</span>
+<span class="text-sm">Sales</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 hover:text-teal-700 hover:bg-teal-50/50 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined ml-3" data-icon="leaderboard">leaderboard</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 flex items-center px-4 py-3 hover:text-teal-700 hover:bg-teal-50/50 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined ml-3" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover" data-alt="professional headshot of a retail manager in a suit with a friendly expression and corporate office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8O67SHDLzyslPjqUj8wcwPlrXa5olNPxIXKPvWEd1mfzNv0at-i-TpOfVLgtaYHrR7U6wkbna7ljQ4hlCKYdeX6OKmxYuBBFt0aRNI6vsr3J3rpr7co17pLP-BWq2YhRMLLfQfT_5WFf6yITmgTgYL6t6yM_SWgWC9BqhBNGXIXoEARkoHoRmPFQsB5mvH-eO3RW8WAv2xX8m0sROkAyIe7yDlJVkv-VJc6CqJNtiBCIvDq9KZ3DKgOtv7tzKl-y5SAZ9Bqd53Xg"/>
+<div>
+<div class="text-xs font-bold text-on-surface">أحمد المدير</div>
+<div class="text-[10px] text-on-surface-variant">المدير العام</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="mr-64 p-8">
+<!-- Top Navigation Area -->
+<header class="flex justify-between items-center mb-8 bg-white dark:bg-slate-900 px-6 h-16 rounded-xl shadow-sm border border-slate-100">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-extrabold text-teal-800 dark:text-teal-400 headline">مركز إدارة الفروع</h1>
+<div class="h-6 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">اليوم، ٢٤ مايو ٢٠٢٤</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pr-10 pl-4 py-2 text-sm focus:ring-2 focus:ring-primary w-64" placeholder="بحث عن فرع..." type="text"/>
+</div>
+<button class="p-2 text-slate-600 hover:bg-slate-100 rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 hover:bg-slate-100 rounded-lg">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- KPI Overview Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-primary text-white p-6 rounded-xl shadow-sm relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-sm opacity-80 mb-1">إجمالي المبيعات اليومية</p>
+<h3 class="text-2xl font-bold headline">٤٥,٨٢٠ ر.س</h3>
+<div class="mt-4 flex items-center text-xs text-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="mr-1">+١٢٪ عن الأمس</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="payments">payments</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+<p class="text-sm text-on-surface-variant mb-1">الفروع النشطة</p>
+<h3 class="text-2xl font-bold headline text-primary">٨ / ٨</h3>
+<div class="mt-4 flex items-center text-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span class="mr-1">جميع الفروع متصلة</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+<p class="text-sm text-on-surface-variant mb-1">تنبيهات المخزون</p>
+<h3 class="text-2xl font-bold headline text-error">١٢ منتج</h3>
+<div class="mt-4 flex items-center text-xs text-error">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+<span class="mr-1">يتطلب إعادة طلب فورية</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+<p class="text-sm text-on-surface-variant mb-1">إجمالي الموظفين</p>
+<h3 class="text-2xl font-bold headline text-primary">٦٤ موظف</h3>
+<div class="mt-4 flex items-center text-xs text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
+<span class="mr-1">في الخدمة حالياً</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Side: Map & Analytics -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Map View Section -->
+<section class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-50 flex justify-between items-center">
+<h2 class="text-lg font-bold text-primary headline">خريطة انتشار الفروع</h2>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+                                الرياض
+                            </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+                                جدة
+                            </span>
+</div>
+</div>
+<div class="h-[400px] relative bg-slate-100">
+<img alt="Map View" class="w-full h-full object-cover" data-alt="stylized architectural map of a modern city center with highlighted pin points for retail locations in soft teal and gray tones" data-location="Riyadh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_hNgsjIYNa30CYiHbARJKCmsv7RPwxNpvHUFemAUGoMu0jpfjsTZ4QCX8w9RlY0_-EsAbBIRwytTDCd53v-Hzq1YQDW3aeBTSqQd0i-V2kCMQyFl55mioZb6PoJ5TYnRE9N1M76Z6PsdeQfwV3XLEUUB35HMvhxVwp7_BekD0O80aNyCrvekRTO7sX_9aqd0WL1Ev1myNydRgou76VoAdMvQ4kUuv7pu6bUXkPz53LfRVMHLjoXcoY8XpLDXtwhmPzzuqWE4gK-4"/>
+<!-- Custom Map Markers Overlay -->
+<div class="absolute top-1/4 right-1/3 group cursor-pointer">
+<div class="bg-primary text-white p-2 rounded-lg shadow-xl flex items-center gap-2 transform transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-xs" data-icon="storefront">storefront</span>
+<span class="text-[10px] font-bold">الفرع الرئيسي</span>
+</div>
+<div class="w-0.5 h-4 bg-primary mx-auto"></div>
+</div>
+<div class="absolute bottom-1/3 left-1/4 group cursor-pointer">
+<div class="bg-secondary text-white p-2 rounded-lg shadow-xl flex items-center gap-2 transform transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-xs" data-icon="storefront">storefront</span>
+<span class="text-[10px] font-bold">فرع وسط المدينة</span>
+</div>
+<div class="w-0.5 h-4 bg-secondary mx-auto"></div>
+</div>
+</div>
+</section>
+<!-- Comparison Chart Section -->
+<section class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-lg font-bold text-primary headline">مقارنة مبيعات الفروع</h2>
+<select class="text-sm border-slate-200 rounded-lg text-slate-600 focus:ring-primary">
+<option>آخر ٧ أيام</option>
+<option>الشهر الحالي</option>
+</select>
+</div>
+<div class="space-y-4">
+<!-- Mock Bar Chart -->
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium">الفرع الرئيسي</span>
+<span class="text-primary font-bold">١٨,٤٠٠ ر.س</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-3">
+<div class="bg-primary h-3 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium">فرع وسط المدينة</span>
+<span class="text-primary font-bold">١٢,١٠٠ ر.س</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-3">
+<div class="bg-secondary h-3 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium">فرع النخيل</span>
+<span class="text-primary font-bold">٩,٣٢٠ ر.س</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-3">
+<div class="bg-tertiary-container h-3 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium">فرع المطار</span>
+<span class="text-primary font-bold">٦,٠٠٠ ر.س</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-3">
+<div class="bg-primary-container h-3 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Side: Branch Cards Grid -->
+<div class="space-y-6">
+<h2 class="text-lg font-bold text-primary headline flex items-center gap-2 px-2">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+                    نظرة سريعة على الفروع
+                </h2>
+<!-- Main Branch Card -->
+<div class="bg-white rounded-xl border border-slate-100 shadow-sm p-5 border-r-4 border-r-primary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-on-surface">الفرع الرئيسي</h3>
+<p class="text-xs text-slate-500">طريق الملك فهد، الرياض</p>
+</div>
+<span class="text-[10px] font-bold bg-green-50 text-green-700 px-2 py-1 rounded">مفتوح</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المبيعات</p>
+<p class="text-xs font-bold text-primary">١٨.٤ك</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المخزون</p>
+<p class="text-xs font-bold text-secondary">٩٤٪</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">الطاقم</p>
+<p class="text-xs font-bold text-on-surface">١٢</p>
+</div>
+</div>
+</div>
+<!-- Downtown Branch Card -->
+<div class="bg-white rounded-xl border border-slate-100 shadow-sm p-5 border-r-4 border-r-secondary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-on-surface">فرع وسط المدينة</h3>
+<p class="text-xs text-slate-500">حي العليا، الرياض</p>
+</div>
+<span class="text-[10px] font-bold bg-green-50 text-green-700 px-2 py-1 rounded">مفتوح</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المبيعات</p>
+<p class="text-xs font-bold text-primary">١٢.١ك</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-error-container/20">
+<p class="text-[10px] text-slate-500 mb-1">المخزون</p>
+<p class="text-xs font-bold text-error">٤٢٪</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">الطاقم</p>
+<p class="text-xs font-bold text-on-surface">٨</p>
+</div>
+</div>
+</div>
+<!-- Al-Nakheel Branch Card -->
+<div class="bg-white rounded-xl border border-slate-100 shadow-sm p-5 border-r-4 border-r-tertiary-container">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-on-surface">فرع النخيل</h3>
+<p class="text-xs text-slate-500">طريق الثمامة، الرياض</p>
+</div>
+<span class="text-[10px] font-bold bg-slate-50 text-slate-500 px-2 py-1 rounded">مزدحم</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المبيعات</p>
+<p class="text-xs font-bold text-primary">٩.٣ك</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المخزون</p>
+<p class="text-xs font-bold text-secondary">٨٨٪</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">الطاقم</p>
+<p class="text-xs font-bold text-on-surface">١٠</p>
+</div>
+</div>
+</div>
+<!-- Airport Branch Card -->
+<div class="bg-white rounded-xl border border-slate-100 shadow-sm p-5 border-r-4 border-r-primary-container">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-on-surface">فرع المطار</h3>
+<p class="text-xs text-slate-500">صالة المغادرة ٣، الرياض</p>
+</div>
+<span class="text-[10px] font-bold bg-green-50 text-green-700 px-2 py-1 rounded">مفتوح</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المبيعات</p>
+<p class="text-xs font-bold text-primary">٦.٠ك</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">المخزون</p>
+<p class="text-xs font-bold text-secondary">٧٦٪</p>
+</div>
+<div class="text-center p-2 rounded-lg bg-surface-container-low">
+<p class="text-[10px] text-slate-500 mb-1">الطاقم</p>
+<p class="text-xs font-bold text-on-surface">٦</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 border-2 border-dashed border-slate-200 rounded-xl text-slate-400 hover:text-primary hover:border-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-sm font-bold">إضافة فرع جديد</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - Suppression Logic: Included only for Dashboard context -->
+<button class="fixed bottom-8 left-8 bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-primary-container transition-transform hover:scale-110 active:scale-95 z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add" style="font-variation-settings: 'FILL' 0;">add</span>
+</button>
+</body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>نظام البيع الذكي - لوحة القيادة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&amp;family=Tajawal:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#70787d",
+                        "primary": "#004253",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#40484c",
+                        "outline-variant": "#bfc8cc",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "secondary-container": "#8ff6d0",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed": "#2f1400",
+                        "tertiary-fixed": "#ffdcc4",
+                        "inverse-primary": "#8dd0e9",
+                        "secondary-fixed-dim": "#73d9b5",
+                        "on-primary-fixed": "#001f28",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#006c52",
+                        "on-secondary-container": "#007257",
+                        "tertiary-container": "#804307",
+                        "on-primary-fixed-variant": "#004e61",
+                        "tertiary": "#5f2f00",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#19667d",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#8ed1ea",
+                        "on-secondary-fixed": "#002117",
+                        "primary-container": "#005b71",
+                        "primary-fixed-dim": "#8dd0e9",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fb",
+                        "primary-fixed": "#b7eaff",
+                        "secondary-fixed": "#8ff6d0",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#00513d",
+                        "on-tertiary-container": "#ffb882",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Almarai", "sans-serif"],
+                        "body": ["Tajawal", "sans-serif"],
+                        "label": ["Tajawal", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Tajawal', sans-serif; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Almarai', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex rtl">
+<!-- Navigation Drawer -->
+<nav class="hidden md:flex flex-col bg-surface-container-low h-screen w-72 rounded-l-xl rtl shadow-[0px_12px_32px_rgba(25,28,30,0.06)] fixed right-0 top-0 z-40 p-4 gap-2 border-l border-outline-variant/15">
+<div class="flex items-center gap-3 mb-8 px-2">
+<img alt="صورة المستخدم" class="w-12 h-12 rounded-full object-cover" data-alt="professional portrait of a middle eastern man in a retail setting, soft lighting, focus on face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPT38ngL2mmN41OAIo9QjIm3M_O_TZvD-Ije4AQuSZGz3Vq7kTapjjl-37NX1JIEurTwxzSKOXs_KalFnvg5RILG3dLbQYxVgYDXb7Cr6szALsrda0xlwUsarmZjuXYU4oFs7VWZaG5RlzMbzUeE2-AGgvLM-C76bqHZ4bwbxQH1ZyeIsuMMODqEkUtkQBmdnJ6lJhW-RCfmHVvtSmZayJWy-a9mJjzTJyfEw8ThMKY0ngEtc-ShP_K1ZTB3bE_jfuC0TUoKCtRGg"/>
+<div>
+<h3 class="font-headline font-bold text-lg text-primary-container">أحمد محمد</h3>
+<p class="text-sm font-medium text-on-surface-variant">مدير المتجر</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-white rounded-xl shadow-lg ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">لوحة القيادة</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-all rounded-xl ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium text-sm">المخزن</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-all rounded-xl ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-medium text-sm">التحليلات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-all rounded-xl ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-medium text-sm">سجل الورديات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-all rounded-xl ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">إعدادات النظام</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:mr-72 flex flex-col min-h-screen w-full">
+<!-- Top App Bar -->
+<header class="bg-background w-full top-0 sticky z-30 flex items-center justify-between px-6 py-4 rtl shadow-none border-b border-outline-variant/15">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary-container hover:bg-surface-variant transition-colors rounded-full p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline font-bold text-2xl text-primary-container">نظام البيع الذكي</h1>
+</div>
+<button class="text-primary-container hover:bg-surface-variant transition-colors rounded-full p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Dashboard Canvas -->
+<main class="flex-1 p-6 md:p-8 flex flex-col gap-8 max-w-7xl mx-auto w-full">
+<!-- Welcome Header -->
+<div>
+<h2 class="font-headline font-bold text-3xl text-on-surface mb-2">لوحة القيادة</h2>
+<p class="text-on-surface-variant text-base">نظرة عامة على أداء المتجر اليوم.</p>
+</div>
+<!-- Bento Grid: Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Today's Sales -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_16px_rgba(25,28,30,0.04)] relative overflow-hidden group hover:shadow-[0px_8px_24px_rgba(25,28,30,0.08)] transition-all">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed/20 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div>
+<p class="text-sm font-bold text-on-surface-variant mb-1">مبيعات اليوم</p>
+<h3 class="font-headline font-bold text-3xl text-on-surface">12,450 ر.س</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">payments</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary text-sm font-medium relative z-10">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+15% عن الأمس</span>
+</div>
+</div>
+<!-- Net Profit -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_16px_rgba(25,28,30,0.04)] relative overflow-hidden group hover:shadow-[0px_8px_24px_rgba(25,28,30,0.08)] transition-all">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary-fixed/20 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div>
+<p class="text-sm font-bold text-on-surface-variant mb-1">صافي الربح</p>
+<h3 class="font-headline font-bold text-3xl text-on-surface">3,200 ر.س</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary text-sm font-medium relative z-10">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+8% هذا الأسبوع</span>
+</div>
+</div>
+<!-- Low Stock Alerts -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_16px_rgba(25,28,30,0.04)] relative overflow-hidden border-l-4 border-tertiary">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-error-container/40 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div>
+<p class="text-sm font-bold text-on-surface-variant mb-1">تنبيهات نقص المخزون</p>
+<h3 class="font-headline font-bold text-3xl text-on-surface">12 <span class="text-lg font-medium text-tertiary">منتج</span></h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">warning</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-tertiary text-sm font-medium relative z-10">
+<span>يحتاج إلى إعادة طلب قريباً</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Grid: Quick Actions & Recent Sales -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Quick Actions -->
+<div class="lg:col-span-1 flex flex-col gap-4">
+<h3 class="font-headline font-bold text-xl text-on-surface mb-2">إجراءات سريعة</h3>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-white shadow-[0px_8px_24px_rgba(0,91,113,0.2)] active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined">point_of_sale</span>
+</div>
+<span class="font-headline font-bold text-lg">إضافة بيع</span>
+</div>
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest text-on-surface shadow-[0px_4px_16px_rgba(25,28,30,0.04)] hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">qr_code_scanner</span>
+</div>
+<span class="font-medium text-lg">مسح منتج</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest text-on-surface shadow-[0px_4px_16px_rgba(25,28,30,0.04)] hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">add_box</span>
+</div>
+<span class="font-medium text-lg">إضافة منتج</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+</div>
+<!-- Recent Sales List -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-[0px_4px_16px_rgba(25,28,30,0.04)] overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant/15 flex justify-between items-center bg-surface-bright">
+<h3 class="font-headline font-bold text-xl text-on-surface">المبيعات الأخيرة</h3>
+<button class="text-sm font-medium text-primary-container hover:underline">عرض الكل</button>
+</div>
+<div class="flex-1 flex flex-col">
+<!-- List Header -->
+<div class="grid grid-cols-4 gap-4 p-4 bg-surface-container-low text-sm font-bold text-on-surface-variant">
+<div>رقم الطلب</div>
+<div>الوقت</div>
+<div>المبلغ</div>
+<div>الحالة</div>
+</div>
+<!-- Items -->
+<div class="flex flex-col gap-1 p-2">
+<div class="grid grid-cols-4 gap-4 p-3 rounded-lg items-center bg-surface hover:bg-surface-container-high transition-colors">
+<div class="font-medium text-on-surface">#ORD-092</div>
+<div class="text-on-surface-variant text-sm">10:45 ص</div>
+<div class="font-headline font-bold text-on-surface">150 ر.س</div>
+<div><span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold">مكتمل</span></div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-3 rounded-lg items-center bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="font-medium text-on-surface">#ORD-091</div>
+<div class="text-on-surface-variant text-sm">09:30 ص</div>
+<div class="font-headline font-bold text-on-surface">85 ر.س</div>
+<div><span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold">مكتمل</span></div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-3 rounded-lg items-center bg-surface hover:bg-surface-container-high transition-colors">
+<div class="font-medium text-on-surface">#ORD-090</div>
+<div class="text-on-surface-variant text-sm">08:15 ص</div>
+<div class="font-headline font-bold text-on-surface">420 ر.س</div>
+<div><span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold">مكتمل</span></div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-3 rounded-lg items-center bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="font-medium text-on-surface">#ORD-089</div>
+<div class="text-on-surface-variant text-sm">07:50 ص</div>
+<div class="font-headline font-bold text-on-surface">12 ر.س</div>
+<div><span class="px-3 py-1 rounded-full bg-error-container text-on-error-container text-xs font-bold">ملغى</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom NavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-white/80 backdrop-blur-xl rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.04)] rtl border-t border-outline-variant/15">
+<a class="bg-primary-container text-white rounded-2xl px-6 py-2 flex flex-col items-center active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-lg mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-bold text-[10px]">الرئيسية</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center px-4 py-2 hover:bg-surface-container-high transition-colors rounded-2xl" href="#">
+<span class="material-symbols-outlined text-lg mb-1">inventory_2</span>
+<span class="font-bold text-[10px]">المخزن</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center px-4 py-2 hover:bg-surface-container-high transition-colors rounded-2xl" href="#">
+<span class="material-symbols-outlined text-lg mb-1">shopping_cart</span>
+<span class="font-bold text-[10px]">البيع</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center px-4 py-2 hover:bg-surface-container-high transition-colors rounded-2xl" href="#">
+<span class="material-symbols-outlined text-lg mb-1">settings</span>
+<span class="font-bold text-[10px]">الإعدادات</span>
+</a>
+</nav>
+<!-- Padding for mobile bottom nav -->
+<div class="h-20 md:hidden w-full"></div>
+</div>
+</body></html>

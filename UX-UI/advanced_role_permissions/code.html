@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>إدارة الصلاحيات - كينيتيك للتجزئة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-high": "#e6e8ea",
+                    "outline-variant": "#bfc8cc",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-surface-variant": "#40484c",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "surface-tint": "#19667d",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "outline": "#70787d",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#2f1400",
+                    "surface-container": "#eceef0",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "inverse-primary": "#8dd0e9",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#5f2f00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#8ed1ea",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "primary-container": "#005b71",
+                    "on-secondary-container": "#007257",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#8ff6d0",
+                    "inverse-on-surface": "#eff1f3",
+                    "error-container": "#ffdad6",
+                    "secondary": "#006c52",
+                    "primary": "#004253",
+                    "tertiary-container": "#804307",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#8ff6d0",
+                    "surface-bright": "#f8f9fb",
+                    "on-secondary-fixed": "#002117",
+                    "on-background": "#191c1e",
+                    "surface": "#f8f9fb",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#004e61",
+                    "tertiary-fixed": "#ffdcc4",
+                    "on-primary-fixed": "#001f28",
+                    "primary-fixed": "#b7eaff",
+                    "on-tertiary-container": "#ffb882",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-surface": "#2e3132"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .headline-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed inset-y-0 right-0 w-64 flex flex-col z-40 rtl bg-white border-l border-slate-200 font-['Plus_Jakarta_Sans'] leading-relaxed text-right">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-[#005B71]">كينيتيك للتجزئة</h1>
+<p class="text-xs text-slate-500">إدارة مخازن البقالة</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex flex-row-reverse items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium">تحليلات الموردين</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings_backup_restore">settings_backup_restore</span>
+<span class="text-sm font-medium">مركز استعادة البيانات</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 px-4 py-3 bg-[#005B71]/10 text-[#005B71] border-r-4 border-[#005B71] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span class="text-sm font-medium">إدارة الصلاحيات</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="text-sm font-medium">سجلات النظام</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-1">
+<button class="w-full flex flex-row-reverse items-center justify-center gap-2 bg-primary-container text-white py-2.5 rounded-lg mb-4 text-sm font-semibold hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>إضافة مورد جديد</span>
+</button>
+<a class="flex flex-row-reverse items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">الإعدادات</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">تسجيل الخروج</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 left-0 right-64 h-16 flex flex-row-reverse items-center justify-between px-8 z-30 rtl bg-white/80 backdrop-blur-md border-b border-slate-200">
+<div class="flex items-center gap-6">
+<div class="relative">
+<input class="bg-surface-container-low border-none rounded-full px-10 py-2 text-sm w-64 focus:ring-2 focus:ring-primary outline-none" placeholder="بحث في النظام..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-slate-400 text-sm">search</span>
+</div>
+<h2 class="text-lg font-bold text-[#005B71] headline-font">نظام الإدارة المتكامل</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center text-slate-600 hover:text-[#005B71] transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-slate-600 hover:text-[#005B71] relative transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-left">
+<p class="text-xs font-bold text-on-surface">أحمد المسؤول</p>
+<p class="text-[10px] text-slate-500">مدير النظام</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="close-up portrait of professional man in office attire with warm lighting and blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHNgFVBeizz_d2ze3wudI2OAXmNTIaqxdfnNRGv0bLc-K7Hx2-W2GEaEk6QlmheOSblS5ua1ZwDNL7qBnWKvKYABxAhs5J9mX66AnNUJ_XsvtqVkSVCtcKxvaK7OwhcvMn7fKeb8fhhF-d6aUvazOkt44CJy53IC3aLPN9987bu06qxhwOqW_AY9E-i_jMfZbPO4OAatDXqKpQfeB55g1p8yCPOPHUy9vs5eVqs_PQ1lW9pf0L_WsHZuQ3TMFI5VGaYHbQ33XE7aU"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="mr-64 pt-24 px-8 pb-12">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+<a class="hover:text-primary transition-colors" href="#">الرئيسية</a>
+<span class="material-symbols-outlined text-[12px]">chevron_left</span>
+<span class="text-primary font-semibold">إدارة الصلاحيات</span>
+</nav>
+<h1 class="text-3xl font-black text-primary headline-font">إدارة صلاحيات الأدوار</h1>
+<p class="text-on-surface-variant mt-1">تعديل وتخصيص الوصول لـ "مساعد مدير"</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface rounded-lg font-semibold text-sm hover:bg-slate-200 transition-all">إلغاء التعديلات</button>
+<button class="px-6 py-2.5 bg-primary text-white rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all">حفظ التغييرات</button>
+</div>
+</div>
+<!-- Role Overview Card -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<div class="col-span-12 lg:col-span-4 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-secondary-container text-secondary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">badge</span>
+</div>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase">نشط</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-1">مساعد مدير</h3>
+<p class="text-sm text-slate-500 leading-relaxed">يمتلك صلاحيات الإشراف على العمليات اليومية وإدارة المخزون والمبيعات تحت إشراف مدير الفرع.</p>
+<div class="mt-6 flex items-center gap-4 text-xs text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>4 مستخدمين</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">history</span>
+<span>آخر تحديث: منذ يومين</span>
+</div>
+</div>
+</div>
+<!-- Permission Summary Bento -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-4">
+<div class="bg-primary-container p-5 rounded-xl text-white">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined opacity-80">point_of_sale</span>
+<span class="text-2xl font-black">12/15</span>
+</div>
+<p class="text-sm font-bold">صلاحيات المبيعات</p>
+<div class="w-full bg-white/20 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-white h-full w-[80%]"></div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+<span class="text-2xl font-black text-on-surface">8/10</span>
+</div>
+<p class="text-sm font-bold text-slate-600">صلاحيات المخزون</p>
+<div class="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-secondary h-full w-[80%]"></div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-tertiary-container">assessment</span>
+<span class="text-2xl font-black text-on-surface">4/12</span>
+</div>
+<p class="text-sm font-bold text-slate-600">صلاحيات التقارير</p>
+<div class="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-tertiary-container h-full w-[33%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Permissions Management Matrix -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<h3 class="text-lg font-bold text-on-surface">مصفوفة الأذونات التفصيلية</h3>
+<div class="flex items-center gap-4">
+<label class="flex items-center gap-2 text-xs font-medium cursor-pointer">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span>تحديد الكل</span>
+</label>
+<button class="text-xs text-primary font-bold hover:underline">توسيع الكل</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-white border-b border-slate-200">
+<th class="px-8 py-5 text-sm font-bold text-slate-700 w-1/3">الوظيفة / الصلاحية</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-700 text-center">عرض</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-700 text-center">إنشاء</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-700 text-center">تعديل</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-700 text-center">حذف</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-700 text-center">تصدير</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Section: Sales -->
+<tr class="bg-surface-container-low/30">
+<td class="px-8 py-3 text-xs font-black text-primary bg-primary-container/5 uppercase tracking-wider" colspan="6">قسم المبيعات</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">receipt_long</span>
+<div>
+<p class="text-sm font-bold text-on-surface">الفواتير والمعاملات</p>
+<p class="text-xs text-slate-500">إدارة فواتير العملاء والرديات</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">sell</span>
+<div>
+<p class="text-sm font-bold text-on-surface">العروض والخصومات</p>
+<p class="text-xs text-slate-500">تطبيق خصومات يدوية على المشتريات</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<!-- Section: Inventory -->
+<tr class="bg-surface-container-low/30">
+<td class="px-8 py-3 text-xs font-black text-secondary-container bg-secondary-container/5 uppercase tracking-wider" colspan="6">قسم المخزون</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">inventory</span>
+<div>
+<p class="text-sm font-bold text-on-surface">مستويات المخزون</p>
+<p class="text-xs text-slate-500">تعديل كميات المنتجات المتوفرة</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">local_shipping</span>
+<div>
+<p class="text-sm font-bold text-on-surface">طلبات التوريد</p>
+<p class="text-xs text-slate-500">إنشاء طلبات شراء جديدة من الموردين</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<!-- Section: Reports -->
+<tr class="bg-surface-container-low/30">
+<td class="px-8 py-3 text-xs font-black text-tertiary-container bg-tertiary-container/5 uppercase tracking-wider" colspan="6">قسم التقارير</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">query_stats</span>
+<div>
+<p class="text-sm font-bold text-on-surface">تقارير المبيعات اليومية</p>
+<p class="text-xs text-slate-500">ملخصات الأداء اليومية للفرع</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="px-6 py-5 text-center"><input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-slate-50 border-t border-slate-200">
+<div class="flex items-center gap-4 text-xs text-on-surface-variant italic">
+<span class="material-symbols-outlined text-sm">info</span>
+<p>تغيير هذه الإعدادات سيؤثر فوراً على جميع المستخدمين المرتبطين بدور "مساعد مدير".</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>
