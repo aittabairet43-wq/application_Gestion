@@ -17,6 +17,7 @@ const MainLayout = () => {
                     <MenuLink to="/dashboard" icon="dashboard" label="لوحة القيادة" />
                     <MenuLink to="/pos" icon="shopping_cart" label="المبيعات" />
                     <MenuLink to="/inventory" icon="inventory_2" label="المخزون" />
+                    <MenuLink to="/suppliers" icon="local_shipping" label="الموردين" />
                     <MenuLink to="/messages" icon="forum" label="الرسائل" />
                     <MenuLink to="/tasks" icon="task" label="المهام اليومية" />
                     <MenuLink to="/debts" icon="payments" label="الديون" />

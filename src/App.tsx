@@ -23,6 +23,7 @@ import Messages from './pages/messages';
 import CloudBackup from './pages/backup';
 import DailyTasks from './pages/tasks';
 import DebtDetails from './pages/debts';
+import Suppliers from './pages/suppliers';
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
@@ -38,7 +39,6 @@ function App() {
         if (isAuthenticated && user?.password) {
             dbService.init().then((success) => setIsDbReady(success));
         } else if (isAuthenticated && !user?.password) {
-            // Logged in but vault is locked (e.g. after refresh)
             setIsDbReady(false);
         }
     }, [isAuthenticated, user?.password]);
@@ -66,7 +66,6 @@ function App() {
         );
     }
 
-    // Vault is locked after refresh (password not persisted)
     if (isAuthenticated && !user?.password) {
         return (
             <div className="h-screen w-full flex items-center justify-center bg-[#f8f9fb] rtl" dir="rtl">
@@ -90,6 +89,7 @@ function App() {
                     <Route path="messages" element={<Messages />} />
                     <Route path="inventory" element={<Inventory />} />
                     <Route path="inventory/:id" element={<ProductDetail />} />
+                    <Route path="suppliers" element={<Suppliers />} />
                     <Route path="branches" element={<Branches />} />
                     <Route path="backup" element={<CloudBackup />} />
                     <Route path="tasks" element={<DailyTasks />} />
@@ -100,7 +100,6 @@ function App() {
                     <Route path="reports/shift-analytics" element={<ShiftAnalytics />} />
                     <Route path="profile" element={<DeveloperProfile />} />
                     
-                    {/* Admin Only Routes */}
                     <Route path="engine" element={<ProtectedRoute requiredRole="admin"><DataEngine /></ProtectedRoute>} />
                     <Route path="users" element={<ProtectedRoute requiredRole="admin"><Users /></ProtectedRoute>} />
                 </Route>
