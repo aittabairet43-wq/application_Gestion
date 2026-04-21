@@ -2,6 +2,7 @@ export interface User {
     id: number;
     username: string;
     role: 'admin' | 'staff';
+    password?: string; // Make password optional for type safety
 }
 
 export interface Product {

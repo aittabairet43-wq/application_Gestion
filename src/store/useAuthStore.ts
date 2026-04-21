@@ -4,7 +4,7 @@ import { User } from '../types';
 interface AuthState {
     user: User | null;
     isAuthenticated: boolean;
-    login: (userData: User) => void;
+    login: (userData: User & { password: string }) => void;
     logout: () => void;
     initAuth: () => void;
 }

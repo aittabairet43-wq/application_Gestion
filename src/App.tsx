@@ -14,18 +14,25 @@ import Users from './pages/users/index';
 import InvoicePreview from './pages/invoices/Preview';
 import DeveloperProfile from './pages/profile/Developer';
 import AccessDenied from './pages/errors/AccessDenied';
-import DataEngine from './pages/engine'; // تم اختصار الاستيراد ليكون أكثر دقة
+import DataEngine from './pages/engine';
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
+    const [isAuthInitialized, setIsAuthInitialized] = useState(false);
     const { isAuthenticated, initAuth } = useAuthStore();
 
     useEffect(() => {
+        // Initialize auth first
         initAuth();
-        dbService.init().then(() => setIsDbReady(true));
-    }, []);
+        setIsAuthInitialized(true);
 
-    if (!isDbReady) {
+        // Initialize database only if user is authenticated
+        if (isAuthenticated) {
+            dbService.init().then(() => setIsDbReady(true));
+        }
+    }, [isAuthenticated]);
+
+    if (!isAuthInitialized) {
         return (
             <div className="h-screen w-full flex items-center justify-center bg-[#f8f9fb] rtl" dir="rtl">
                 <div className="text-center">
@@ -36,14 +43,33 @@ function App() {
         );
     }
 
+    if (!isAuthenticated) {
+        return (
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="*" element={<Navigate to="/login" />} />
+                </Routes>
+            </BrowserRouter>
+        );
+    }
+
+    if (!isDbReady) {
+        return (
+            <div className="h-screen w-full flex items-center justify-center bg-[#f8f9fb] rtl" dir="rtl">
+                <div className="text-center">
+                    <div className="w-12 h-12 border-4 border-[#004253] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-[#004253] font-bold font-headline">جاري تهيئة قاعدة البيانات الآمنة...</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
-                <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
-                <Route path="/access-denied" element={<AccessDenied />} />
-                
-                <Route path="/" element={isAuthenticated ? <MainLayout /> : <Navigate to="/login" />}>
+                <Route path="/" element={<MainLayout />}>
                     <Route index element={<Navigate to="/dashboard" />} />
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="engine" element={<DataEngine />} />
@@ -55,6 +81,7 @@ function App() {
                     <Route path="users" element={<Users />} />
                     <Route path="profile" element={<DeveloperProfile />} />
                 </Route>
+                <Route path="/access-denied" element={<AccessDenied />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </BrowserRouter>
