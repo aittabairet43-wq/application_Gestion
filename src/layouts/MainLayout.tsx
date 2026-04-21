@@ -18,11 +18,24 @@ const MainLayout = () => {
                     <MenuLink to="/engine" icon="database" label="محرك البيانات" />
                     <MenuLink to="/pos" icon="shopping_cart" label="المبيعات" />
                     <MenuLink to="/inventory" icon="inventory_2" label="المخزون" />
+                    <MenuLink to="/branches" icon="hub" label="إدارة الفروع" />
+                    
+                    <div className="pt-4 pb-2 px-4">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">التقارير</p>
+                    </div>
+                    <MenuLink to="/reports/cash-logs" icon="payments" label="حركة الصندوق" />
+                    <MenuLink to="/reports/shift-analytics" icon="analytics" label="إحصائيات الورديات" />
                     <MenuLink to="/invoices/preview" icon="receipt_long" label="الفواتير" />
-                    <MenuLink to="/reports" icon="analytics" label="التقارير" />
+                    
                     {user?.role === 'admin' && (
-                        <MenuLink to="/users" icon="manage_accounts" label="الصلاحيات" />
+                        <>
+                            <div className="pt-4 pb-2 px-4">
+                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">النظام</p>
+                            </div>
+                            <MenuLink to="/users" icon="manage_accounts" label="الصلاحيات" />
+                        </>
                     )}
+                    
                     <div className="pt-4 pb-2 px-4">
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">الإعدادات</p>
                     </div>

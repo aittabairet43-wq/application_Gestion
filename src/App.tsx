@@ -10,6 +10,9 @@ import Login from './pages/login/index';
 import Register from './pages/register/index';
 import Dashboard from './pages/dashboard/index';
 import Reports from './pages/reports/index';
+import CashLogs from './pages/reports/CashLogs';
+import ShiftAnalytics from './pages/reports/ShiftAnalytics';
+import Branches from './pages/branches';
 import Users from './pages/users/index';
 import InvoicePreview from './pages/invoices/Preview';
 import DeveloperProfile from './pages/profile/Developer';
@@ -22,15 +25,13 @@ function App() {
     const { isAuthenticated, initAuth } = useAuthStore();
 
     useEffect(() => {
-        // Initialize auth first
         initAuth();
         setIsAuthInitialized(true);
 
-        // Initialize database only if user is authenticated
         if (isAuthenticated) {
             dbService.init().then(() => setIsDbReady(true));
         }
-    }, [isAuthenticated]);
+    }, [isAuthenticated, initAuth]);
 
     if (!isAuthInitialized) {
         return (
@@ -76,8 +77,11 @@ function App() {
                     <Route path="pos" element={<POS />} />
                     <Route path="inventory" element={<Inventory />} />
                     <Route path="inventory/:id" element={<ProductDetail />} />
+                    <Route path="branches" element={<Branches />} />
                     <Route path="invoices/preview" element={<InvoicePreview />} />
                     <Route path="reports" element={<Reports />} />
+                    <Route path="reports/cash-logs" element={<CashLogs />} />
+                    <Route path="reports/shift-analytics" element={<ShiftAnalytics />} />
                     <Route path="users" element={<Users />} />
                     <Route path="profile" element={<DeveloperProfile />} />
                 </Route>
