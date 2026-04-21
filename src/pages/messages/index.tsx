@@ -1,8 +1,85 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { dbService } from '../../services/db'; // Fixed import path
+import toast from 'react-hot-toast';
 
 const Messages = () => {
+    const [conversations, setConversations] = useState<any[]>([]);
+    const [selectedConversation, setSelectedConversation] = useState<any>(null);
+    const [messages, setMessages] = useState<any[]>([]);
+    const [newMessage, setNewMessage] = useState('');
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [formData, setFormData] = useState({ name: '', company: '', phone: '', address: '' });
+
+    const loadConversations = () => {
+        try {
+            dbService.run("CREATE TABLE IF NOT EXISTS conversations (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, company TEXT, phone TEXT, address TEXT, last_message TEXT, last_date DATETIME DEFAULT CURRENT_TIMESTAMP)");
+            dbService.run("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, conversation_id INTEGER, message TEXT, sender TEXT, date DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (conversation_id) REFERENCES conversations (id))");
+            const res = dbService.exec("SELECT * FROM conversations ORDER BY last_date DESC");
+            if (res.length > 0) {
+                setConversations(res[0].values);
+            } else {
+                setConversations([]);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const loadMessages = (conversationId: number) => {
+        try {
+            const res = dbService.exec("SELECT * FROM messages WHERE conversation_id = ? ORDER BY date ASC", [conversationId]);
+            if (res.length > 0) {
+                setMessages(res[0].values);
+            } else {
+                setMessages([]);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const sendMessage = () => {
+        if (!newMessage.trim() || !selectedConversation) return;
+        try {
+            dbService.run("INSERT INTO messages (conversation_id, message, sender) VALUES (?, ?, ?)", [selectedConversation[0], newMessage, 'user']);
+            dbService.run("UPDATE conversations SET last_message = ?, last_date = CURRENT_TIMESTAMP WHERE id = ?", [newMessage, selectedConversation[0]]);
+            setNewMessage('');
+            loadMessages(selectedConversation[0]);
+            loadConversations();
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const addConversation = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            dbService.run(
+                "INSERT INTO conversations (name, company, phone, address) VALUES (?, ?, ?, ?)",
+                [formData.name, formData.company, formData.phone, formData.address]
+            );
+            await dbService.save();
+            toast.success('تم إضافة المحادثة بنجاح');
+            setShowAddModal(false);
+            setFormData({ name: '', company: '', phone: '', address: '' });
+            loadConversations();
+        } catch (err) {
+            toast.error('خطأ في إضافة المحادثة');
+        }
+    };
+
+    useEffect(() => {
+        loadConversations();
+    }, []);
+
+    useEffect(() => {
+        if (selectedConversation) {
+            loadMessages(selectedConversation[0]);
+        }
+    }, [selectedConversation]);
+
     return (
         <div className="flex h-[calc(100vh-8rem)] bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden rtl" dir="rtl">
             {/* Conversations List */}
@@ -15,147 +92,144 @@ const Messages = () => {
                 </div>
                 <div className="flex-1 overflow-y-auto custom-scrollbar">
                     {/* Active Conversation */}
-                    <div className="p-4 bg-primary/5 border-r-4 border-primary cursor-pointer flex gap-3">
-                        <div className="relative shrink-0">
-                            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">ش</div>
-                            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+                    {conversations.length === 0 ? (
+                        <div className="p-8 text-center text-slate-400">
+                            <p>لا توجد محادثات</p>
+                            <button onClick={() => setShowAddModal(true)} className="mt-4 text-primary font-bold">إضافة محادثة جديدة</button>
                         </div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex justify-between items-start">
-                                <h3 className="text-sm font-bold text-primary truncate">شركة التوريد المتحدة</h3>
-                                <span className="text-[10px] text-slate-400">١٠:٤٥ ص</span>
+                    ) : (
+                        conversations.map((conv) => (
+                            <div 
+                                key={conv[0]} 
+                                className={`p-4 border-b border-slate-50 cursor-pointer flex gap-3 transition-colors ${selectedConversation?.[0] === conv[0] ? 'bg-primary/5 border-r-4 border-primary' : 'hover:bg-slate-50'}`}
+                                onClick={() => setSelectedConversation(conv)}
+                            >
+                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold shrink-0">{conv[1].charAt(0)}</div>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex justify-between items-start">
+                                        <h3 className="text-sm font-bold text-slate-800 truncate">{conv[1]}</h3>
+                                        <span className="text-[10px] text-slate-400">{conv[5]}</span>
+                                    </div>
+                                    <p className="text-xs text-slate-500 truncate mt-1">{conv[4]}</p>
+                                </div>
                             </div>
-                            <p className="text-xs text-slate-600 truncate mt-1">لقد قمنا بتحديث أسعار التوريد...</p>
-                        </div>
-                    </div>
-                    {/* Other Conversations */}
-                    <div className="p-4 border-b border-slate-50 hover:bg-slate-50 cursor-pointer flex gap-3 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold shrink-0">أ</div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex justify-between items-start">
-                                <h3 className="text-sm font-semibold text-slate-800 truncate">أحمد حسن (مشرف)</h3>
-                                <span className="text-[10px] text-slate-400">أمس</span>
-                            </div>
-                            <p className="text-xs text-slate-500 truncate mt-1">تم استلام الشحنة رقم ٤٥٠٢.</p>
-                        </div>
-                    </div>
-                    <div className="p-4 border-b border-slate-50 hover:bg-slate-50 cursor-pointer flex gap-3 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-secondary-container text-white flex items-center justify-center font-bold shrink-0">ل</div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex justify-between items-start">
-                                <h3 className="text-sm font-semibold text-slate-800 truncate">لوجستيات النقل</h3>
-                                <span className="text-[10px] text-slate-400">الإثنين</span>
-                            </div>
-                            <p className="text-xs text-slate-500 truncate mt-1">هل يمكنكم تأكيد موعد التوصيل؟</p>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="w-5 h-5 bg-error text-white text-[10px] rounded-full flex items-center justify-center font-bold">٣</span>
-                        </div>
-                    </div>
+                        ))
+                    )}
                 </div>
             </div>
 
             {/* Chat View */}
             <div className="flex-1 flex flex-col bg-white">
-                <header className="h-16 px-6 border-b border-slate-200 flex items-center justify-between shrink-0">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">ش</div>
-                        <div>
-                            <h2 className="text-sm font-bold text-slate-900">شركة التوريد المتحدة</h2>
-                            <span className="text-[11px] text-green-600 flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                                متصل الآن
-                            </span>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 text-slate-400">
-                        <button className="hover:text-primary transition-colors"><span className="material-symbols-outlined text-xl">call</span></button>
-                        <button className="hover:text-primary transition-colors"><span className="material-symbols-outlined text-xl">videocam</span></button>
-                        <button className="hover:text-primary transition-colors"><span className="material-symbols-outlined text-xl">more_vert</span></button>
-                    </div>
-                </header>
+                {selectedConversation ? (
+                    <>
+                        <header className="h-16 px-6 border-b border-slate-200 flex items-center justify-between shrink-0">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">{selectedConversation[1].charAt(0)}</div>
+                                <div>
+                                    <h2 className="text-sm font-bold text-slate-900">{selectedConversation[1]}</h2>
+                                    <span className="text-[11px] text-green-600 flex items-center gap-1">
+                                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                                        متصل الآن
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-4 text-slate-400">
+                                <button className="hover:text-primary transition-colors"><span className="material-symbols-outlined text-xl">call</span></button>
+                                <button className="hover:text-primary transition-colors"><span className="material-symbols-outlined text-xl">videocam</span></button>
+                                <button className="hover:text-primary transition-colors"><span className="material-symbols-outlined text-xl">more_vert</span></button>
+                            </div>
+                        </header>
 
-                <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/30 custom-scrollbar">
-                    <div className="flex justify-center">
-                        <span className="px-3 py-1 bg-white border border-slate-200 rounded-full text-[10px] text-slate-500 font-bold uppercase">اليوم</span>
-                    </div>
-                    {/* Received Message */}
-                    <div className="flex gap-3 max-w-[80%]">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs shrink-0 self-end">ش</div>
-                        <div className="flex flex-col gap-1">
-                            <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-br-none shadow-sm">
-                                <p className="text-sm text-slate-800 leading-relaxed">تحية طيبة، لقد أرسلنا لكم قائمة الأسعار المحدثة لمنتجات الألبان والأجبان لشهر مايو. يرجى المراجعة والتأكيد.</p>
+                        <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/30 custom-scrollbar">
+                            <div className="flex justify-center">
+                                <span className="px-3 py-1 bg-white border border-slate-200 rounded-full text-[10px] text-slate-500 font-bold uppercase">اليوم</span>
                             </div>
-                            <span className="text-[10px] text-slate-400 mr-1">١٠:٤٢ ص</span>
+                            {/* Received Message */}
+                            <div className="flex gap-3 max-w-[80%]">
+                                <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs shrink-0 self-end">{selectedConversation[1].charAt(0)}</div>
+                                <div className="flex flex-col gap-1">
+                                    <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-br-none shadow-sm">
+                                        <p className="text-sm text-slate-800 leading-relaxed">تحية طيبة، لقد أرسلنا لكم قائمة الأسعار المحدثة لمنتجات الألبان والأجبان لشهر مايو. يرجى المراجعة والتأكيد.</p>
+                                    </div>
+                                    <span className="text-[10px] text-slate-400 mr-1">١٠:٤٢ ص</span>
+                                </div>
+                            </div>
+                            {/* Sent Message */}
+                            <div className="flex flex-row-reverse gap-3 max-w-[80%] mr-auto">
+                                <div className="flex flex-col items-end gap-1">
+                                    <div className="bg-primary text-white p-4 rounded-2xl rounded-bl-none shadow-sm">
+                                        <p className="text-sm leading-relaxed">أهلاً بكم. استلمنا الملف وسنقوم بمراجعته مع قسم المشتريات والرد عليكم قريباً.</p>
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-[10px] text-slate-400">١٠:٤٥ ص</span>
+                                        <span className="material-symbols-outlined text-xs text-primary" style={{fontVariationSettings: "'FILL' 1"}}>done_all</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    {/* Sent Message */}
-                    <div className="flex flex-row-reverse gap-3 max-w-[80%] mr-auto">
-                        <div className="flex flex-col items-end gap-1">
-                            <div className="bg-primary text-white p-4 rounded-2xl rounded-bl-none shadow-sm">
-                                <p className="text-sm leading-relaxed">أهلاً بكم. استلمنا الملف وسنقوم بمراجعته مع قسم المشتريات والرد عليكم قريباً.</p>
-                            </div>
-                            <div className="flex items-center gap-1">
-                                <span className="text-[10px] text-slate-400">١٠:٤٥ ص</span>
-                                <span className="material-symbols-outlined text-xs text-primary" style={{fontVariationSettings: "'FILL' 1"}}>done_all</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <footer className="p-4 border-t border-slate-200 bg-white">
-                    <div className="flex items-end gap-3 max-w-4xl mx-auto">
-                        <div className="flex gap-1 pb-1">
-                            <button className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
-                                <span className="material-symbols-outlined">attach_file</span>
-                            </button>
+                        <footer className="p-4 border-t border-slate-200 bg-white">
+                            <div className="flex items-end gap-3 max-w-4xl mx-auto">
+                                <div className="flex gap-1 pb-1">
+                                    <button className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+                                        <span className="material-symbols-outlined">attach_file</span>
+                                    </button>
+                                </div>
+                                <div className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 flex items-center">
+                                    <textarea 
+                                        className="w-full bg-transparent border-none focus:ring-0 text-sm py-1 resize-none overflow-hidden" 
+                                        placeholder="اكتب رسالتك هنا..." 
+                                        rows={1}
+                                        value={newMessage}
+                                        onChange={(e) => setNewMessage(e.target.value)}
+                                    ></textarea>
+                                </div>
+                                <button onClick={sendMessage} className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+                                    <span className="material-symbols-outlined">send</span>
+                                </button>
+                            </div>
+                        </footer>
+                    </>
+                ) : (
+                    <div className="flex-1 flex items-center justify-center text-slate-400">
+                        <div className="text-center">
+                            <span className="material-symbols-outlined text-6xl text-slate-200 mb-4">forum</span>
+                            <p>اختر محادثة للبدء</p>
                         </div>
-                        <div className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 flex items-center">
-                            <textarea className="w-full bg-transparent border-none focus:ring-0 text-sm py-1 resize-none overflow-hidden" placeholder="اكتب رسالتك هنا..." rows={1}></textarea>
-                        </div>
-                        <button className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg active:scale-95 transition-transform">
-                            <span className="material-symbols-outlined">send</span>
-                        </button>
                     </div>
-                </footer>
+                )}
             </div>
 
-            {/* Profile Info Side (Contextual) */}
-            <div className="w-72 border-r border-slate-200 bg-white hidden xl:flex flex-col overflow-y-auto custom-scrollbar">
-                <div className="p-8 text-center">
-                    <div className="w-24 h-24 rounded-full bg-primary/5 flex items-center justify-center text-primary font-black text-4xl mx-auto mb-4 border-4 border-white shadow-sm">ش</div>
-                    <h3 className="font-bold text-slate-900">شركة التوريد المتحدة</h3>
-                    <p className="text-[11px] text-slate-500 mb-4">مورد معتمد منذ ٢٠٢١</p>
-                    <div className="flex justify-center gap-2">
-                        <span className="px-2 py-1 bg-teal-50 text-secondary text-[10px] font-bold rounded">نشط</span>
-                        <span className="px-2 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded">VIP</span>
+            {/* Add Conversation Modal */}
+            {showAddModal && (
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-2xl w-full max-w-md p-8 shadow-2xl">
+                        <h3 className="text-xl font-bold text-primary mb-6 font-headline">إضافة محادثة جديدة</h3>
+                        <form onSubmit={addConversation} className="space-y-4">
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 mb-2">اسم المسؤول</label>
+                                <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-1 focus:ring-primary outline-none" placeholder="مثال: محمد أحمد" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 mb-2">اسم الشركة</label>
+                                <input required value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-1 focus:ring-primary outline-none" placeholder="شركة التوريد المحدودة" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 mb-2">رقم الهاتف</label>
+                                <input required value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-1 focus:ring-primary outline-none text-left" dir="ltr" placeholder="+966" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 mb-2">العنوان</label>
+                                <input value={formData.address} onChange={e => setFormData({...formData, address: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-1 focus:ring-primary outline-none" placeholder="المدينة، الحي" />
+                            </div>
+                            <div className="flex gap-3 mt-8">
+                                <button type="submit" className="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:brightness-110">حفظ المحادثة</button>
+                                <button type="button" onClick={() => setShowAddModal(false)} className="px-6 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold">إلغاء</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div className="p-6 border-t border-slate-50">
-                    <h4 className="text-[10px] font-bold text-slate-400 mb-4 uppercase tracking-widest">تفاصيل الاتصال</h4>
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-3">
-                            <span className="material-symbols-outlined text-slate-400 text-sm">person</span>
-                            <div className="text-xs">
-                                <div className="text-slate-400 font-medium">الشخص المسؤول</div>
-                                <div className="text-slate-700 font-bold">محمد سامي</div>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <span className="material-symbols-outlined text-slate-400 text-sm">call</span>
-                            <div className="text-xs">
-                                <div className="text-slate-400 font-medium">رقم التواصل</div>
-                                <div className="text-slate-700 font-bold text-left" dir="ltr">+966 50 123 4567</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="p-6 border-t border-slate-50 mt-auto">
-                    <button className="w-full py-2.5 border border-error text-error text-xs font-bold rounded-lg hover:bg-error/5 transition-colors">
-                        حظر المورد
-                    </button>
-                </div>
-            </div>
+            )}
         </div>
     );
 };
