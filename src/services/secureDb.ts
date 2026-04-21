@@ -34,7 +34,7 @@ export const secureDbService = {
             isAuthenticated = true;
 
             // Try to load encrypted database
-            const savedBinary = await secureStorage.loadEncrypted(auth.user.password);
+            const savedBinary = await secureStorage.loadEncrypted((auth.user as any).password);
             
             if (savedBinary) {
                 db = new SQL.Database(savedBinary);
@@ -83,7 +83,7 @@ export const secureDbService = {
             const binary = db.export();
             const auth = useAuthStore.getState();
             if (auth.user) {
-                await secureStorage.saveEncrypted(binary, auth.user.password);
+                await secureStorage.saveEncrypted(binary, (auth.user as any).password);
             }
             return true;
         } catch (error) {
