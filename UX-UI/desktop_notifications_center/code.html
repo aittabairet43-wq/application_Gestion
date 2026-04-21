@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FreshStock Pro - مركز التنبيهات</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#40484c",
+                        "on-primary-fixed-variant": "#004e61",
+                        "on-primary-fixed": "#001f28",
+                        "primary-fixed": "#b7eaff",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#004253",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fb",
+                        "on-tertiary-fixed": "#2f1400",
+                        "on-secondary-container": "#007257",
+                        "surface-bright": "#f8f9fb",
+                        "outline-variant": "#bfc8cc",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "on-secondary-fixed-variant": "#00513d",
+                        "background": "#f8f9fb",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed-dim": "#73d9b5",
+                        "primary-fixed-dim": "#8dd0e9",
+                        "on-secondary-fixed": "#002117",
+                        "surface-tint": "#19667d",
+                        "outline": "#70787d",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#5f2f00",
+                        "primary-container": "#005b71",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdcc4",
+                        "secondary-container": "#8ff6d0",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-container": "#804307",
+                        "secondary-fixed": "#8ff6d0",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-container": "#ffb882",
+                        "inverse-primary": "#8dd0e9",
+                        "secondary": "#006c52",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-container": "#8ed1ea",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eceef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex h-screen w-64 border-l bg-slate-50 border-slate-200 flex-col py-4 gap-2">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<div>
+<div class="text-lg font-extrabold text-teal-900 leading-tight">Main Branch</div>
+<div class="text-xs text-slate-500">Grocery Manager</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200 transition-transform duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200 transition-transform duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200 transition-transform duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200 transition-transform duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-medium">Shift Logs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-teal-100/50 text-teal-800 border-r-4 border-teal-700 font-bold transition-transform duration-150 rounded-l-none rounded-r-lg group" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-medium">System Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-3 space-y-1 pt-4 border-t border-slate-200">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="text-sm">Help</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-white text-teal-800 font-['Plus_Jakarta_Sans'] font-semibold tracking-tight border-b border-slate-200 flex justify-between items-center px-6 h-16 w-full z-10">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-teal-800">FreshStock Pro</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="pr-10 pl-4 py-1.5 bg-slate-100 border-transparent rounded-full text-sm w-64 focus:ring-primary focus:border-primary" placeholder="البحث في الإشعارات..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 hover:bg-slate-50 transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 left-1.5 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<button class="p-2 hover:bg-slate-50 transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-1"></div>
+<img alt="Manager profile" class="w-8 h-8 rounded-full object-cover border border-slate-200" data-alt="professional portrait of a grocery store manager in a clean white shirt with soft office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACGGVoko9GRzR9p_6EWfBWhxh2Cbw3_TLT8k2_HLqNPkcH_zuRdMpND-gdYrRobCutuxPcZl3auc-UTBOdqyac9j5IbXO1moCCu0h4bjD9xWW0z6zwFM9hYb8xpZG2ZEXjaoco3kuEGYNqUbgUoo-LGmjwSmaSncX6M1KdJx1bQJenDTJ6DPKTx71Xa_TDxmbaHQE5xIV1ediJTXCa6KEjwnDq2gHEXb-ul6dv-vpX2eFdxSHox3yeD_ztHSx2_iA-11AKXZUXawo"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-10 space-y-8 bg-surface">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">مركز التنبيهات</h1>
+<p class="text-on-surface-variant mt-1">إدارة وتحليل تنبيهات المخزون والديون وتحديثات النظام.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">done_all</span>
+<span>تعيين الكل كمقروء</span>
+</button>
+<button class="bg-white border border-outline-variant text-on-surface px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>تصفية</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<!-- Summary Card 1: Low Stock -->
+<div class="md:col-span-1 bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-error-container rounded-lg">
+<span class="material-symbols-outlined text-on-error-container" style="font-variation-settings: 'FILL' 1;">inventory</span>
+</div>
+<span class="text-error font-bold">+12 اليوم</span>
+</div>
+<div>
+<div class="text-4xl font-bold text-on-surface">24</div>
+<div class="text-on-surface-variant font-medium">منتجات منخفضة المخزون</div>
+</div>
+</div>
+<!-- Summary Card 2: Debts -->
+<div class="md:col-span-1 bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<span class="text-secondary font-bold">عاجل</span>
+</div>
+<div>
+<div class="text-4xl font-bold text-on-surface">8</div>
+<div class="text-on-surface-variant font-medium">ديون مستحقة السداد</div>
+</div>
+</div>
+<!-- Summary Card 3: Large Bento Action -->
+<div class="md:col-span-1 lg:col-span-2 bg-primary-container p-6 rounded-xl border-none shadow-lg text-on-primary-container relative overflow-hidden flex flex-col justify-center">
+<div class="relative z-10">
+<h3 class="text-xl font-bold text-white mb-2">حالة النظام ممتازة</h3>
+<p class="text-primary-fixed max-w-xs mb-4">تمت معالجة 98% من تنبيهات الأسبوع الماضي بنجاح. استمر في هذا الأداء!</p>
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm transition-all inline-flex items-center gap-2">
+<span>عرض التقرير الأسبوعي</span>
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+</button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute -top-10 -left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
+</div>
+</div>
+<!-- Main Notification Feed -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<!-- Notification List -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center justify-between px-2">
+<h2 class="text-lg font-bold text-on-surface">الإشعارات الأخيرة</h2>
+<div class="flex gap-4 text-sm font-medium">
+<button class="text-primary border-b-2 border-primary pb-1">الكل</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors pb-1">غير المقروءة</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors pb-1">المؤرشفة</button>
+</div>
+</div>
+<!-- Notification Item 1: Stock -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start hover:border-primary/30 transition-all cursor-pointer group">
+<div class="mt-1 w-12 h-12 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface">نفاد مخزون: حليب المراعي 1 لتر</h4>
+<span class="text-xs text-on-surface-variant">منذ ساعتين</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">الكمية الحالية (5 قطع) أقل من حد التنبيه (20 قطعة). يرجى طلب توريد جديد فوراً.</p>
+<div class="mt-4 flex gap-2">
+<button class="bg-primary text-white text-xs px-4 py-1.5 rounded-lg font-bold">طلب توريد</button>
+<button class="bg-surface-container text-on-surface-variant text-xs px-4 py-1.5 rounded-lg hover:bg-slate-200">تجاهل</button>
+</div>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2 self-start opacity-100 group-hover:scale-125 transition-transform"></div>
+</div>
+<!-- Notification Item 2: Debt -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start hover:border-primary/30 transition-all cursor-pointer group">
+<div class="mt-1 w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface">موعد استحقاق دين: شركة المخبوزات الحديثة</h4>
+<span class="text-xs text-on-surface-variant">اليوم، 09:00 ص</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">يستحق سداد مبلغ 2,500 ريال اليوم. يرجى مراجعة الصندوق وتأكيد السداد.</p>
+<div class="mt-4 flex gap-2">
+<button class="bg-tertiary-container text-white text-xs px-4 py-1.5 rounded-lg font-bold">تسجيل دفع</button>
+<button class="bg-surface-container text-on-surface-variant text-xs px-4 py-1.5 rounded-lg hover:bg-slate-200">التفاصيل</button>
+</div>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2 self-start opacity-100"></div>
+</div>
+<!-- Notification Item 3: System -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start hover:border-primary/30 transition-all cursor-pointer group">
+<div class="mt-1 w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-blue-600" style="font-variation-settings: 'FILL' 1;">update</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface">تحديث النظام متاح (نسخة 2.4.0)</h4>
+<span class="text-xs text-on-surface-variant">أمس</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">يتوفر تحديث جديد يتضمن ميزات تحسين التقارير الضريبية. التحديث سيستغرق 5 دقائق.</p>
+<div class="mt-4 flex gap-2">
+<button class="bg-on-surface text-white text-xs px-4 py-1.5 rounded-lg font-bold">تحديث الآن</button>
+</div>
+</div>
+<div class="w-2 h-2 bg-slate-300 rounded-full mt-2 self-start"></div>
+</div>
+<!-- Notification Item 4: Debt (Resolved style) -->
+<div class="bg-slate-50/50 p-5 rounded-xl border border-dashed border-slate-200 flex gap-4 items-start opacity-70">
+<div class="mt-1 w-12 h-12 bg-green-50 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-slate-500">تم السداد: مورد الخضروات الطازجة</h4>
+<span class="text-xs text-on-surface-variant">أمس</span>
+</div>
+<p class="text-sm text-slate-400 mt-1 leading-relaxed">تم تأكيد استلام مبلغ 1,200 ريال وإغلاق السجل رقم #9921.</p>
+</div>
+</div>
+</div>
+<!-- Sidebar Sidebar Widgets -->
+<div class="space-y-6">
+<!-- Categories Widget -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h3 class="font-bold text-on-surface mb-4">التصنيفات</h3>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg cursor-pointer hover:bg-slate-100 transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-sm font-medium">المخزون</span>
+</div>
+<span class="text-xs bg-error-container text-on-error-container px-2 py-0.5 rounded-full font-bold">14</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-lg cursor-pointer hover:bg-slate-100 transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-sm font-medium">المالية</span>
+</div>
+<span class="text-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold">5</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-lg cursor-pointer hover:bg-slate-100 transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span class="text-sm font-medium">النظام</span>
+</div>
+<span class="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full font-bold">2</span>
+</div>
+</div>
+</div>
+<!-- Settings Widget -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h3 class="font-bold text-on-surface mb-4">تفضيلات التنبيه</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">تنبيهات البريد الإلكتروني</span>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">أصوات التنبيهات</span>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">تنبيهات الواتساب</span>
+<div class="w-10 h-5 bg-slate-200 rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 text-primary text-sm font-bold border border-primary py-2 rounded-lg hover:bg-primary/5">تخصيص الإعدادات</button>
+</div>
+<!-- Quick Support Card -->
+<div class="bg-gradient-to-br from-teal-800 to-teal-900 p-6 rounded-xl shadow-lg text-white">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-bold">الدعم الفني</span>
+</div>
+<p class="text-teal-100 text-sm mb-4 leading-relaxed">هل تواجه مشكلة في الإشعارات؟ فريق الدعم متاح لمساعدتك 24/7.</p>
+<button class="w-full bg-secondary-container text-teal-900 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-opacity-90">تحدث معنا الآن</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button - suppressed as per mandate for detailed/transactional views, 
+         but technically this is a main dashboard for notifications. Adding it as a "New Alert Check". -->
+<button class="fixed bottom-8 left-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">refresh</span>
+</button>
+</body></html>
