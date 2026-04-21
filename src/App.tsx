@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import dbService from './services/db';
+import { dbService } from './services/db';
 import { useAuthStore } from './store/useAuthStore';
 import MainLayout from './layouts/MainLayout';
 import POS from './pages/POS/index';
@@ -15,13 +15,8 @@ function App() {
     const { isAuthenticated, initAuth } = useAuthStore();
 
     useEffect(() => {
-        // Initialize auth state from localStorage
         initAuth();
-        
-        // Initialize database
-        dbService.init().then(() => {
-            setIsDbReady(true);
-        });
+        dbService.init().then(() => setIsDbReady(true));
     }, []);
 
     if (!isDbReady) {
@@ -38,17 +33,15 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/pos" />} />
-
+                <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
                 <Route path="/" element={isAuthenticated ? <MainLayout /> : <Navigate to="/login" />}>
-                    <Route index element={<Navigate to="/pos" />} />
+                    <Route index element={<Navigate to="/dashboard" />} />
+                    <Route path="dashboard" element={<Dashboard />} />
                     <Route path="pos" element={<POS />} />
                     <Route path="inventory" element={<Inventory />} />
-                    <Route path="dashboard" element={<Dashboard />} />
                     <Route path="reports" element={<Reports />} />
                     <Route path="users" element={<Users />} />
                 </Route>
-
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </BrowserRouter>

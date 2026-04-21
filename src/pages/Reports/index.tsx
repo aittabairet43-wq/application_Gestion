@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import dbService from '../../../services/db';
+import { dbService } from '../../services/db';
+import { Sale } from '../../types';
 
 const Reports = () => {
-    const [sales, setSales] = useState([]);
+    const [sales, setSales] = useState<Sale[]>([]);
 
     useEffect(() => {
         const res = dbService.exec("SELECT * FROM sales ORDER BY created_at DESC");
         if (res.length > 0) {
-            setSales(res[0].values.map(row => ({
-                id: row[0], total: row[1], method: row[2], date: row[3]
+            setSales(res[0].values.map((row: any) => ({
+                id: row[0], total: row[1], payment_method: row[2], created_at: row[3]
             })));
         }
     }, []);
@@ -47,8 +48,8 @@ const Reports = () => {
                         {sales.map(sale => (
                             <tr key={sale.id} className="hover:bg-slate-50 transition-colors">
                                 <td className="px-6 py-4 font-mono">#INV-{sale.id}</td>
-                                <td className="px-6 py-4">{new Date(sale.date).toLocaleString('ar-SA')}</td>
-                                <td className="px-6 py-4">{sale.method}</td>
+                                <td className="px-6 py-4">{new Date(sale.created_at).toLocaleString('ar-SA')}</td>
+                                <td className="px-6 py-4">{sale.payment_method}</td>
                                 <td className="px-6 py-4 font-black text-primary">{sale.total.toFixed(2)} ر.س</td>
                             </tr>
                         ))}

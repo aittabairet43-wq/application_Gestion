@@ -1,34 +1,37 @@
 import { create } from 'zustand';
+import { User } from '../types';
 
-export const useAuthStore = create((set) => ({
+interface AuthState {
+    user: User | null;
+    isAuthenticated: boolean;
+    login: (userData: User) => void;
+    logout: () => void;
+    initAuth: () => void;
+}
+
+export const useAuthStore = create<AuthState>((set) => ({
     user: null,
     isAuthenticated: false,
     
     login: (userData) => {
-        set({ 
-            user: userData, 
-            isAuthenticated: true 
-        });
+        set({ user: userData, isAuthenticated: true });
         localStorage.setItem('auth', JSON.stringify(userData));
     },
     
     logout: () => {
-        set({ 
-            user: null, 
-            isAuthenticated: false 
-        });
+        set({ user: null, isAuthenticated: false });
         localStorage.removeItem('auth');
     },
     
-    // Load auth state from localStorage on app start
     initAuth: () => {
         const savedAuth = localStorage.getItem('auth');
         if (savedAuth) {
-            const userData = JSON.parse(savedAuth);
-            set({ 
-                user: userData, 
-                isAuthenticated: true 
-            });
+            try {
+                const userData = JSON.parse(savedAuth);
+                set({ user: userData, isAuthenticated: true });
+            } catch (e) {
+                localStorage.removeItem('auth');
+            }
         }
     }
 }));

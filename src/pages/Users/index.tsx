@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import dbService from '../../../services/db';
+import { dbService } from '../../services/db';
+import { User } from '../../types';
 
 const Users = () => {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
         const res = dbService.exec("SELECT id, username, role FROM users");
         if (res.length > 0) {
-            setUsers(res[0].values.map(row => ({ id: row[0], username: row[1], role: row[2] })));
+            setUsers(res[0].values.map((row: any) => ({ id: row[0], username: row[1], role: row[2] })));
         }
     }, []);
 

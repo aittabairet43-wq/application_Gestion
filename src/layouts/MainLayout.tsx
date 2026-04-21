@@ -7,7 +7,6 @@ const MainLayout = () => {
 
     return (
         <div className="flex min-h-screen bg-background text-on-surface font-body rtl" dir="rtl">
-            {/* Sidebar */}
             <aside className="fixed right-0 top-0 h-screen w-64 bg-white border-l border-slate-200 flex flex-col z-40">
                 <div className="p-6">
                     <div className="text-xl font-black text-primary font-headline">Kinetiq Retail</div>
@@ -41,7 +40,6 @@ const MainLayout = () => {
                 </div>
             </aside>
 
-            {/* Content */}
             <main className="mr-64 flex-1 p-8">
                 <Outlet />
             </main>
@@ -49,12 +47,17 @@ const MainLayout = () => {
     );
 };
 
-const MenuLink = ({ to, icon, label }) => (
+interface MenuLinkProps {
+    to: string;
+    icon: string;
+    label: string;
+}
+
+const MenuLink = ({ to, icon, label }: MenuLinkProps) => (
     <NavLink
         to={to}
         className={({ isActive }) =>
-            `flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${isActive ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-600 hover:bg-slate-50'
-            }`
+            `flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${isActive ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-slate-600 hover:bg-slate-50'}`
         }
     >
         <span className="material-symbols-outlined">{icon}</span>
