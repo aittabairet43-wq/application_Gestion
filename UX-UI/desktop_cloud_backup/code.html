@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetiq Retail - Cloud Backup Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#007257",
+                    "outline": "#70787d",
+                    "on-surface": "#191c1e",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "on-primary-fixed": "#001f28",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdcc4",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "surface-container-low": "#f2f4f6",
+                    "outline-variant": "#bfc8cc",
+                    "surface-bright": "#f8f9fb",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "secondary": "#006c52",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "on-primary-fixed-variant": "#004e61",
+                    "inverse-on-surface": "#eff1f3",
+                    "background": "#f8f9fb",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary-container": "#8ed1ea",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "tertiary-container": "#804307",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "on-background": "#191c1e",
+                    "primary-fixed": "#b7eaff",
+                    "secondary-fixed": "#8ff6d0",
+                    "on-surface-variant": "#40484c",
+                    "inverse-primary": "#8dd0e9",
+                    "secondary-container": "#8ff6d0",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#5f2f00",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed": "#002117",
+                    "surface-tint": "#19667d",
+                    "primary-container": "#005b71",
+                    "on-tertiary-container": "#ffb882",
+                    "on-error": "#ffffff",
+                    "surface": "#f8f9fb",
+                    "primary": "#004253",
+                    "on-tertiary-fixed": "#2f1400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .rtl { direction: rtl; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen rtl">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="fixed right-0 top-0 h-full flex flex-col z-40 rtl bg-white dark:bg-slate-900 h-screen w-64 border-l border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-200 ease-in-out">
+<div class="p-6 flex flex-col gap-2 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-cyan-800 dark:text-cyan-200">مدير المتجر</h2>
+<p class="text-xs text-slate-500">لوحة التحكم المتقدمة</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-cyan-600 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Inter'] text-sm font-medium">المخزون</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-cyan-600 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-['Inter'] text-sm font-medium">سجلات النظام</span>
+</a>
+<a class="flex items-center gap-3 bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 rounded-md px-4 py-3 font-semibold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
+<span class="font-['Inter'] text-sm font-medium">النسخ السحابي</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-cyan-600 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">print_connect</span>
+<span class="font-['Inter'] text-sm font-medium">قوالب الطباعة</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-cyan-600 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-['Inter'] text-sm font-medium">الأمان</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-cyan-600 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-sm font-medium">الإعدادات</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-cyan-600 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-error">logout</span>
+<span class="font-['Inter'] text-sm font-medium">تسجيل الخروج</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="mr-64 min-h-screen pb-12">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="flex flex-row-reverse justify-between items-center w-full px-6 py-3 max-w-full bg-slate-50/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 docked full-width top-0 sticky z-30">
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded">
+<span class="material-symbols-outlined">cloud_upload</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-150 rounded relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a tech manager in a modern office with soft natural lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxVyMgbtKH-CFfYOdQcR1jaRo2XDZY0sLj7FH4eb940ZB9K4NhfOmE-feGw2jEPu1zPbI1MT7GsGlWkZmUVG_Lb41fsNGBaIpK1jtzZ4zQMiM4zrD13SY8q9ibzdyQ2Ec94SseqvT5JvBoG6ZKdTrIbBdYp4ovOopxpsbvt9CHPhiKCVeMWLfEN3rqt08_srXVdlNLzWZA1xOxkCe5OzUVBA36Ecb4OnrnQTN_6Qka5-wB8ceVqfnZgC0d-uE0_6InvyA53sjQQcQ"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-2xl font-black text-cyan-900 dark:text-cyan-100 tracking-tight">Kinetiq Retail</span>
+<div class="relative group">
+<input class="pr-10 pl-4 py-1.5 bg-white border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-64 transition-all" placeholder="البحث في النسخ..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto px-8 pt-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-3xl font-extrabold text-primary mb-2">إدارة النسخ الاحتياطي السحابي</h1>
+<p class="text-slate-500">مراقبة وتأمين بيانات متجر Kinetiq Retail عبر منصة Firebase</p>
+</div>
+<button class="flex items-center gap-2 bg-primary-container text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-cyan-900/10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sync</span>
+<span>بدء مزامنة يدوية</span>
+</button>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-12 gap-6 mb-10">
+<!-- Storage Stats Card -->
+<div class="col-span-12 lg:col-span-7 bg-white p-8 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">استهلاك مساحة التخزين</h3>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary">12.4</span>
+<span class="text-lg font-bold text-slate-400 uppercase">GB</span>
+</div>
+</div>
+<div class="text-left">
+<span class="text-xs font-bold text-secondary uppercase bg-secondary-container/20 px-2 py-1 rounded">الحالة: مثالي</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-slate-600">المساحة المستخدمة (Firebase)</span>
+<span class="font-bold text-primary">62%</span>
+</div>
+<div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 62%"></div>
+</div>
+<div class="flex gap-6 mt-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-xs text-slate-500">قواعد البيانات (8.2 GB)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span class="text-xs text-slate-500">الصور والملفات (4.2 GB)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Last Sync Status -->
+<div class="col-span-12 lg:col-span-5 grid grid-rows-2 gap-6">
+<div class="bg-primary text-white p-6 rounded-xl shadow-md flex items-center justify-between border border-primary/20">
+<div>
+<p class="text-primary-fixed-dim text-sm font-medium mb-1">آخر مزامنة ناجحة</p>
+<h3 class="text-2xl font-bold">منذ 14 دقيقة</h3>
+<p class="text-xs opacity-70 mt-1">22 أكتوبر 2023 - 09:41 ص</p>
+</div>
+<div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+<div>
+<p class="text-slate-500 text-sm font-medium mb-1">المزامنة المجدولة القادمة</p>
+<h3 class="text-2xl font-bold text-slate-800">اليوم، 12:00 م</h3>
+<p class="text-xs text-secondary font-bold mt-1">تكرار: كل 4 ساعات</p>
+</div>
+<div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-3xl text-slate-400">update</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Restore Points Section -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+<div>
+<h2 class="text-xl font-bold text-primary">نقاط الاستعادة المتاحة</h2>
+<p class="text-sm text-slate-500">يمكنك استعادة بيانات المتجر إلى أي نقطة زمنية سابقة</p>
+</div>
+<div class="flex gap-2">
+<select class="text-sm border-slate-200 rounded-lg bg-white px-4 py-2 focus:ring-primary">
+<option>آخر 30 يوم</option>
+<option>آخر 7 أيام</option>
+<option>كل الوقت</option>
+</select>
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-600">filter_list</span>
+</button>
+</div>
+</div>
+<div class="divide-y divide-slate-100">
+<!-- Restore Point Item 1 -->
+<div class="px-8 py-5 flex items-center justify-between hover:bg-slate-50/80 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-cyan-50 text-cyan-700 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-800">نسخة احتياطية تلقائية #8291</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                        22 أكتوبر 2023
+                                    </span>
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        08:00 ص
+                                    </span>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">420 MB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-sm font-bold text-primary px-4 py-2 hover:bg-primary/5 rounded-lg transition-colors">تحميل النسخة</button>
+<button class="text-sm font-bold bg-secondary text-on-secondary px-6 py-2 rounded-lg hover:opacity-90 transition-all shadow-sm">استعادة البيانات</button>
+</div>
+</div>
+<!-- Restore Point Item 2 -->
+<div class="px-8 py-5 flex items-center justify-between hover:bg-slate-50/80 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-800">نسخة يدوية: قبل جرد المخزون</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                        21 أكتوبر 2023
+                                    </span>
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        05:30 م
+                                    </span>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">415 MB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-sm font-bold text-primary px-4 py-2 hover:bg-primary/5 rounded-lg transition-colors">تحميل النسخة</button>
+<button class="text-sm font-bold bg-secondary text-on-secondary px-6 py-2 rounded-lg hover:opacity-90 transition-all shadow-sm">استعادة البيانات</button>
+</div>
+</div>
+<!-- Restore Point Item 3 -->
+<div class="px-8 py-5 flex items-center justify-between hover:bg-slate-50/80 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-cyan-50 text-cyan-700 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-800">نسخة احتياطية تلقائية #8290</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                        21 أكتوبر 2023
+                                    </span>
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        04:00 ص
+                                    </span>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">412 MB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-sm font-bold text-primary px-4 py-2 hover:bg-primary/5 rounded-lg transition-colors">تحميل النسخة</button>
+<button class="text-sm font-bold bg-secondary text-on-secondary px-6 py-2 rounded-lg hover:opacity-90 transition-all shadow-sm">استعادة البيانات</button>
+</div>
+</div>
+<!-- Restore Point Item 4 -->
+<div class="px-8 py-5 flex items-center justify-between hover:bg-slate-50/80 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-cyan-50 text-cyan-700 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-800">نسخة احتياطية تلقائية #8289</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                        20 أكتوبر 2023
+                                    </span>
+<span class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        04:00 ص
+                                    </span>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">408 MB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-sm font-bold text-primary px-4 py-2 hover:bg-primary/5 rounded-lg transition-colors">تحميل النسخة</button>
+<button class="text-sm font-bold bg-secondary text-on-secondary px-6 py-2 rounded-lg hover:opacity-90 transition-all shadow-sm">استعادة البيانات</button>
+</div>
+</div>
+</div>
+<div class="p-6 bg-slate-50 border-t border-slate-100 text-center">
+<button class="text-sm font-bold text-primary hover:underline">عرض المزيد من سجلات المزامنة</button>
+</div>
+</div>
+<!-- Footer Help/Info Card -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl flex gap-4 items-start border border-outline-variant/30">
+<div class="w-10 h-10 bg-on-tertiary-fixed-variant text-white rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">أمن البيانات والتشفير</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">يتم تشفير جميع النسخ الاحتياطية باستخدام بروتوكول AES-256 قبل نقلها إلى خوادم Firebase السحابية، مما يضمن أقصى درجات الأمان لبيانات عملائك ومتجرك.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex gap-4 items-start border border-outline-variant/30">
+<div class="w-10 h-10 bg-primary-container text-white rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">help_outline</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">هل تحتاج للمساعدة؟</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">إذا واجهت أي مشكلة في عملية الاستعادة أو المزامنة، يمكنك التواصل مع الدعم الفني لشركة Kinetiq على مدار الساعة عبر زر المحادثة الفورية.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
