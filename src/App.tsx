@@ -24,6 +24,7 @@ import CloudBackup from './pages/backup';
 import DailyTasks from './pages/tasks';
 import DebtDetails from './pages/debts';
 import Suppliers from './pages/suppliers';
+import Expenses from './pages/expenses';
 
 function App() {
     const [isDbReady, setIsDbReady] = useState(false);
@@ -90,6 +91,7 @@ function App() {
                     <Route path="inventory" element={<Inventory />} />
                     <Route path="inventory/:id" element={<ProductDetail />} />
                     <Route path="suppliers" element={<Suppliers />} />
+                    <Route path="expenses" element={<Expenses />} />
                     <Route path="branches" element={<Branches />} />
                     <Route path="backup" element={<CloudBackup />} />
                     <Route path="tasks" element={<DailyTasks />} />

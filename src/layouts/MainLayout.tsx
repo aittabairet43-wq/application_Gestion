@@ -18,9 +18,10 @@ const MainLayout = () => {
                     <MenuLink to="/pos" icon="shopping_cart" label="المبيعات" />
                     <MenuLink to="/inventory" icon="inventory_2" label="المخزون" />
                     <MenuLink to="/suppliers" icon="local_shipping" label="الموردين" />
+                    <MenuLink to="/expenses" icon="payments" label="المصروفات" />
                     <MenuLink to="/messages" icon="forum" label="الرسائل" />
                     <MenuLink to="/tasks" icon="task" label="المهام اليومية" />
-                    <MenuLink to="/debts" icon="payments" label="الديون" />
+                    <MenuLink to="/debts" icon="account_balance_wallet" label="الديون" />
                     <MenuLink to="/branches" icon="hub" label="إدارة الفروع" />
                     
                     <div className="pt-4 pb-2 px-4">

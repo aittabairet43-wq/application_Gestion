@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#40484c",
+                    "on-primary-fixed-variant": "#004e61",
+                    "on-primary-fixed": "#001f28",
+                    "primary-fixed": "#b7eaff",
+                    "surface-variant": "#e1e3e4",
+                    "primary": "#004253",
+                    "on-error-container": "#93000a",
+                    "surface": "#f8f9fb",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-secondary-container": "#007257",
+                    "surface-bright": "#f8f9fb",
+                    "outline-variant": "#bfc8cc",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-background": "#191c1e",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "on-secondary-fixed-variant": "#00513d",
+                    "background": "#f8f9fb",
+                    "surface-container-highest": "#e1e3e4",
+                    "secondary-fixed-dim": "#73d9b5",
+                    "primary-fixed-dim": "#8dd0e9",
+                    "on-secondary-fixed": "#002117",
+                    "surface-tint": "#19667d",
+                    "outline": "#70787d",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary": "#5f2f00",
+                    "primary-container": "#005b71",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdcc4",
+                    "secondary-container": "#8ff6d0",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-container": "#804307",
+                    "secondary-fixed": "#8ff6d0",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-container": "#ffb882",
+                    "inverse-primary": "#8dd0e9",
+                    "secondary": "#006c52",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-container": "#8ed1ea",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eceef0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center px-6 h-16 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-teal-800 dark:text-teal-400 font-['Plus_Jakarta_Sans'] tracking-tight">FreshStock Pro</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors duration-200 ease-in-out font-['Plus_Jakarta_Sans'] font-semibold" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors duration-200 ease-in-out font-['Plus_Jakarta_Sans'] font-semibold" href="#">Inventory</a>
+<a class="text-teal-700 dark:text-teal-300 border-b-2 border-teal-700 font-['Plus_Jakarta_Sans'] font-semibold" href="#">Help</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pr-10 pl-4 py-2 w-64 text-sm focus:ring-2 focus:ring-primary" placeholder="بحث عن مساعدة..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-500">settings</span>
+</button>
+<img alt="Manager profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Professional manager profile portrait with a friendly expression in a corporate setting, soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBek6-oxbHwih5ZAu2PjAmdzw3rPQTRRWDTFjvPHkbdlSm66WPX8TtsYAC6tDkJpEG-ZHUFONpaAEFqOPc-yCFz48aszqN4QkOjADHpK3Jq_FfAiOzNo8upI5HnSQi-7iVTay-OIDyZz9bjraAsTwIZvOnTSqZtVpuy_-WW8qA0ObJq5jtVgO3wO9EBWLrO9NsrPWLS8K4mzzdLifWyklZqQUpkbbgsHNqEkC478iVjzw1nEokly0afEq2ikesA_t2FWVSuc7DfD14"/>
+</div>
+</div>
+</nav>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-auto py-4 gap-2 bg-slate-50 dark:bg-slate-950 w-64 border-l border-slate-200 dark:border-slate-800">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<div>
+<p class="text-lg font-extrabold text-teal-900 dark:text-teal-200">Main Branch</p>
+<p class="text-xs text-slate-500">Grocery Manager</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow flex flex-col gap-1 px-3">
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-150">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-sm font-medium">Dashboard</span>
+</div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-150">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Inter'] text-sm font-medium">Inventory</span>
+</div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-150">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-['Inter'] text-sm font-medium">Analytics</span>
+</div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-150">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-['Inter'] text-sm font-medium">Shift Logs</span>
+</div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer active:opacity-80 hover:translate-x-1 transition-transform duration-150">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-['Inter'] text-sm font-medium">System Settings</span>
+</div>
+<div class="mt-8 px-3">
+<button class="w-full bg-primary text-on-primary py-2 rounded-lg font-bold flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">add_circle</span>
+                        New Entry
+                    </button>
+</div>
+</nav>
+<div class="mt-auto px-3 flex flex-col gap-1 border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="bg-teal-100/50 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 border-r-4 border-teal-700 font-bold flex items-center gap-3 px-3 py-2.5 rounded-l-none rounded-r-lg cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help_outline</span>
+<span class="font-['Inter'] text-sm">Help</span>
+</div>
+<div class="text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-['Inter'] text-sm font-medium">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-8 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-12 relative overflow-hidden rounded-xl bg-primary-container text-on-primary p-12 flex flex-col items-center justify-center text-center">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-secondary-container rounded-full blur-3xl"></div>
+<div class="absolute -left-20 -bottom-20 w-80 h-80 bg-tertiary-container rounded-full blur-3xl"></div>
+</div>
+<h1 class="text-4xl font-extrabold mb-4 relative">كيف يمكننا مساعدتك اليوم؟</h1>
+<p class="text-on-primary-container text-lg mb-8 max-w-2xl relative">ابحث في قاعدة المعرفة الخاصة بنا أو تصفح الفئات أدناه للعثور على إجابات لأسئلتك.</p>
+<div class="w-full max-w-xl relative group">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl">search</span>
+<input class="w-full bg-white text-on-surface py-4 pr-14 pl-6 rounded-full text-lg border-none shadow-xl focus:ring-4 focus:ring-secondary-container transition-all group-hover:scale-[1.01]" placeholder="اكتب سؤالك هنا..." type="text"/>
+</div>
+</section>
+<!-- Quick Links Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="md:col-span-2 grid grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<h3 class="text-lg font-bold mb-2">البداية السريعة</h3>
+<p class="text-sm text-on-surface-variant">تعلم كيفية إعداد متجرك في أقل من 5 دقائق.</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-primary-fixed text-on-primary-fixed flex items-center justify-center rounded-lg mb-4 group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory</span>
+</div>
+<h3 class="text-lg font-bold mb-2">إدارة المخزون</h3>
+<p class="text-sm text-on-surface-variant">دليل شامل لإضافة وتحديث ومراقبة المنتجات.</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center rounded-lg mb-4 group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<h3 class="text-lg font-bold mb-2">الفواتير والمدفوعات</h3>
+<p class="text-sm text-on-surface-variant">كل ما تحتاج معرفته عن الاشتراكات والفوترة.</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-highest text-on-surface flex items-center justify-center rounded-lg mb-4 group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h3 class="text-lg font-bold mb-2">الأمان والخصوصية</h3>
+<p class="text-sm text-on-surface-variant">كيف نحمي بياناتك وبيانات عملائك.</p>
+</div>
+</div>
+<!-- Support Side Card -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant p-8 flex flex-col">
+<h3 class="text-xl font-bold mb-6">هل ما زلت بحاجة للمساعدة؟</h3>
+<div class="space-y-6 flex-grow">
+<div class="flex items-start gap-4">
+<div class="bg-primary text-on-primary p-2 rounded-full">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+</div>
+<div>
+<h4 class="font-semibold text-sm">تحدث مع خبير</h4>
+<p class="text-xs text-on-surface-variant">متاح 24/7 للرد على استفساراتك.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary text-on-primary p-2 rounded-full">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+<div>
+<h4 class="font-semibold text-sm">أرسل تذكرة دعم</h4>
+<p class="text-xs text-on-surface-variant">سنرد عليك في غضون 4 ساعات عمل.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary text-on-primary p-2 rounded-full">
+<span class="material-symbols-outlined text-sm">communities</span>
+</div>
+<div>
+<h4 class="font-semibold text-sm">منتدى المجتمع</h4>
+<p class="text-xs text-on-surface-variant">تواصل مع مستخدمين آخرين وتبادل الخبرات.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-primary text-on-primary py-3 rounded-lg font-bold shadow-lg hover:bg-primary-container transition-colors">
+                        تواصل معنا الآن
+                    </button>
+</div>
+</div>
+<!-- FAQ Section -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold">الأسئلة الشائعة</h2>
+<a class="text-primary font-semibold flex items-center gap-1 hover:underline" href="#">
+                        عرض الكل
+                        <span class="material-symbols-outlined text-sm">arrow_back</span>
+</a>
+</div>
+<div class="space-y-4">
+<div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-primary-container transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-lg">كيف يمكنني تغيير خطة اشتراكي؟</h4>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed hidden">
+                            يمكنك تغيير خطة اشتراكك في أي وقت من خلال الانتقال إلى إعدادات النظام &gt; الفوترة. سيتم تطبيق التغييرات فوراً مع احتساب الفرق تناسبياً.
+                        </div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-primary-container transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-lg">هل يمكنني تصدير بيانات المخزون إلى ملف Excel؟</h4>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-primary-container transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-lg">كيف أضيف مستخدمين جدد بصلاحيات محددة؟</h4>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-primary-container transition-colors cursor-pointer">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-lg">ما هي الأجهزة المتوافقة مع FreshStock Pro؟</h4>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Tutorials Grid -->
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-8">دروس فيديو تعليمية</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Digital tablet showing software dashboard with charts and graphs, warm desk lighting, modern office aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI8pVqCNiO_c32Pl1lFL35ku47H3LY7sdbtiR2EqOeV4gMReKhqkz4ZZcfR7F4AuHEoSbu1K6FcRgZzpH6DtLC1O7izyBVJXkOaY0JEue-uCKBArq5KGb0hyJToEuUzWXXzQbYYZWqrxbPrvgyAkkBIeRtzP_yqUtMOlu2iy4Gczxn648cIc6c5lh1DscoQNBNo2G-xAcI8hHvp_UK5r6bJZwGsmroDd3jqGtgtLlQi0AkNbeAQKwq4lIJatYyiK2evpUg3xoiHAI"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<span class="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">12:45</span>
+</div>
+<h4 class="font-bold text-sm mb-1 line-clamp-1">جولة شاملة في لوحة التحكم</h4>
+<p class="text-xs text-on-surface-variant">تعلم أساسيات النظام في 10 دقائق</p>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Modern retail store shelf with neatly organized products, focus on shelf labeling system, soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg7l7HxM0yUuX65tM_D7jRX44LOCufnFV164m0kiFYGkiGPtm7cLGRoSJXVziCEV63r2Fenhli0SPsfNaeZd8Ce5_qe4jk1wStVFzFNWRaq6zdnNGWuajRV-uaPq1oYVNFwt7Ui0KVDYim4lG4tu0sUlWgs04nz6w3VmtvIe7HgZi2ys8hafMuNXOk1NlMc6_kNyuSE8HEUbh5AwirdJwh1wSbaUq2TJY6xbELXq65fLXfCV3-2jCd-ehuW7ISmSbahDgBV5Ku3KE"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<span class="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">08:20</span>
+</div>
+<h4 class="font-bold text-sm mb-1 line-clamp-1">إعدادات المخزون المتقدمة</h4>
+<p class="text-xs text-on-surface-variant">ربط الموردين وتتبع الشحنات</p>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Person hand pointing at data visualization charts on a laptop screen, analytical environment, bright clarity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARvsDdGhHOhXqJC029puqmNm2AEkMRS10HaRoP9PDvkRWkGHnkEvOPEeDP90GZ0ziBcMWwIRkWVFY3JB1WUv2GvIU2936LJA1VpjyNuZl6_8vWHHeo3zH8HmRYau1LUdCan-O4-BV-3T7fcuzy2IpQtfIb_ikvPy7i-T82axhrP_mLsGjpovq-SWQ2PQSUK1QfocRnzfSsVD28qS2tfj1SrsVl_lV13a9Vy-Ord-V7epIiOd5YrmPcs5Esw_DOv4O8zuDuPOQtQZo"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<span class="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">15:10</span>
+</div>
+<h4 class="font-bold text-sm mb-1 line-clamp-1">قراءة وتحليل التقارير</h4>
+<p class="text-xs text-on-surface-variant">فهم نمو مبيعاتك وأداء المتجر</p>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Secure payment terminal at a checkout counter, close-up with soft focus background of a modern store" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcI1wKxBGmBrxVekCIao0qKgMPH1aSBNojP37q-mrftshIf9cNsGuXpdZtK8szTkUJ2xjDIey5x_5GmOFJvZl7FYp7N3aJYDXzKhInZIEAjq6Lykm8m_SHSuMgZJ0sNi_KgHUbfMFkDGIaAhfk-7R-7PsmKVHHz1fni_e7Uct8U19a4MiBN103NcJRc9QoUrMh1Xv4uQdHxDbd82WL1lzt39uVHpV1x9I-qhv0JeaX6wExt_vsjTAYNQ_syyxgLCz8EvbzKH9vR4g"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<span class="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">05:30</span>
+</div>
+<h4 class="font-bold text-sm mb-1 line-clamp-1">حل مشكلات الدفع الشائعة</h4>
+<p class="text-xs text-on-surface-variant">خطوات سريعة لإصلاح أخطاء المعاملات</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer Meta -->
+<footer class="bg-white border-t border-slate-200 py-8">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-teal-800 font-bold">FreshStock Pro</span>
+<span class="text-slate-400">|</span>
+<p class="text-sm text-slate-500">مركز المساعدة © 2024. جميع الحقوق محفوظة.</p>
+</div>
+<div class="flex gap-8 text-sm font-medium text-slate-600">
+<a class="hover:text-primary" href="#">سياسة الخصوصية</a>
+<a class="hover:text-primary" href="#">شروط الخدمة</a>
+<a class="hover:text-primary" href="#">حالة النظام</a>
+</div>
+</div>
+</footer>
+</body></html>
